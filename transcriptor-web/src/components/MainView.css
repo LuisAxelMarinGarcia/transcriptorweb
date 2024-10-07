@@ -1,0 +1,190 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+* {
+    box-sizing: inherit;
+}
+
+.main-view {
+    display: flex;
+    height: 100%;
+}
+
+.sidebar {
+    width: 70px;
+    background-color: #37396E;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 0%;
+    margin-left: 70px;
+    background-color: #F5F5F5;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Fondo de la clase con imagen */
+.class-info {
+    position: relative;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    background-image: url('/src/assets/background.jpeg'); /* Imagen que reemplaza el recuadro */
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+/* Color azul translúcido sobre la imagen */
+.class-info::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(12, 17, 158, 0.8); /* Color azul translúcido */
+    z-index: 1;
+}
+
+.class-info h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 28px;
+    color: white;
+}
+
+.participants {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Sección de información con colores distintos */
+.info-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    background-color: rgba(55, 57, 110, 0.6); /* Color más claro */
+    color: white;
+    margin-top: 0;
+}
+
+.name-section h2 {
+    margin: 0;
+    color: white;
+}
+
+.live-code-section {
+    text-align: right;
+    color: white;
+}
+
+/* Contenido principal */
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #f0f0f5;
+    padding: 20px;
+    width: 100%;
+    box-shadow: none;
+}
+
+/* Ajustes de los controles de audio y visual */
+.audio-visual {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.microphone img {
+    width: 150px;
+    height: 150px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra neumórfica */
+    border-radius: 50%;
+}
+
+.waveform img {
+    width: 300px;
+    height: 80px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.control-btn img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Sombra neumórfica */
+}
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    font-size: 12px;
+    color: #555;
+}
+
+footer .footer-left, footer .footer-right {
+    flex: 1;
+}
+
+footer .footer-center {
+    flex: 2;
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+}
+
+.footer-logo {
+    height: 60px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-left, .footer-right {
+        margin-bottom: 10px;
+    }
+
+    .footer-logo {
+        height: 50px;
+    }
+
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .right-section {
+        margin-top: 10px;
+    }
+}

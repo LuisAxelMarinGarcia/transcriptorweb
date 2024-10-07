@@ -1,0 +1,60 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    background-color: #ffffff; /* Fondo blanco como en la imagen */
+    border-bottom: 1px solid #d9d9d9; /* Línea inferior para el header */
+  }
+  
+  .left-section .logo {
+    height: 50px;
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .live-status {
+    display: flex;
+    align-items: center;
+  }
+  
+  .live-button {
+    display: flex;
+    align-items: center;
+    background-color: #29c53c; /* Verde del botón de transmisión */
+    border: none;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .live-button img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 15px;
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) {
+    .header-container {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .right-section {
+      margin-top: 10px;
+    }
+  }
+  

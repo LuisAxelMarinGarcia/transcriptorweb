@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #7c86cb;
+    width: 100%;
+    font-family: 'Poppins', sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .headerContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: url('../../assets/imgs/FondoHeaderGrabación.png');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    width: 100%;
+    height: 10rem;
+    margin: 0 auto
+  }
+  
+  .titleInfo h1 {
+    margin: 0;
+    font-size: 2rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+  font-style: normal;
+  margin-bottom: 0.5rem;
+  }
+  
+  .studentCount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    height: 2rem; /* Ajusta esta altura para asegurarte de que ambos elementos se alineen */
+  }
+  
+  .studentIcon {
+    width: 1.7rem; /* Ajusta este tamaño según sea necesario */
+    height: auto; /* Añade altura uniforme */
+  }
+  
+  .studentCount p {
+    margin: 0;
+    font-size: 1.5rem; /* Ajusta el tamaño del texto */
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    line-height: 2rem; /* Igual al alto del contenedor */
+  }
+  
+  .teacherSection {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    background-color: #FFFFFF;
+    padding: 1rem;
+    box-sizing: border-box;
+    margin-top: 0; 
+  }
+  
+  .teacherInfo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    width: 70%;
+  }
+  
+  .teacherAvatar {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+  }
+  
+  .teacherInfo h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    font-family: "Julius Sans One", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  }
+  
+  .waveformSection {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .waveform {
+    height: 2.3rem;
+    background-color: #e0e0e0; /* Color de fondo */
+    margin-right: 1rem; /* Añade espacio entre el div y el estado en vivo */
+    border-radius: 4px; /* Opcional, para esquinas redondeadas */
+    width: 40%;
+  }
+  
+  .liveStatusContainer {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem; /* Espacio entre el texto y el ícono */
+  }
+  
+  .liveStatus {
+    font-size: 1rem;
+    color: green;
+    margin: 0;
+  }
+  
+  .liveIcon {
+    width: 1.7rem; /* Ajusta el tamaño del ícono según sea necesario */
+    height: auto;
+    margin-left: 0.5rem;
+  }
+  
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 2rem auto;
+  }
+  
+  .transcriptionContainer {
+    background-color: white;
+    padding: 2rem;
+    min-height: 15.5rem;
+    border-radius: 10px;
+    width: 90%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .transcriptionText {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #333;
+  }
+  
+  .exitButton {
+    background-color: #D14B4B;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 2rem;
+  }
+

@@ -1,0 +1,20 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+}
+
+.statusContainer {
+  display: flex;
+  align-items: center; /* Alinea el botón y el avatar */
+  gap: 1.5rem; /* Espacio entre el botón y el avatar */
+}

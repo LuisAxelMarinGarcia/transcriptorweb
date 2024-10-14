@@ -1,0 +1,25 @@
+/* RecordingControls.module.css */
+.controls {
+    display: flex;
+    gap: 6rem;
+    justify-content: center;
+  }
+  
+  .button {
+    background-color: white;
+    border: none;
+    border-radius: 50%; /* Botones redondos */
+    width: 6rem; /* Tamaño uniforme para todos los botones */
+    height: 6rem; /* Tamaño uniforme para todos los botones */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .icon {
+    width: 6rem; /* Tamaño de la imagen dentro del botón */
+    height: 6rem; /* Asegura que las imágenes dentro del botón tengan el mismo tamaño */
+  }
+  

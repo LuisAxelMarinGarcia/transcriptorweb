@@ -1,7 +1,7 @@
 // server.js
 const express = require('express');
 const http = require('http');
-const socketIO = require('socket.io');
+const socketIo = require('socket.io');
 
 // Crear una instancia de Express
 const app = express();
@@ -10,23 +10,23 @@ const app = express();
 const server = http.createServer(app);
 
 // Inicializar Socket.IO
-const io = socketIO(server, {
+const io = socketIo(server, {
   cors: {
-    origin: '*',
+    origin: '*', // Permitir todas las conexiones CORS (configura esto adecuadamente en producción)
   },
 });
 
-// Cuando un cliente se conecta
+// Manejar conexiones de clientes
 io.on('connection', (socket) => {
-  console.log('Nuevo cliente conectado');
+  console.log('Cliente conectado');
 
-  // Escuchar eventos de 'transcript'
+  // Escuchar eventos de 'transcript' y retransmitir a otros clientes
   socket.on('transcript', (data) => {
-    // Emitir el texto transcrito a todos los clientes excepto al que lo envió
+    // Emitir la transcripción a todos los clientes excepto al remitente
     socket.broadcast.emit('transcript', data);
   });
 
-  // Cuando un cliente se desconecta
+  // Manejar desconexiones
   socket.on('disconnect', () => {
     console.log('Cliente desconectado');
   });
@@ -35,5 +35,5 @@ io.on('connection', (socket) => {
 // Iniciar el servidor
 const PORT = 4000;
 server.listen(PORT, () => {
-  console.log(`Servidor escuchando en el puerto ${PORT}`);
+  console.log(`Servidor ejecutándose en el puerto ${PORT}`);
 });

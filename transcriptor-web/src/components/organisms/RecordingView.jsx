@@ -16,6 +16,7 @@ const RecordingView = ({
   onStop,
   isListening,
   isPaused,
+  canvasRef,
 }) => {
   // Determinar el texto a mostrar según el estado
   let displayText = 'Iniciando';
@@ -49,7 +50,7 @@ const RecordingView = ({
         </div>
 
         <div className={styles.controlsWrapper}>
-          <div className={styles.waveformEffect}></div>
+          <canvas ref={canvasRef} className={styles.canvas}></canvas>
           <div className={styles.waveform}>
             {/* Mostrar el texto según el estado */}
             <p className={styles.statusText}>{displayText}</p>

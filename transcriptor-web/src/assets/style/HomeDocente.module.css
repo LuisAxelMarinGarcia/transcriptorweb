@@ -1,0 +1,23 @@
+html, body {
+    margin: 0;
+  
+}
+
+
+.flex{
+    display: flex;
+    height: 100vh;
+}
+
+.container{
+    width: 100%;
+}
+
+.OtherContainer{
+    display: grid;
+    place-content: center;
+    padding:2rem;
+    background-color: #E3E6EE;
+}
+
+

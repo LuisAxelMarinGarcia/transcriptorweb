@@ -12,8 +12,12 @@ const ClasesArchivadas = () => {
     return(
         <>
             <div className={styles.flex}>
+                <div className={styles.SpaceSiderbar}>
                 <SidebarGenerico />
+                </div>
+
                 <div className={styles.container}>
+
                     <Header view="clases-archivadas"/>
                     
                     <div className={styles.OtherContainer}>

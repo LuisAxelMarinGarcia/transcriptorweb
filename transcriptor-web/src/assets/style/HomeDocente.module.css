@@ -6,18 +6,26 @@ html, body {
 
 .flex{
     display: flex;
+    height: 100%;
+}
+
+.SpaceSiderbar{
+    width: 5%;
+}
+.container{
+    width: 95%;
+    flex-direction: column;
     height: 100vh;
 }
 
-.container{
-    width: 100%;
-}
-
 .OtherContainer{
-    display: grid;
-    place-content: center;
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
     padding:2rem;
     background-color: #E3E6EE;
+    min-height: 83%; /* Ocupa al menos el 83% de la pantalla */
+   flex: 1;
+    overflow-y: auto; /* Agrega scroll si el contenido supera el max-height */
 }
 
 

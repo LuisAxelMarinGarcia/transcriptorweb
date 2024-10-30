@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../../assets/style/SidebarGenericoDocente.module.css';
+import styles from '../../assets/style/SidebarGenericoEstudiante.module.css';
 
 const SideBarGnerico = () => {
 

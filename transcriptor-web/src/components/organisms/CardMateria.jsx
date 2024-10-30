@@ -6,7 +6,7 @@ import ArchivarIcon from '../../assets/imgs/ArchivarClase.png'; //
 
 function CardMateria({ title, students, teacherName, teacherImage, status }) {
   return (
-    <div className={`${styles.card} ${status === "archived" ? styles.archivedCard : ""}`}>
+    <div className={styles.card}>
       <div className={styles.cardHeader}>
         <div className={styles.cardInfo}>
           <h3 className={styles.cardTitle}>{title}</h3>
@@ -21,7 +21,7 @@ function CardMateria({ title, students, teacherName, teacherImage, status }) {
       <div className={styles.cardFooter}>
         <p className={styles.teacherName}>{teacherName}</p>
         <div className={styles.cardActions}>
-        {status === "active" && <img src={EliminarIcon} alt="Eliminar" className={styles.icon} />} |
+        <img src={EliminarIcon} alt="Eliminar" className={styles.icon} /> |
         <img src={ArchivarIcon} alt="Archivar" className={styles.icon} />
         </div>
       </div>

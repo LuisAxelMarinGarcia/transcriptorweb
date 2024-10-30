@@ -18,8 +18,10 @@ const HomeTemplate = () => {
     return(
         <>
             <div className={styles.flex}>
-                
+                <div className={styles.SpaceSiderbar}>
                 <SidebarGenerico />
+                </div>
+                
                 <div className={styles.container}>
                     <Header view="materias" onOpenModal={handleOpenModalCrearClase} />
                     

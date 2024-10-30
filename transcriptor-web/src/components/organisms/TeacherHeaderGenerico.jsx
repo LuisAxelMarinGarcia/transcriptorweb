@@ -3,6 +3,7 @@ import styles from '../../assets/style/TeacherHeaderGenerico.module.css'; // Ase
 import Logo from '../atoms/LogoTranscribeme'; 
 import Avatar from '../atoms/AvatarPerfil';
 import IconHome from '../../assets/imgs/IconHome.png';
+import clasesArchivadas from '../../assets/imgs/clasesArchivadas.png';
 
 const TeacherHeader = ({ view , onOpenModal}) => {
   const renderHeaderContent = () => {
@@ -25,7 +26,14 @@ const TeacherHeader = ({ view , onOpenModal}) => {
         );
         
       case 'clases-archivadas':
-        return <h1 className={styles.titleArchivados}><i className="fas fa-archive"></i> Clases archivadas</h1>;
+        return (
+              <div className={styles.ContainerTitleArchivados}>
+                <h1 className={styles.titleMateriaArchivado}>
+                    <i className="fas fa-book"></i> Clases archivadas
+                    <img src={clasesArchivadas} alt="Icon-Home" className={styles.IconoArchivado} />
+                </h1>;
+              </div>
+            );
       case 'transcripcion':
         return (
           <button className={styles.transcriptionButton}>
@@ -45,9 +53,9 @@ const TeacherHeader = ({ view , onOpenModal}) => {
       <div className={styles.content}>
         {renderHeaderContent()}
       </div>
-      <div className={styles.userSection}>
-        <Avatar size="medium" />
-      </div>
+      
+      <Avatar size="medium" />
+      
     </header>
   );
 };

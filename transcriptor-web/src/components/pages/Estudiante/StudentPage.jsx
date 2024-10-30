@@ -1,7 +1,7 @@
 // StudentPage.jsx
 import React, { useState, useEffect, useRef } from 'react';
 import { io } from 'socket.io-client';
-import StudentTemplate from '../../templates/StudentTemplate';
+import StudentTemplate from '../../templates/Estudiante/StudentTemplate';
 import StudentView from '../../organisms/StudentView';
 
 const StudentPage = () => {

@@ -1,5 +1,5 @@
-import styles from '../../assets/style/ModalCrearClase.module.css'
-import IconCreate from '../../assets/imgs/CrearClase.png'
+import styles from '../../../assets/style/Docente/ModalCrearClase.module.css'
+import IconCreate from '../../../assets/imgs/CrearClase.png'
 
 const ModalCrearClase = ({ show, onClose }) => {
     if (!show) return null;

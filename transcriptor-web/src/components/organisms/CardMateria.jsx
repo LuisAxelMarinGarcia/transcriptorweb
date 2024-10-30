@@ -1,7 +1,7 @@
 import React from "react";
-import styles from '../../assets/style/CardMateria.module.css'; // Asegúrate de tener los estilos en este archivo
-import EliminarIcon from '../../assets/imgs/EliminarClase.png'; //
-import ArchivarIcon from '../../assets/imgs/ArchivarClase.png'; //
+import styles from '../../assets/style/CardMateria.module.css'; 
+import EliminarIcon from '../../assets/imgs/EliminarClase.png'; 
+import ArchivarIcon from '../../assets/imgs/ArchivarClase.png';
 
 
 function CardMateria({ title, students, teacherName, teacherImage, status }) {

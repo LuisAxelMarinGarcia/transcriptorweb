@@ -11,8 +11,9 @@ import DocenteClasesArchivadas from '../src/components/pages/Docente/ClasesArchi
 
 //Alumno
 import StudentPage from '../src/components/pages/Estudiante/StudentPage';
-
-
+import HomeEstudiante from '../src/components/pages/Estudiante/HomePage';
+import EstudianteClasesArchivadas from '../src/components/pages/Estudiante/EClasesArchivadas';
+import EstudianteUnirmeUnaClase from '../src/components/pages/Estudiante/UnirmeClase';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -23,6 +24,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/docente-clases-archivadas" element={<DocenteClasesArchivadas />} />
 
       <Route path="/student" element={<StudentPage />} />
+      <Route path="/home-estudiante" element={<HomeEstudiante />} />
+      <Route path="/estudiante-clases-archivadas" element={<EstudianteClasesArchivadas/>} />
+      <Route path="/estudiante-unirme-a-una-clase" element={<EstudianteUnirmeUnaClase/>} />
     </Routes>
   </BrowserRouter>
 );

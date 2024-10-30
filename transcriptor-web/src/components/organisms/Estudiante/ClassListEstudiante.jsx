@@ -1,10 +1,10 @@
 import React from "react";
-import Card from "../organisms/CardMateria"; // Importa el componente Card
-import teacherImage from "../../assets/imgs/Avatar Teacher.png"; // Simulando imagen de profesor
-import styles from '../../assets/style/ClassList.module.css'; 
+import Card from "../CardMateria"; // Importa el componente Card
+import teacherImage from "../../../assets/imgs/Avatar Teacher.png"; // Simulando imagen de profesor
+import styles from '../../../assets/style/ClassList.module.css'; 
  
 
-function ClassList({ statusFilter }) {
+function ClassListEstudiante({ statusFilter }) {
     // Datos simulados para clases activas y archivadas
     const classData = [
       {
@@ -15,97 +15,97 @@ function ClassList({ statusFilter }) {
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },{
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María Alejandra García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
         status: "active",
       },
       {
-        title: "6A - Programación Avanzada",
+        title: "6A - Minería de datos y análisis",
         students: 25,
         teacherName: "María García Hernández",
         teacherImage: teacherImage,
@@ -152,4 +152,4 @@ function ClassList({ statusFilter }) {
       );
   }
   
-  export default ClassList;
+  export default ClassListEstudiante;

@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import Header from '../../organisms/Docente/TeacherHeaderGenerico'
-import SidebarGenerico from '../../organisms/Docente/SidebarGenerico'
+
+import Header from '../../organisms/Estudiante/HeaderGenericoEstudiante '
+import SidebarGenerico from '../../organisms/Estudiante/SidebarGenericoEstudiante'
 import styles from '../../../assets/style/Docente/HomeDocente.module.css'
-import ClassList from "../../organisms/Docente/ClassList";
+import ClassList from "../../organisms/Estudiante/ClassListEstudiante";
 import Footer from "../../organisms/Footer";
 
-const ClasesArchivadas = () => {
-
-
+const HomeTemplate = () => {
 
     return(
         <>
@@ -15,9 +14,8 @@ const ClasesArchivadas = () => {
                 <div className={styles.SpaceSiderbar}>
                 <SidebarGenerico />
                 </div>
-
+                
                 <div className={styles.container}>
-
                     <Header view="clases-archivadas"/>
                     
                     <div className={styles.OtherContainer}>
@@ -28,9 +26,8 @@ const ClasesArchivadas = () => {
 
                 </div>
             </div>
-            
         </>
     );
 };
 
-export default ClasesArchivadas;
+export default HomeTemplate;

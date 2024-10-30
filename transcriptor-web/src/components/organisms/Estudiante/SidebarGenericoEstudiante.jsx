@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styles from '../../assets/style/SidebarGenericoEstudiante.module.css';
+import styles from '../../../assets/style/Estudiante/SidebarGenericoEstudiante.module.css';
 
 const SideBarGnerico = () => {
 
@@ -19,6 +19,12 @@ const SideBarGnerico = () => {
                 <li>
                     <a href="/dashboard">
                     <img src="/src/assets/Home.png" alt="Inicio" />
+                    
+                    </a>
+                </li>
+                <li>
+                    <a href="/Unirme-clase">
+                    <img src="/src/assets/Home.png" alt="Unirme a una clase" />
                     
                     </a>
                 </li>
@@ -46,6 +52,7 @@ const SideBarGnerico = () => {
                 <div className={styles.expandableSection}>
                     <ul>
                         <li><a href="/dashboard">Inicio</a></li>
+                        <li><a href="/Unirme-clase">Unirme a una clase</a></li>
                         <li><a href="/clases-archivadas">Clases archivadas</a></li>
                         <li><a href="/cerrar-sesion">Cerrar sesión</a></li>
                         <li><a href="/ayuda">Ayuda</a></li>

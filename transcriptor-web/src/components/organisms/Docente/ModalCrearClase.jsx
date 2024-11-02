@@ -12,7 +12,7 @@ const ModalCrearClase = ({ show, onClose }) => {
                 </h1>
                 <form action="" className={styles.form}>
                     
-                    <input type="text" name="className" placeholder="Nombre de la clase:" />
+                    <input type="text" name="className" placeholder="Nombre de la clase:" className={styles.inputText}/>
                     
                     <select name="grado" defaultValue="" >
                         <option value="" disabled hidden>Cuatrimestre:</option> 

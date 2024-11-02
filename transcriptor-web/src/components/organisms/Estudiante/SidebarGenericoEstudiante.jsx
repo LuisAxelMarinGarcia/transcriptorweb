@@ -24,7 +24,7 @@ const SideBarGnerico = () => {
                 </li>
                 <li>
                     <a href="/Unirme-clase">
-                    <img src="/src/assets/Home.png" alt="Unirme a una clase" />
+                    <img src="/src/assets/Plus1.png" alt="Unirme a una clase" />
                     
                     </a>
                 </li>

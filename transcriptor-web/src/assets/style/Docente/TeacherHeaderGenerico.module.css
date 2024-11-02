@@ -93,3 +93,32 @@
   display: flex; /* Convierte el título en un contenedor flex */
     align-items: center;
 }
+
+.transcriptionButton{
+    background-color: #121353;
+    color: white;
+    border: none;
+    padding: 0 1.5rem; /* Solo para el ancho */
+    height: 2.6rem;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-right: 2rem;
+}
+
+.icon {
+    
+    margin-left: 0.5rem; /* Espacio entre el texto y el ícono */
+}
+
+.transcriptionContent {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    justify-content: flex-end; /* Empuja el contenido hacia la derecha */
+    gap: 1rem; /* Espacio entre el botón y el avatar */
+  }

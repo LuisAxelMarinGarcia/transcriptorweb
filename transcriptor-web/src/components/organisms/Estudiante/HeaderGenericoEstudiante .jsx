@@ -5,7 +5,7 @@ import Avatar from '../../atoms/AvatarPerfil';
 import IconHome from '../../../assets/imgs/IconHome.png';
 import clasesArchivadas from '../../../assets/imgs/clasesArchivadas.png';
 
-const TeacherHeader = ({ view }) => {
+const EstudianteHeader = ({ view }) => {
   const renderHeaderContent = () => {
     switch(view) {
       case 'clases-inscritas':
@@ -34,6 +34,10 @@ const TeacherHeader = ({ view }) => {
             Iniciar transcripción en vivo <i className="fas fa-broadcast-tower"></i>
           </button>
         );
+
+      case 'Unirme-a-una-clase': // Nueva vista vacía
+        return null; // No renderiza ningún contenido
+
       default:
         return null;
     }
@@ -54,4 +58,4 @@ const TeacherHeader = ({ view }) => {
   );
 };
 
-export default TeacherHeader;
+export default EstudianteHeader;

@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Julius+Sans+One&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+.card {
+    background-color: #F1F1F1;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    box-shadow: 7px 5px 6px rgba(0, 0, 0, 0.258); /* Ajusta los valores y la opacidad según lo que necesites */
+  }
+
+  .cardActions {
+    display: flex;
+    align-items: center; /* Centra verticalmente la fecha y los íconos */
+  }
+
+  .cardDate {
+    display: flex;
+    align-items: center; /* Asegura que la fecha se alinee verticalmente */
+    margin-right: 0rem; /* Espacio entre la fecha y el primer ícono */
+    font-size: 1rem; /* Ajusta el tamaño de la fuente si es necesario */
+    line-height: 1.5; /* Alinea mejor el texto */
+    margin-top: 0.4rem;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+    color: #3B3B3B;
+  }
+  
+  .cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    border-bottom: 2px solid #bdbdbd;
+    padding: 0.9rem 1.4rem;
+    border-radius: 8px 8px 0 0; /* Esquinas superiores redondeadas */
+  }
+  
+
+  .cardIcon {
+    width: 20px; /* Ajusta el tamaño de los íconos */
+    height: 20px;
+    margin-left: 1rem; /* Espacio entre los íconos */
+    cursor: pointer;
+  }
+
+  .cardBody {
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 250;
+    font-style: normal;
+    padding: 0.9rem 1.4rem;
+    display: flex;
+  flex-direction: column;
+  gap: 0.9rem; /* Espacio entre elementos */
+  }
+  
+  .cardFooter {
+    display: flex;
+    align-items: center;
+    padding: 0 1.4rem 0.7rem 1.4rem; /* Top 0, lados 1.4rem, bottom 0.5rem */
+    gap: 1rem;
+    font-size: 1.1rem;
+    font-family: "Josefin Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .cardButton {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .cardBody p {
+    margin-top: 0; /* Elimina el margen superior */
+    margin-bottom: 0;
+}

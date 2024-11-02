@@ -4,6 +4,7 @@ import Logo from '../../atoms/LogoTranscribeme';
 import Avatar from '../../atoms/AvatarPerfil';
 import IconHome from '../../../assets/imgs/IconHome.png';
 import clasesArchivadas from '../../../assets/imgs/clasesArchivadas.png';
+import iconLive from '../../../assets/imgs/iconEnVivo.png'; // Ajusta la ruta según la ubicación de tu archivo
 
 const TeacherHeader = ({ view , onOpenModal}) => {
   const renderHeaderContent = () => {
@@ -36,9 +37,12 @@ const TeacherHeader = ({ view , onOpenModal}) => {
             );
       case 'transcripcion':
         return (
-          <button className={styles.transcriptionButton}>
-            Iniciar transcripción en vivo <i className="fas fa-broadcast-tower"></i>
-          </button>
+          <div className={styles.transcriptionContent}>
+            <button className={styles.transcriptionButton}>
+              Iniciar transcripción en vivo <img src={iconLive} alt="Icono de transmisión en vivo" className={styles.icon} />
+            </button>
+          </div>
+          
         );
       default:
         return null;

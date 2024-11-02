@@ -1,6 +1,6 @@
 import React from "react";
 import styles from '../../assets/style/CardMateria.module.css'; 
-import EliminarIcon from '../../assets/imgs/EliminarClase.png'; 
+import EliminarIcon from '../../assets/imgs/IconEliminar.png'; 
 import ArchivarIcon from '../../assets/imgs/ArchivarClase.png';
 
 

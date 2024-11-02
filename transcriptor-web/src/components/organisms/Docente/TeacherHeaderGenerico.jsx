@@ -32,13 +32,13 @@ const TeacherHeader = ({ view , onOpenModal}) => {
                 <h1 className={styles.titleMateriaArchivado}>
                     <i className="fas fa-book"></i> Clases archivadas
                     <img src={clasesArchivadas} alt="Icon-Home" className={styles.IconoArchivado} />
-                </h1>;
+                </h1>
               </div>
             );
       case 'transcripcion':
         return (
           <div className={styles.transcriptionContent}>
-            <button className={styles.transcriptionButton}>
+            <button className={styles.transcriptionButton} onClick={onOpenModal}>
               Iniciar transcripción en vivo <img src={iconLive} alt="Icono de transmisión en vivo" className={styles.icon} />
             </button>
           </div>

@@ -7,7 +7,22 @@ import Footer from "../../organisms/Footer";
 import HeaderClase from '../../organisms/Docente/HeaderHomeClase'
 import ClassListTypeContent from '../../organisms/Docente/ClassListTypeContent';
 
+
+import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
+
 const HomeMateria = ({ title, studentCount,codeClass }) => {
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => {
+        console.log('Modal abierto');
+        setIsModalOpen(true);
+    };
+    
+    const handleCloseModal = () => {
+        console.log('Modal cerrado');
+        setIsModalOpen(false);
+    };
 
     return(
         <>
@@ -18,7 +33,7 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
 
                 <div className={styles.container}>
 
-                    <Header view="transcripcion"/>
+                    <Header view="transcripcion" onOpenModal={handleOpenModal} />
                     
                     <div className={styles.OtherContainer}>
 
@@ -40,6 +55,9 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
 
                 </div>
             </div>
+
+            {/* Modal para transcripción en vivo */}
+            <ModalTranscription show={isModalOpen} onClose={handleCloseModal} />
             
         </>
     );

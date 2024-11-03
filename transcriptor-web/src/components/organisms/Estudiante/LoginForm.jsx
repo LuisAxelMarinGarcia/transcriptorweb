@@ -53,7 +53,7 @@ const LoginFormEstudiante = ({ onSwitchForm }) => {
               </div>
               
               {/* Enlace de "Olvidaste tu contraseña" */}
-              <a href="#">¿Olvidaste tu contraseña?</a>
+              <a href="#" className={styles['msj-olvidaste']} >¿Olvidaste tu contraseña?</a>
 
           </div>
 

@@ -19,15 +19,17 @@ const StudentView = ({ title, teacherName, studentCount, transcriptionText }) =>
   
       {/* Sección del maestro, forma de onda y estado */}
       <div className={styles.teacherSection}>
-  <div className={styles.teacherInfo}>
-    <img src={teacherAvatar} alt="Avatar del maestro" className={styles.teacherAvatar} />
-    <h2>{teacherName}</h2>
-    <div className={styles.waveform}></div> {/* Aquí va la forma de onda */}
-  </div>
-  <div className={styles.liveStatusContainer}>
-    <p className={styles.liveStatus}>Escuchando en vivo...</p>
-    <img src={IconMicrofono} alt="Micrófono" className={styles.liveIcon} /> {/* Ícono junto al estado */}
-  </div>
+      <div className={styles.teacherInfo}>
+        <img src={teacherAvatar} alt="Avatar del maestro" className={styles.teacherAvatar} />
+        <h2>{teacherName}</h2>
+        
+        <button className={styles.GuardarButton}>Guardar transcripción</button>  
+        
+      </div>
+      <div className={styles.liveStatusContainer}>
+        <p className={styles.liveStatus}>Escuchando en vivo...</p>
+        <img src={IconMicrofono} alt="Micrófono" className={styles.liveIcon} /> {/* Ícono junto al estado */}
+      </div>
   
 </div>
   

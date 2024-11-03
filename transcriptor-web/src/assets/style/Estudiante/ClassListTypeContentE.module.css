@@ -1,0 +1,7 @@
+.classList {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 70%;
+    padding: 2.3rem 0rem;
+}

@@ -1,0 +1,40 @@
+.ContainerCompleto {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Hace que el contenedor ocupe toda la altura del body */
+}
+
+.ContainerPadre {
+    flex: 1; /* Ocupa todo el espacio restante del contenedor */
+    display: flex;
+    height: 80%; /* Solo funcionará si el contenedor padre tiene una altura definida */
+}
+.child1{
+    flex: 1; /* Cada hijo ocupa el 50% del ancho */
+    display: flex; /* Si quieres que el contenido interno también esté centrado */
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    width: 50%;
+    background-color: red;
+}
+
+.child2 {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos de arriba hacia abajo */
+    align-items: center; /* Centra los elementos horizontalmente */
+    justify-content: center; /* Centra los elementos verticalmente */
+    
+    width: 50%; /* Ajusta el ancho del contenedor si es necesario */
+    gap: 2rem;
+}
+
+
+.ImgLogo {
+    width: 18rem; /* Ajusta el tamaño según lo que necesites */
+    height: auto;
+}
+
+.ImgUserDeco {
+    width: 20rem; /* Ajusta el tamaño según lo que necesites */
+}
+

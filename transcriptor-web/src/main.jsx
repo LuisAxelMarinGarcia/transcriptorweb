@@ -17,6 +17,12 @@ import StudentPage from '../src/components/pages/Estudiante/StudentPage';
 import HomeEstudiante from '../src/components/pages/Estudiante/HomePage';
 import EstudianteClasesArchivadas from '../src/components/pages/Estudiante/EClasesArchivadas';
 import EstudianteUnirmeUnaClase from '../src/components/pages/Estudiante/UnirmeClase';
+import EstudianteHomeMateria from '../src/components/pages/Estudiante/HomeClaseInscrita';
+
+
+import LoginAlumno from '../src/components/pages/Estudiante/LoginPage';
+
+import LoginDocente from '../src/components/pages/Docente/LoginPage';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <BrowserRouter>
@@ -31,6 +37,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/home-estudiante" element={<HomeEstudiante />} />
       <Route path="/estudiante-clases-archivadas" element={<EstudianteClasesArchivadas/>} />
       <Route path="/estudiante-unirme-a-una-clase" element={<EstudianteUnirmeUnaClase/>} />
+
+      <Route path="/estudiante-home-clase" element={<EstudianteHomeMateria/>} />
+
+      <Route path="/login-estudiante" element={<LoginAlumno/>} />
+      <Route path="/login-docente" element={<LoginDocente/>} />
     </Routes>
   </BrowserRouter>
 );

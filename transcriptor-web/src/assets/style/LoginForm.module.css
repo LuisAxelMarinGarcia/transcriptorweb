@@ -11,7 +11,7 @@
 }
 
 /* Ajuste general del formulario */
-.form-container {
+.login-form-container {
     background-color: white;
     padding: 0rem 0rem; /* Sin padding alrededor del formulario */
     border-radius: 1rem;
@@ -86,7 +86,7 @@
   }
   
   /* Estilos para los campos de entrada */
-  input {
+  .inputLogin{
     width: 100%;
     flex: 1; /* Hacer que el input ocupe el resto del espacio */
     border: none;
@@ -101,17 +101,17 @@
     font-style: Light;
   }
   
-  input:focus {
+  .inputLogin:focus {
     outline: none;
     border-bottom: 2px solid #37396E; /* Engrosar línea al enfocar */
-  }
+}
   
   /* Estilo para el enlace de "¿Olvidaste tu contraseña?" */
   .msj-olvidaste {
     color: #032033 ;
     text-decoration: none;
     font-size: 0.9rem;
-    margin-top: 1.5rem;
+    margin-top: 1.2rem;
     display: block;
     text-align: center; /* Centrar el enlace */
     font-family: "Nunito", sans-serif;
@@ -120,8 +120,8 @@
     font-style: normal;
     text-decoration: underline;
   }
-  
-  a:hover {
+
+  .msj-olvidaste:hover {
     text-decoration: underline;
   }
   

@@ -83,6 +83,7 @@ function ClassListEstudiante({ statusFilter }) {
         teacherImage: teacherImage,
         status: "active",
       },
+      
       {
         title: "6A - Minería de datos y análisis",
         students: 25,
@@ -132,6 +133,14 @@ function ClassListEstudiante({ statusFilter }) {
         teacherImage: teacherImage,
         status: "archived",
       },
+      {
+        title: "8D - Redes de Computadoras",
+        students: 18,
+        teacherName: "Luis Martínez Pérez",
+        teacherImage: teacherImage,
+        status: "archived",
+      },
+      
     ];
   
     return (

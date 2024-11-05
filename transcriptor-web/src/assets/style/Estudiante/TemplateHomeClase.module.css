@@ -31,3 +31,15 @@
     display: flex;
     justify-content: center;
 }
+
+
+.HeaderContainer{
+    height: 13%;
+    width: 100%;
+}
+
+
+.HeaderClass{
+    background-color:red;
+    height:13rem;
+}

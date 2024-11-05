@@ -12,13 +12,17 @@
     height: 100vh;
 }
 
+.HeaderContainer{
+    height: 13%;
+}
+
 .OtherContainer{
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center;
-    padding:2rem;
+    padding: 0rem 2rem;
     background-color: #E3E6EE;
-    height: 63.4%; /* Ocupa al menos el 83% de la pantalla */
+    height: 73%; /* Ocupa al menos el 83% de la pantalla */
    flex: 1;
    gap: 10rem;
     overflow-y: auto; /* Agrega scroll si el contenido supera el max-height */

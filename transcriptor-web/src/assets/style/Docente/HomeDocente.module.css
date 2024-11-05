@@ -28,4 +28,9 @@ html, body {
     overflow-y: auto; /* Agrega scroll si el contenido supera el max-height */
 }
 
-
+.HeaderContainer{
+    
+    background-color: rgb(200, 0, 0);
+    height: 13%;
+    width: 100%;
+}

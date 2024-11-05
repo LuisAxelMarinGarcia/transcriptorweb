@@ -47,7 +47,7 @@ const EstudianteHeader = ({ view }) => {
   };
 
   return (
-    <header className={styles.header}>
+    <div className={styles.header}>
       <div className={styles.logoContainer}>
       <Logo />
       </div>
@@ -57,7 +57,7 @@ const EstudianteHeader = ({ view }) => {
       
       <Avatar size="medium" />
       
-    </header>
+    </div>
   );
 };
 

@@ -26,7 +26,7 @@ const LoginFormEstudiante = ({ onSwitchForm }) => {
     return (
         <div className={styles['left-side']}>
           {/* Contenedor del formulario */}
-          <div className={styles['form-container']}>
+          <div className={styles['login-form-container']}>
             {/* Selector de tipo de usuario */}
             <div className={styles['user-type-selector']}>
                     <button className={styles.activeButton}>
@@ -43,13 +43,13 @@ const LoginFormEstudiante = ({ onSwitchForm }) => {
               {/* Campo de usuario con ícono alineado a la izquierda */}
               <div className={styles['form-field']}>
                 <img src={iconUser} alt="Ícono de Usuario" className={styles['input-icon']} />
-                <input type="text" id="username" name="username" placeholder="Usuario" />
+                <input type="text" id="username" name="username" placeholder="Usuario" className={styles.inputLogin}/>
               </div>
 
               {/* Campo de contraseña con ícono alineado a la izquierda */}
               <div className={styles['form-field']}>
                 <img src={iconLock} alt="Ícono de Contraseña" className={styles['input-icon']} />
-                <input type="password" id="password" name="password" placeholder="Contraseña" />
+                <input type="password" id="password" name="password" placeholder="Contraseña" className={styles.inputLogin}/>
               </div>
               
               {/* Enlace de "Olvidaste tu contraseña" */}

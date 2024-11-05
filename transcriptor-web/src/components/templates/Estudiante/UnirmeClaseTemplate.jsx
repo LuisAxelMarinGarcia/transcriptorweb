@@ -17,7 +17,10 @@ const HomeTemplate = () => {
                 </div>
                 
                 <div className={styles.container}>
-                    <Header view="Unirme-a-una-clase"/>
+                    
+                    <div className={styles.HeaderContainer}>
+                        <Header view="Unirme-a-una-clase"/>
+                    </div>
                     
                     <div className={styles.OtherContainer}>
 

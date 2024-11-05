@@ -32,7 +32,7 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
                 </div>
 
                 <div className={styles.container}>
-
+                    
                     <Header view="transcripcion" onOpenModal={handleOpenModal} />
                     
                     <div className={styles.OtherContainer}>

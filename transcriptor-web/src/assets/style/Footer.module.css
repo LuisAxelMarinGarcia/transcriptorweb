@@ -2,14 +2,19 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 0rem 2rem;
     background-color: #f5f5f5; /* Color de fondo */
     border-top: 2px solid #ccc;
     font-size: 0.9rem;
+    height: 13.8%;
   }
   
   .logoContainer {
     width: 15%;
+    width: 15%;
+    display: flex;
+    justify-content: flex-end; /* Mueve el contenido hacia la derecha */
+    align-items: center; /* Centra verticalmente */
   }
   
   .infoContainer {

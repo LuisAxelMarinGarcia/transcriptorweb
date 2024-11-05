@@ -18,7 +18,10 @@ const HomeTemplate = ({ title, studentCount, teacherName}) => {
                 </div>
                 
                 <div className={styles.container}>
-                    <Header view="Clase-unirme-a-transcripcion"/>
+
+                    <div className={styles.HeaderContainer}>
+                        <Header view="Clase-unirme-a-transcripcion"/>
+                    </div>
                     
                     <div className={styles.OtherContainer}>
 

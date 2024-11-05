@@ -15,9 +15,14 @@ const HomeTemplate = () => {
                 <div className={styles.SpaceSiderbar}>
                 <SidebarGenerico />
                 </div>
+
+                
                 
                 <div className={styles.container}>
-                    <Header view="clases-inscritas"/>
+
+                    <div className={styles.HeaderContainer}>
+                        <Header view="clases-inscritas"/>
+                    </div>
                     
                     <div className={styles.OtherContainer}>
 

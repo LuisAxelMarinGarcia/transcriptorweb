@@ -16,7 +16,10 @@ const HomeTemplate = () => {
                 </div>
                 
                 <div className={styles.container}>
-                    <Header view="clases-archivadas"/>
+
+                    <div className={styles.HeaderContainer}>
+                        <Header view="clases-archivadas"/>
+                    </div>
                     
                     <div className={styles.OtherContainer}>
 

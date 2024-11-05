@@ -209,22 +209,28 @@ const RecordingPage = () => {
   };
 
   const handlePause = () => {
-    if (recognitionRef.current && isListening) {
-      // Pausar
-      setIsPaused(true);
-      isPausedRef.current = true;
-      setIsListening(false);
-      isListeningRef.current = false;
-      recognitionRef.current.stop();
-      stopAudioProcessing(); // Detener el waveform
-    } else if (recognitionRef.current && isPaused) {
-      // Reanudar
-      setIsPaused(false);
-      isPausedRef.current = false;
-      setIsListening(true);
-      isListeningRef.current = true;
-      recognitionRef.current.start();
-      startAudioProcessing(); // Reanudar el waveform
+    if (recognitionRef.current) {
+      if (isPausedRef.current) {
+        // Reanudar
+        setIsPaused(false);
+        isPausedRef.current = false;
+
+        setIsListening(true);
+        isListeningRef.current = true;
+
+        recognitionRef.current.start();
+        startAudioProcessing(); // Reanudar el waveform
+      } else {
+        // Pausar
+        setIsPaused(true);
+        isPausedRef.current = true;
+
+        setIsListening(false);
+        isListeningRef.current = false;
+
+        recognitionRef.current.stop();
+        stopAudioProcessing(); // Detener el waveform
+      }
     }
   };
 

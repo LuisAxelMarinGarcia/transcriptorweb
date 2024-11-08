@@ -10,7 +10,7 @@ const defaultAuthor = {
   image: teacherImage,
 };
 
-function ClassList({ typeFilter }) {
+function ClassList({ typeFilter , titleFilter}) {
   const classData = [
     {
       title: 'Transcripción de clase 1',
@@ -71,7 +71,8 @@ function ClassList({ typeFilter }) {
   ];
 
   const filteredData = classData
-  .filter(item => typeFilter === 'all' || item.type === typeFilter)
+  .filter(item => typeFilter === 'all' || item.type === typeFilter && 
+    (!titleFilter || item.title === titleFilter))
   .sort((a, b) => {
     // Convierte las fechas de formato DD/MM/YYYY a objetos Date
     const dateA = new Date(a.date.split('/').reverse().join('-'));

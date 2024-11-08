@@ -23,8 +23,11 @@ const HomeTemplate = () => {
                 </div>
                 
                 <div className={styles.container}>
-                    <Header view="materias" onOpenModal={handleOpenModalCrearClase} />
-                    
+
+                    <div className={styles.HeaderContainer}>
+                        <Header view="materias" onOpenModal={handleOpenModalCrearClase} />
+                    </div>
+
                     <div className={styles.OtherContainer}>
 
                         <ClassList statusFilter="active" />

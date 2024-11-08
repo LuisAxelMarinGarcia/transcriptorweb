@@ -1,16 +1,27 @@
 import React, { useState } from 'react';
 import Header from '../../organisms/Docente/TeacherHeaderGenerico'
 import SidebarGenerico from '../../organisms/Docente/SidebarGenerico'
-import styles from '../../../assets/style/Docente/ClaseHome.module.css'
+import styles from '../../../assets/style/Docente/ClasePersons.module.css'
 import Footer from "../../organisms/Footer";
 
-import HeaderClase from '../../organisms/Docente/HeaderHomeClase'
-import ClassListTypeContent from '../../organisms/Docente/ClassListTypeContent';
+import HeaderClase from '../../organisms/Docente/HeaderHomeClase';
+import PeopleList from '../../organisms/Docente/ClassListPersons';
 
 
 import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
 
-const HomeMateria = ({ title, studentCount,codeClass }) => {
+const PersonasMateriaTemplate = ({ title, studentCount,codeClass }) => {
+
+        // Estado que guarda qué pestaña está activa (Todos o Baja)
+        const [activeTab, setActiveTab] = useState("Todos");
+
+        // Función para cambiar la pestaña activa cuando se hace clic en una de ellas
+        const handleTabClick = (tab) => {
+            setActiveTab(tab);
+        };
+
+
+
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -48,9 +59,29 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
                             />
                         </div>
 
-                        <div className={styles.ContainerCards}>
-                            <ClassListTypeContent typeFilter="all"/>
+                        <div className={styles.OptionsPersons}>
+                            <div className={`${styles.PersonsAll} ${activeTab === "Todos" ? styles.active : ""}`} onClick={() => handleTabClick("Todos")}>
+                                <h1>
+                                    Todos
+                                </h1>
+                            </div>
+
+                            <div className={`${styles.PersonsBaja} ${activeTab === "Baja" ? styles.active : ""}`} onClick={() => handleTabClick("Baja")}>
+                                <h1>
+                                    Baja
+                                </h1>
+                            </div>
+
                         </div>
+
+                        <div className={styles.TypePersons}>
+                            <PeopleList
+                                    type="alumno"
+                                    view={activeTab === "Todos" ? "docenteYAlumnos" : "baja"}
+                            />
+                        </div>
+
+
                         
                     </div>
                     <Footer />
@@ -65,4 +96,4 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
     );
 };
 
-export default HomeMateria;
+export default PersonasMateriaTemplate;

@@ -4,7 +4,7 @@ import iconDownload from '../../../assets/imgs/IconDescargar.png';
 import iconDelete from '../../../assets/imgs/IconEliminar.png';
 import iconFecha from '../../../assets/imgs/IconFecha.png';
 
-import styles from '../../../assets/style/Docente/CardTypeContent.module.css';
+
 
 function Card({ title, description, date, type, link, fileType, author }) {
   return (

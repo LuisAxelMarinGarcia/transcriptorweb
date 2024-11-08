@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 import Header from '../../organisms/Docente/TeacherHeaderGenerico'
 import SidebarGenerico from '../../organisms/Docente/SidebarGenerico'
-import styles from '../../../assets/style/Docente/ClaseHome.module.css'
+import styles from '../../../assets/style/Docente/CrearMaterialClase.module.css'
 import Footer from "../../organisms/Footer";
 
-import HeaderClase from '../../organisms/Docente/HeaderHomeClase'
-import ClassListTypeContent from '../../organisms/Docente/ClassListTypeContent';
-
+import iconCancelar from '../../../assets/imgs/cancelar.png';
+import iconMaterial from '../../../assets/imgs/material.png';
 
 import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
 
-const HomeMateria = ({ title, studentCount,codeClass }) => {
+const CrearMaterial = ({ title, studentCount,codeClass }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -39,18 +38,21 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
 
                     <div className={styles.OtherContainer}>
 
-                        
-                        <div className={styles.HeaderClass}>
-                            <HeaderClase
-                                    title={title}
-                                    studentCount={studentCount}
-                                    codeClass={codeClass}
-                            />
-                        </div>
+                        <div className={styles.SectionTitle}>
+                            
+                            <div className={styles.sectionOne}>
+                                <img src={iconCancelar} alt="Primer icono" className={styles.iconImage} />
+                                <img src={iconMaterial} alt="Segundo icono" className={styles.clickableIcon} />
+                                Crear Material Didactico
+                            </div>
 
-                        <div className={styles.ContainerCards}>
-                            <ClassListTypeContent typeFilter="all"/>
+                            <div className={styles.sectionTwo}>
+                                <button className={styles.BotonCrear}>Publicar</button>
+                            </div>
+
                         </div>
+                        
+                
                         
                     </div>
                     <Footer />
@@ -65,4 +67,4 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
     );
 };
 
-export default HomeMateria;
+export default CrearMaterial;

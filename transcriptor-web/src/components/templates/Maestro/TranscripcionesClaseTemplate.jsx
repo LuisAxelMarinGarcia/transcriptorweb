@@ -10,7 +10,7 @@ import ClassListTypeContent from '../../organisms/Docente/ClassListTypeContent';
 
 import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
 
-const HomeMateria = ({ title, studentCount,codeClass }) => {
+const TranscripcionesClaseDocente = ({ title, studentCount,codeClass }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -49,7 +49,7 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
                         </div>
 
                         <div className={styles.ContainerCards}>
-                            <ClassListTypeContent typeFilter="all"/>
+                            <ClassListTypeContent typeFilter="transcription"/>
                         </div>
                         
                     </div>
@@ -65,4 +65,4 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
     );
 };
 
-export default HomeMateria;
+export default TranscripcionesClaseDocente;

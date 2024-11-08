@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+.flex{
+    display: flex;
+    height: 100%;
+}
+
+.SpaceSiderbar{
+    width: 5%;
+}
+.container{
+    width: 95%;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.OtherContainer{
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #ffffff;
+    min-height: 86.7%; /* Ocupa al menos el 83% de la pantalla */
+    /* height: 86.7% el header se arregla */
+  
+    overflow-y: auto; /* Agrega scroll si el contenido supera el max-height */
+}
+
+.HeaderContainer{
+    height: 13%;
+    width: 100%;
+}
+
+.SectionTitle{
+    height:7rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    padding: 0 2rem;
+    border-bottom: 2px solid #656565;
+    font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.7rem;
+  color: #505050;
+}
+
+.iconImage {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+    cursor: pointer;
+    
+}
+
+.clickableIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.sectionOne{
+    display: flex;
+   width: 50%;
+   background-color: white;
+    gap: 16px; /* Ajusta el valor para controlar el espacio entre elementos */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.sectionTwo{
+    display: flex;
+   width: 50%;
+   justify-content: flex-end;
+   align-items: center; /* Centra verticalmente el contenido */
+}
+
+.BotonCrear{
+    background-color: #121353; /* Azul para el botón de Crear */
+    color: white;
+    padding: 0.65rem 0rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    max-width: 20%; /* Máximo ancho para evitar desbordamientos */
+    flex: 1;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+}

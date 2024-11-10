@@ -7,7 +7,8 @@ import Footer from "../../organisms/Footer";
 import iconCancelar from '../../../assets/imgs/cancelar.png';
 import iconMaterial from '../../../assets/imgs/material.png';
 import iconEnlace from '../../../assets/imgs/enlace.png';
-import iconSubir from '../../../assets/imgs/subirFile.png'
+import iconSubir from '../../../assets/imgs/subir.png'
+import iconSubirFile from '../../../assets/imgs/subirFile.png'
 
 
 
@@ -86,12 +87,10 @@ const CrearMaterial = ({ title, nameTeacher }) => {
                             )}
 
                             {inputType === "archivo" && (
-                                <div className={styles.uploadArea}>
-                                    <label className={styles.uploadLabel} htmlFor="fileUpload">
-                                        <img src={iconSubir} alt="Subir archivo" className={styles.uploadIcon}/>
-                                        <span>Click aquí para añadir archivos</span>
-                                    </label>
-                                    <input type="file" id="fileUpload" className={styles.fileInput} />
+                               <div className={styles.uploadArea} onClick={() => document.getElementById('fileUpload').click()}>
+                                    <img src={iconSubirFile} alt="Subir archivo" className={styles.uploadIcon} />
+                                    <span>Click aquí para añadir archivos</span>
+                                    <input type="file" id="fileUpload" className={styles.fileInput} style={{ display: 'none' }} />
                                 </div>
                             )}
                             

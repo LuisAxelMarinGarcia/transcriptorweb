@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 .sidebar{
     background-color: #37396E;
     width: 4.2rem;
@@ -27,10 +29,23 @@
     margin-top: 5.5rem;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    text-align: left;
      position: fixed;
-   
+     
+
+  
 }
+
+.sidebar ul li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-family: "Nunito", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.2rem;
+  color:white;
+}
+
 
 .sidebar ul li {
     margin: 1.2rem 0; /* Espacio entre cada ícono */
@@ -52,11 +67,12 @@
 
 
 .expandableSection ul li {
-    margin: 1.8rem 0;
+    margin: 1.7rem 0;
+    
 }
 
 .expandableSection ul li:first-child {
-    margin-top: 1.1rem; /* Ajusta este valor para colocarlo a la altura deseada */
+    margin-top: 0.95rem; /* Ajusta este valor para colocarlo a la altura deseada */
 }
 
 .sidebar ul li img {

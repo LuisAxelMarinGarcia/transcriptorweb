@@ -10,20 +10,34 @@ import iconoMaterial from '../../../assets/imgs/iconAgregar.png'
 
 
 import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
+import ModalSubirMaterialNOdisponible from '../../organisms/Docente/ModalSubirMaterialNOdisponible';
 
 const MaterialDidactico = ({ title, studentCount,codeClass }) => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isTranscriptionModalOpen, setIsTranscriptionModalOpen] = useState(false);
+    const [isMaterialModalOpen, setIsMaterialModalOpen] = useState(false);
+    const [materialStatus, setMaterialStatus] = useState('ACTIVE'); // Estado para el botón de subir material
 
-    const handleOpenModal = () => {
-        console.log('Modal abierto');
-        setIsModalOpen(true);
+    // Controla el modal de transcripción en vivo al hacer clic en el botón del Header
+    const handleOpenTranscriptionModal = () => {
+        setIsTranscriptionModalOpen(true);
     };
-    
-    const handleCloseModal = () => {
-        console.log('Modal cerrado');
-        setIsModalOpen(false);
+
+    const handleCloseTranscriptionModal = () => {
+        setIsTranscriptionModalOpen(false);
     };
+
+    // Controla el modal de "Subir Material No Disponible" al hacer clic en el botón Subir Material, solo si está archivado
+    const handleOpenMaterialModal = () => {
+        if (materialStatus === 'ARCHIVADO') {
+            setIsMaterialModalOpen(true);
+        }
+    };
+
+    const handleCloseMaterialModal = () => {
+        setIsMaterialModalOpen(false);
+    };
+
 
     return(
         <>
@@ -35,7 +49,7 @@ const MaterialDidactico = ({ title, studentCount,codeClass }) => {
                 <div className={styles.container}>
                     
                     <div className={styles.HeaderContainer}>
-                        <Header view="transcripcion" onOpenModal={handleOpenModal} />
+                        <Header view="transcripcion" onOpenModal={handleOpenTranscriptionModal} />
                     </div>
 
                     <div className={styles.OtherContainer}>
@@ -50,7 +64,8 @@ const MaterialDidactico = ({ title, studentCount,codeClass }) => {
                         </div>
 
                         <div className={styles.SubirMaterial}>
-                            <button className={styles.botonSubirMaterial}>
+                            <button    className={`${styles.botonSubirMaterial} ${materialStatus === 'ARCHIVADO' ? styles.SubirMaterialArchived : ''}`}
+                                onClick={handleOpenMaterialModal}  >
                                 <img src={iconoMaterial} alt="Ícono de subir material" className={styles.iconoMaterial} />
                                 Subir Material
                             </button>
@@ -66,8 +81,11 @@ const MaterialDidactico = ({ title, studentCount,codeClass }) => {
                 </div>
             </div>
 
-            {/* Modal para transcripción en vivo */}
-            <ModalTranscription show={isModalOpen} onClose={handleCloseModal} />
+            {/* Modal para transcripción en vivo (solo se abre desde el botón del Header) */}
+            <ModalTranscription show={isTranscriptionModalOpen} onClose={handleCloseTranscriptionModal} />
+
+            {/* Modal para "Subir Material No Disponible" (solo se abre si el material está archivado y se hace clic en el botón Subir Material) */}
+            <ModalSubirMaterialNOdisponible show={isMaterialModalOpen} onClose={handleCloseMaterialModal} />
             
         </>
     );

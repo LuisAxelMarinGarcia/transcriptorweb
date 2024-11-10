@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+
 import iconShare from '../../../assets/imgs/IconCompartir.png';
 import iconDownload from '../../../assets/imgs/IconDescargar.png';
 import iconDelete from '../../../assets/imgs/IconEliminar.png';
 import iconFecha from '../../../assets/imgs/IconFecha.png';
 
-
+import ModalCompartirQR from '../../organisms/ModalCompartirQR'; 
+import styles from '../../../assets/style/Docente/CardTypeContent.module.css';
 
 function Card({ title, description, date, type, link, fileType, author }) {
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    console.log("Icono de compartir clickeado");
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <div className={styles.card}>
       {/* Header de la card */}
@@ -17,7 +31,7 @@ function Card({ title, description, date, type, link, fileType, author }) {
           <img src={iconFecha} alt="Compartir" className={styles.cardIcon} />
           {type === 'transcription' && (
             <>
-              <img src={iconShare} alt="Compartir" className={styles.cardIcon} />
+              <img src={iconShare} alt="Compartir" className={styles.cardIcon}  onClick={openModal} />
               <img src={iconDownload} alt="Descargar" className={styles.cardIcon} />
               
             </>
@@ -45,6 +59,10 @@ function Card({ title, description, date, type, link, fileType, author }) {
         <img src={author.image} alt={author.name} />
         <span>{author.name}</span>
       </div>
+
+      {/* Modal */}
+      {isModalOpen && <ModalCompartirQR show={isModalOpen} onClose={closeModal} />}
+
     </div>
   );
 }

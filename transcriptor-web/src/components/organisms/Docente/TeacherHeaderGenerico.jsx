@@ -6,7 +6,7 @@ import IconHome from '../../../assets/imgs/IconHome.png';
 import clasesArchivadas from '../../../assets/imgs/clasesArchivadas.png';
 import iconLive from '../../../assets/imgs/iconEnVivo.png'; // Ajusta la ruta según la ubicación de tu archivo
 
-const TeacherHeader = ({ view , onOpenModal}) => {
+const TeacherHeader = ({ view , onOpenModal, transcriptionStatus}) => {
   const renderHeaderContent = () => {
     switch(view) {
       case 'materias':
@@ -38,12 +38,16 @@ const TeacherHeader = ({ view , onOpenModal}) => {
       case 'transcripcion':
         return (
           <div className={styles.transcriptionContent}>
-            <button className={styles.transcriptionButton} onClick={onOpenModal}>
+            <button className={`${styles.transcriptionButton} ${ transcriptionStatus === 'ARCHIVADO' ? styles.archivedButton : ''}`}  onClick={onOpenModal}>
+              
               Iniciar transcripción en vivo <img src={iconLive} alt="Icono de transmisión en vivo" className={styles.icon} />
             </button>
           </div>
           
         );
+      case 'CrearMaterial': // Nueva vista vacía
+        return null; // No renderiza ningún contenido
+
       default:
         return null;
     }

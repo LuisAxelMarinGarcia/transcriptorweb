@@ -1,10 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../../assets/style/StudentView.module.css';
 import Users from '../../assets/imgs/Users.png';
 import teacherAvatar from '../../assets/imgs/Avatar Teacher.png'
 import IconMicrofono from '../../assets/imgs/EscuchandoEnVivo.png';
 
-const StudentView = ({ title, teacherName, studentCount, transcriptionText }) => (
+/*import ConfirmExitModal from '../../components/organisms/Estudiante/ESalirTranscripcion';*/
+
+import EnVivoFinalizado from '../../components/organisms/Estudiante/ModalEnVivoFinalizado';
+
+
+const StudentView = ({ title, teacherName, studentCount, transcriptionText }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  return (
+
+  
     <div className={styles.container}>
       {/* Sección del título, nombre del maestro y fondo */}
       <div className={styles.headerContainer}>
@@ -41,9 +59,20 @@ const StudentView = ({ title, teacherName, studentCount, transcriptionText }) =>
           </div>
         </div>
   
-        <button className={styles.exitButton}>Salir de la transmisión</button>
+        <button className={styles.exitButton} onClick={openModal} >Salir de la transmisión</button>
       </div>
+
+
+      
+      {/* Componente Modal de Confirmación 
+      <ConfirmExitModal show={isModalOpen} onClose={closeModal} />*/}
+      
+
+      {/* Componente Modal de Confirmación */}
+      <EnVivoFinalizado show={isModalOpen} onClose={closeModal} />
+
     </div>
-  );
+    );
+  };
   
   export default StudentView;

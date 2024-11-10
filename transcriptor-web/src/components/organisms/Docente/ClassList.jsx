@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../CardMateria"; // Importa el componente Card
+import Card from "../Docente/CardMateria"; // Importa el componente Card
 import teacherImage from "../../../assets/imgs/Avatar Teacher.png"; // Simulando imagen de profesor
 import styles from '../../../assets/style/ClassList.module.css'; 
  

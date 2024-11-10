@@ -27,6 +27,8 @@ import TranscripcionesDocente from '../src/components/pages/Docente/Transcripcio
 import DocentePersonasMateria from '../src/components/pages/Docente/PersonasMateriaPage';
 import VerTranscripcionDocente from '../src/components/pages/Docente/VerTranscripcionPage';
 
+import EstudianteVerTranscripcion from '../src/components/pages/Estudiante/EVerTranscripcionPage';
+
 import LoginAlumno from '../src/components/pages/Estudiante/LoginPage';
 
 import LoginDocente from '../src/components/pages/Docente/LoginPage';
@@ -48,6 +50,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Route path="/home-estudiante" element={<HomeEstudiante />} />
       <Route path="/estudiante-clases-archivadas" element={<EstudianteClasesArchivadas/>} />
       <Route path="/estudiante-unirme-a-una-clase" element={<EstudianteUnirmeUnaClase/>} />
+      <Route path="/estudiante-ver-transcripcion" element={<EstudianteVerTranscripcion/>} />
+
 
       <Route path="/estudiante-home-clase" element={<EstudianteHomeMateria/>} />
       <Route path="/estudiante-MaterialDidactico-clase" element={<EMaterialDidacticoClase/>} />

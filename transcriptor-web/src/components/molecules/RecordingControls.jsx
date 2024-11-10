@@ -13,6 +13,7 @@ const RecordingControls = ({
   onStop,
   isListening,
   isPaused,
+  onGuardar,
 }) => (
   <div className={styles.controls}>
     {/* Botón de Grabar */}
@@ -45,6 +46,8 @@ const RecordingControls = ({
     >
       <img src={stopIcon} alt="Detener" className={styles.icon} />
     </button>
+
+    <button onClick={onGuardar}  className={styles.buttonGuardar}>Guardar</button>
   </div>
 );
 

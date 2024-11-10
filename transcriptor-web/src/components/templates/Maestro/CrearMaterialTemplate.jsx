@@ -6,21 +6,17 @@ import Footer from "../../organisms/Footer";
 
 import iconCancelar from '../../../assets/imgs/cancelar.png';
 import iconMaterial from '../../../assets/imgs/material.png';
+import iconEnlace from '../../../assets/imgs/enlace.png';
+import iconSubir from '../../../assets/imgs/subirFile.png'
 
-import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
 
-const CrearMaterial = ({ title, studentCount,codeClass }) => {
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+const CrearMaterial = ({ title, nameTeacher }) => {
 
-    const handleOpenModal = () => {
-        console.log('Modal abierto');
-        setIsModalOpen(true);
-    };
-    
-    const handleCloseModal = () => {
-        console.log('Modal cerrado');
-        setIsModalOpen(false);
+    const [inputType, setInputType] = useState(null); 
+
+    const handleShowInput = (type) => {
+        setInputType(type);
     };
 
     return(
@@ -33,7 +29,7 @@ const CrearMaterial = ({ title, studentCount,codeClass }) => {
                 <div className={styles.container}>
                     
                     <div className={styles.HeaderContainer}>
-                        <Header view="transcripcion" onOpenModal={handleOpenModal} />
+                        <Header view="CrearMaterial"  />
                     </div>
 
                     <div className={styles.OtherContainer}>
@@ -52,6 +48,54 @@ const CrearMaterial = ({ title, studentCount,codeClass }) => {
 
                         </div>
                         
+                        <div className={styles.ContenidoCrear}>
+
+                            <div className={styles.infoMaterial}>
+                                <p><strong>Asignar a:</strong> Análisis de datos</p>
+                                <p><strong>Por:</strong> Horacio Solis Cisneros</p>
+                            </div>
+
+                            <div className={styles.InputAndIcon}>
+                                
+                                    <input type="text" placeholder="Título" id="title" className={styles.titleInput}/>
+                                
+                                
+                                
+                                    <div className={styles.SectionIcon} onClick={() => handleShowInput("archivo")}>
+                                        <span>Subir</span>
+                                        <img src={iconSubir} alt="Icono Subir" className={styles.iconActionImage}/>
+                                    </div>
+
+                                    <div className={styles.SectionIcon} onClick={() => handleShowInput("enlace")}>
+                                        <span>Enlace</span>
+                                        <img src={iconEnlace} alt="Icono Enlace" className={styles.iconActionImage}/>
+                                    </div>
+                                
+                            </div>
+
+                            
+                            <div className={styles.inputSection}>
+                                <textarea placeholder="Descripción" id="description" className={styles.DescriptionTextArea}></textarea>
+                            </div>
+
+                            {/* Renderizar campo de enlace o área de carga de archivos */}
+                            {inputType === "enlace" && (
+                                <div className={styles.inputSectionLink}>
+                                    <input type="text" placeholder="Inserte enlace aquí" className={styles.linkInput} />
+                                </div>
+                            )}
+
+                            {inputType === "archivo" && (
+                                <div className={styles.uploadArea}>
+                                    <label className={styles.uploadLabel} htmlFor="fileUpload">
+                                        <img src={iconSubir} alt="Subir archivo" className={styles.uploadIcon}/>
+                                        <span>Click aquí para añadir archivos</span>
+                                    </label>
+                                    <input type="file" id="fileUpload" className={styles.fileInput} />
+                                </div>
+                            )}
+                            
+                        </div>
                 
                         
                     </div>
@@ -60,9 +104,6 @@ const CrearMaterial = ({ title, studentCount,codeClass }) => {
                 </div>
             </div>
 
-            {/* Modal para transcripción en vivo */}
-            <ModalTranscription show={isModalOpen} onClose={handleCloseModal} />
-            
         </>
     );
 };

@@ -1,10 +1,12 @@
 // RecordingView.jsx
 
-import React from 'react';
+import React, { useState } from 'react'; // Asegúrate de importar useState
 import RecordingControls from '../molecules/RecordingControls';
 import styles from '../../assets/style/RecordingView.module.css';
 import teacherIcon from '../../assets/imgs/IconDocente.png';
 import IconMicrofono from '../../assets/imgs/IconMicrofono.png';
+
+import ModalGuardar from '../organisms/Docente/ModalGuardar'; // Importa el modal
 
 const RecordingView = ({
   title,
@@ -18,6 +20,18 @@ const RecordingView = ({
   isPaused,
   canvasRef,
 }) => {
+
+  const [isModalOpen, setIsModalOpen] = useState(false); // Estado para controlar el modal
+
+  const handleOpenModal = () => {
+    console.log('Modal de Guardar abierto');
+    setIsModalOpen(true); // Abrir modal
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false); // Cerrar modal
+  };
+
   // Determinar el texto a mostrar según el estado
   let displayText = 'Iniciando';
   if (isListening) {
@@ -61,9 +75,15 @@ const RecordingView = ({
             onStop={onStop}
             isListening={isListening}
             isPaused={isPaused}
+            onGuardar={handleOpenModal} // Pasa la función para abrir el modal
           />
+          
         </div>
       </div>
+
+      {/* Modal para guardar */}
+      {isModalOpen && <ModalGuardar show={isModalOpen} onClose={handleCloseModal} />}
+
     </div>
   );
 };

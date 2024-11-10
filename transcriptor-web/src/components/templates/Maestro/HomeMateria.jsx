@@ -9,14 +9,22 @@ import ClassListTypeContent from '../../organisms/Docente/ClassListTypeContent';
 
 
 import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
+import ModalArchivedTranscription from '../../organisms/Docente/ModalEnVivoNODisponible'; // Importa el modal para transcripción archivada
 
 const HomeMateria = ({ title, studentCount,codeClass }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [transcriptionStatus] = useState('ARCHIVADO'); 
+    
 
     const handleOpenModal = () => {
-        console.log('Modal abierto');
-        setIsModalOpen(true);
+        if (transcriptionStatus === 'ACTIVO') {
+            console.log('Modal de transcripción en vivo abierto');
+            setIsModalOpen(true);
+        } else if (transcriptionStatus === 'ARCHIVADO') {
+            console.log('Modal de transcripción archivada abierto');
+            setIsModalOpen(true); // Usamos el mismo estado para ambos, pero mostramos el modal adecuado en el render
+        }
     };
     
     const handleCloseModal = () => {
@@ -34,7 +42,7 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
                 <div className={styles.container}>
                     
                     <div className={styles.HeaderContainer}>
-                        <Header view="transcripcion" onOpenModal={handleOpenModal} />
+                        <Header view="transcripcion" onOpenModal={handleOpenModal} transcriptionStatus={transcriptionStatus}/>
                     </div>
 
                     <div className={styles.OtherContainer}>
@@ -58,8 +66,11 @@ const HomeMateria = ({ title, studentCount,codeClass }) => {
                 </div>
             </div>
 
-            {/* Modal para transcripción en vivo */}
-            <ModalTranscription show={isModalOpen} onClose={handleCloseModal} />
+            {transcriptionStatus === 'ACTIVO' ? (
+                <ModalTranscription show={isModalOpen} onClose={handleCloseModal} />
+            ) : (
+                <ModalArchivedTranscription show={isModalOpen} onClose={handleCloseModal} />
+            )}
             
         </>
     );

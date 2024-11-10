@@ -6,7 +6,7 @@ const StudentTemplate = ({ children }) => {
   return (
     <div>
       <Header />
-      <main className>
+      <main className="">
         {children} 
       </main>
       <Footer />

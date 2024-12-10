@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+.ContainerCodigo{
+    background-color: rgb(255, 255, 255);
+    width: 40%;
+    height: 85%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 18px;
+}
+
+.TitleContainer{
+    display: flex; /* Habilita Flexbox */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    background-color: #121353;
+    width: 100%;
+    height: 20%;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    color: white;
+    text-align: center;
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.9rem;
+    
+}
+
+.ContentContainer{
+    padding: 10% 5%;
+    height: 80%;
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Permite que los elementos se coloquen en columna */
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    box-sizing: border-box;
+    gap: 1.5rem;
+    text-align: center;
+}
+
+.etiquetaP1{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 1.1rem;
+    
+}
+
+.etiquetaP2{
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1rem;
+}
+
+
+.buttonUnirme{
+    background-color: #000000; /* Azul para el botón de Crear */
+    color: white;
+    padding: 0.70rem 0rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    width: 35%; /* Máximo ancho para evitar desbordamientos */
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 1.2rem;
+
+}
+
+.InputCodigo{
+    width: 50%;
+    padding: 0.7rem 1.3rem; /* Espaciado interno para el texto */
+    border: 1px solid #535353; /* Color del borde */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #e0e0e0; /* Fondo gris claro */
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    font-weight: 250;
+    color: #868686; /* Color del texto */
+    outline: none; /* Elimina el contorno al hacer clic */
+    text-align: center;
+}
+
+
+.IconUnirse{
+    margin-left: 1.2rem;
+    width: 1.9rem;
+    height: 1.9rem;
+}
+
+.ContainerUserDecoration{
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ContainerUserDecoration img {
+    height: 100%; /* Ajusta la altura de la imagen al 100% del contenedor */
+    width: auto; /* Mantiene la proporción de la imagen */
+}

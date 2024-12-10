@@ -1,7 +1,7 @@
 /* RecordingControls.module.css */
 .controls {
     display: flex;
-    gap: 6rem;
+    gap: 3rem;
     justify-content: center;
   }
   
@@ -22,4 +22,19 @@
     width: 6rem; /* Tamaño de la imagen dentro del botón */
     height: 6rem; /* Asegura que las imágenes dentro del botón tengan el mismo tamaño */
   }
-  
+  .buttonGuardar{
+    background-color: #086b45; 
+      color: white;
+      padding: 0rem 2rem;
+      font-family: "Poppins", sans-serif;
+      font-size: 0.95rem;
+      border-radius: 40px;
+      cursor: pointer;
+      font-weight: 500;
+      border: none;
+      max-width: 100%; /* Máximo ancho para evitar desbordamientos */
+      flex: 1;
+      box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+      align-items: center; /* Centra verticalmente */
+      justify-content: center; /* Centra horizontalmente */
+  }

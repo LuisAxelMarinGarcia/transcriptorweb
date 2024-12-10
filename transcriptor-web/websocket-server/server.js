@@ -20,10 +20,17 @@ const io = socketIo(server, {
 io.on('connection', (socket) => {
   console.log('Cliente conectado');
 
-  // Escuchar eventos de 'transcript' y retransmitir a otros clientes
+  // Manejar unirse a una clase
+  socket.on('joinClass', (classId) => {
+    console.log(`Cliente unido a la clase ${classId}`);
+    socket.join(`class_${classId}`); // Unir al cliente a la sala de la clase
+  });
+
+  // Escuchar eventos de 'transcript' y retransmitir dentro de la sala
   socket.on('transcript', (data) => {
-    // Emitir la transcripción a todos los clientes excepto al remitente
-    socket.broadcast.emit('transcript', data);
+    const { classId, message } = data; // Asegúrate de que el cliente envíe el classId
+    console.log(`Transcripción recibida para la clase ${classId}: ${message}`);
+    io.to(`class_${classId}`).emit('transcript', message); // Emitir solo a la sala de la clase
   });
 
   // Manejar desconexiones

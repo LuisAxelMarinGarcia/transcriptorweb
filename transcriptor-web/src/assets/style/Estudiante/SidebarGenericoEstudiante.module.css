@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+.sidebar{
+    background-color: #37396E;
+    width: 4.2rem;
+    display: flex;
+    flex-direction: column; /* Coloca los elementos en columna */
+    align-items: center;    /* Centra los elementos horizontalmente */
+    width: 5%;
+    height: 100vh; /* Fijamos la altura de la pantalla completa */
+    position: fixed; /* Mantiene el sidebar en su lugar mientras se hace scroll */
+    top: 0; /* Alineado con el inicio de la pantalla */
+    left: 0;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
+}
+
+.menuButton{
+    width: 2.5rem; /* Ajusta el tamaño del botón */
+    height: 2.5rem; /* Ajusta el tamaño del botón */
+    margin-bottom: 1.7rem;
+    margin-top: 1.6rem;
+    cursor: pointer;
+    position: fixed;
+}
+
+.sidebar ul {
+    list-style-type: none; /* Elimina los puntos de la lista */
+    padding: 0;
+    margin-top: 5.5rem;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+     position: fixed;
+     
+
+  
+}
+
+.sidebar ul li a {
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    font-family: "Nunito", serif;
+  font-optical-sizing: auto;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 1.2rem;
+  color:white;
+}
+
+
+.sidebar ul li {
+    margin: 1.2rem 0; /* Espacio entre cada ícono */
+    
+}
+
+.expandableSection {
+    position: fixed;
+    left: 5%; /* Se coloca a la derecha del sidebar cerrado */
+    width: calc(8rem + 4rem); /* Ancho del área desplegable */
+    height: 100vh;
+    background-color: #7173AF; /* Fondo semi-transparente */
+    padding: 1rem;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.2);
+    color: white;
+    z-index: 10; /* Asegura que esté sobre el contenido */
+    margin: 0;
+}
+
+
+.expandableSection ul li {
+    margin: 1.7rem 0;
+    
+}
+
+.expandableSection ul li:first-child {
+    margin-top: 0.95rem; /* Ajusta este valor para colocarlo a la altura deseada */
+}
+
+.sidebar ul li img {
+    transform: scale(0.8); /* Ajusta el valor para aumentar o reducir el tamaño */
+    
+}

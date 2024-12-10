@@ -5,12 +5,14 @@ import pauseIcon from '../../assets/imgs/btn-stop.png'; // Ícono de pausar
 import recordIcon from '../../assets/imgs/btn-grabar.png'; // Ícono de grabar
 import stopIcon from '../../assets/imgs/btn-finalizar.png'; // Ícono de detener
 import IconReanudar from '../../assets/imgs/btn-reanudar.png'; // Ícono de reanudar
+import guardarIcon from '../../assets/imgs/btn-guardar.png'; // Ícono de guardar
 import styles from '../../assets/style/RecordingControls.module.css';
 
 const RecordingControls = ({
   onPause,
   onRecord,
   onStop,
+  onGuardar, // Nuevo prop para guardar
   isListening,
   isPaused,
 }) => (
@@ -44,6 +46,16 @@ const RecordingControls = ({
       disabled={!isListening && !isPaused} // Habilitado si está grabando o pausado
     >
       <img src={stopIcon} alt="Detener" className={styles.icon} />
+    </button>
+
+    {/* Botón de Guardar Transcripción */}
+    <button
+      onClick={onGuardar}
+      className={styles.button}
+      disabled={!isListening && !isPaused} // Ajusta la lógica según tus necesidades
+    >
+      <img src={guardarIcon} alt="Guardar" className={styles.icon} />
+      Guardar
     </button>
   </div>
 );

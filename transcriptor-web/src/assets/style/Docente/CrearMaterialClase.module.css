@@ -1,0 +1,252 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+.flex{
+    display: flex;
+    height: 100%;
+}
+
+.SpaceSiderbar{
+    width: 5%;
+}
+.container{
+    width: 95%;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.OtherContainer{
+    display: flex;
+    flex-direction: column;    
+    background-color: #ffffff;
+    min-height: 86.7%; /* Ocupa al menos el 83% de la pantalla */
+    /* height: 86.7% el header se arregla */
+    
+    overflow-y: auto; /* Agrega scroll si el contenido supera el max-height */
+    align-items: center;
+}
+
+.HeaderContainer{
+    height: 13%;
+    width: 100%;
+}
+
+.SectionTitle{
+    height:7rem;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    padding: 0 2rem;
+    border-bottom: 1.8px solid #656565;
+    font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.7rem;
+  color: #505050;
+ width: 95%;
+ margin-bottom: 2rem; 
+}
+
+.iconImage {
+    width: 50px;
+    height: 50px;
+    margin-right: 1rem;
+    cursor: pointer;
+    
+}
+
+.clickableIcon {
+    width: 50px;
+    height: 50px;
+}
+
+.sectionOne{
+    display: flex;
+   width: 50%;
+   background-color: white;
+    gap: 16px; /* Ajusta el valor para controlar el espacio entre elementos */
+    align-items: center; /* Centra verticalmente el contenido */
+}
+
+.sectionTwo{
+    display: flex;
+   width: 50%;
+   justify-content: flex-end;
+   align-items: center; /* Centra verticalmente el contenido */
+}
+
+.BotonCrear{
+    background-color: #121353; /* Azul para el botón de Crear */
+    color: white;
+    padding: 0.65rem 0rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    max-width: 20%; /* Máximo ancho para evitar desbordamientos */
+    flex: 1;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+.ContenidoCrear{
+    display: flex;
+    flex-direction: column;
+    background-color: #E4E4E4;
+    border-radius: 8px;
+    border: 0.5px solid #000000;
+    width: 85%;
+    align-items: center;
+    padding: 0 0 2rem 0;
+    margin-top: 2rem;
+    margin-bottom: auto;
+    margin: 0 auto; 
+}
+
+.infoMaterial{
+    border-bottom: 0.5px solid #000000;
+    height: 6rem;
+    width: 100%;
+    font-size:1rem;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+    display: flex;
+    flex-direction: column; /* Para apilar los elementos en columna */
+    justify-content: center; /* Centra verticalmente */
+}
+
+.infoMaterial p {
+    margin: 0.5rem 0; /* Espaciado entre líneas */
+    margin-left: 2rem;
+}
+.infoMaterial p strong {
+    margin-right: 0.5rem; /* Ajusta este valor para controlar el espacio entre "Asignar a:" y "Análisis de datos" */
+}
+
+.InputAndIcon{
+    width: 95%;
+    display: flex;
+    height: 7rem;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.titleInput{
+    width: 70%;
+    height: 60%;
+    padding: 1rem;
+    font-size: 1rem;
+    background-color: #f5f5f5; /* Fondo claro */
+    border: none; /* Quita el borde por defecto */
+    border-radius: 8px 8px 0 0; /* Bordes superiores redondeados */
+    box-shadow: inset 0 -2px 0 #6565a5; /* Línea en la parte inferior */
+    outline: none; /* Quita el contorno al hacer clic */
+    box-sizing: border-box;
+}
+
+.title-input:focus {
+    box-shadow: inset 0 -2px 0 #4a4a8f; /* Cambia el color del subrayado al hacer foco */
+}
+.inputSection{
+    width: 95%;
+    height: 7rem;
+}
+
+
+.DescriptionTextArea{
+    height: 90%;
+    width: 100%;
+    padding: 1rem;
+    font-family: "Nunito", sans-serif;
+    font-size: 1rem;
+    background-color: #f5f5f5; /* Fondo claro */
+    border: none; /* Quita el borde por defecto */
+    border-radius: 8px 8px 0 0; /* Bordes superiores redondeados */
+    box-shadow: inset 0 -2px 0 #6565a5; /* Línea en la parte inferior */
+    outline: none; /* Quita el contorno al hacer clic */
+    box-sizing: border-box;
+    
+}
+
+.iconActionImage {
+    width: 3.5rem; /* Ajusta el tamaño a tu preferencia */
+    height: 3.5rem;
+    cursor: pointer;
+}
+
+.SectionIcon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 12%;
+}
+
+.SectionIcon span {
+    font-size: 1.2rem; /* Ajusta el tamaño del texto */
+    font-weight: 600; /* Hace el texto un poco más audaz */
+    color: #000000; /* Color del texto */
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    margin-right: 1rem;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200;
+    font-style: normal;
+}
+
+.linkInput{
+    width: 100%;
+    height: 4.5rem;
+    font-size: 1rem;
+    background-color: #f5f5f5; /* Fondo claro */
+    border: none; /* Quita el borde por defecto */
+    border-radius: 8px 8px 0 0; /* Bordes superiores redondeados */
+    box-shadow: inset 0 -2px 0 #6565a5; /* Línea en la parte inferior */
+    outline: none; /* Quita el contorno al hacer clic */
+    box-sizing: border-box;
+    padding-left: 1rem; /* Agrega espacio a la izquierda */
+    padding-right: 1rem; /* Agrega espacio a la derecha */
+}
+
+.inputSectionLink{
+    width: 95%;
+    margin-top:0.8rem;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1rem;
+    font-style: normal;
+}
+
+.uploadArea{
+    width: 95%;
+    margin-top: 0.8rem;
+    height: 5rem;
+    font-size: 1rem;
+    background-color: #f5f5f5; /* Fondo claro */
+    border: none; /* Quita el borde por defecto */
+    border-radius: 8px 8px 0 0; /* Bordes superiores redondeados */
+    border: 2px dashed #6565a5; 
+    outline: none; /* Quita el contorno al hacer clic */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #7C7C7C; /* Color de texto */
+    cursor: pointer;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-size: 1rem;
+    font-style: normal;
+}
+
+.uploadIcon{
+    height: 2.5rem;
+    width: 2.5rem;
+    margin: 0;
+}

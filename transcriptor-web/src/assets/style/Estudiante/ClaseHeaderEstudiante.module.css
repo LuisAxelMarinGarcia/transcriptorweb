@@ -1,0 +1,143 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;500;600;700&family=Julius+Sans+One&family=Nunito:wght@200;400;600;800;1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.headerContent {
+    background-image: linear-gradient(rgba(6, 9, 110, 0.58), rgba(6, 9, 110, 0.58)), url(../../imgs/logo.jpeg);
+    background-position: 50% 55%; /* Muestra una parte específica de la imagen */
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    
+    box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+.teacherInfo{
+    display: flex;
+    
+}
+.titleInfo {
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    text-align: center;
+    
+}
+
+.title {
+    font-family: "Poppins", sans-serif;
+    font-weight: 350;
+    font-size: 1.8rem !important;
+    color: white;
+    font-style: normal;
+    margin-bottom: 0.3rem;
+    margin-top: 0;
+}
+
+.teacherInfo {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.teacherIcon {
+    
+    width: 1.5rem; /* Ajusta el tamaño */
+    height: auto; 
+    margin-right: 1rem;
+}
+
+.studentCount {
+    font-size: 1.5rem; /* Ajusta el tamaño de la fuente */
+    font-family: "Josefin Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    margin: 0;
+    margin-top: 0.3rem;
+}
+
+.navContainer {
+    height: 30%;
+    display: flex;
+    width: 100%;
+}
+
+
+.navList{
+    width: 70%; /* Ocupa el 70% del ancho del contenedor */
+    display: flex;
+    align-items: center; /* Centra verticalmente los elementos */
+    list-style: none; /* Quitar puntos de la lista */
+    justify-content: space-around; /* Distribuye espacio alrededor de cada elemento */
+    margin: 0; /* Agrega esta línea */
+    padding: 0; /* Agrega esta línea */
+    background-color: #737cc0; /* Negro con 50% de transparencia */
+}
+
+.CodeClass{ 
+    width: 30%; /* Ocupa el 30% del ancho del contenedor */
+    height: 100%; /* Ocupa toda la altura del contenedor */
+    display: flex;
+    align-items: center; /* Centra verticalmente el texto */
+    justify-content: center; /* Centra horizontalmente el texto */
+    background-color: rgba(34, 36, 105, 0.567); /* Fondo semitransparente */
+    
+}
+
+.icon {
+    width: 24px; /* Ajusta el tamaño del ícono */
+    vertical-align: middle; /* Alinea el ícono al texto */
+}
+
+.navItem {
+    display: flex;
+    align-items: center; /* Alinea íconos y texto en línea */
+    gap: 1rem; /* Espacio entre el ícono y el texto */
+    cursor: pointer;
+}
+
+.navList .navItem a {
+    color: #ffffff; /* Color blanco */
+    text-decoration: underline; /* Subraya el texto */
+    text-underline-offset: 4px; /* Ajusta la distancia del subrayado */
+    text-decoration-thickness: 1px; /* Ajusta el grosor del subrayado */
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 1.2rem;
+}
+
+.labelText {
+    font-family: "Julius Sans One", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    font-size: 1.2rem; /* Ajusta el tamaño según lo que necesites */
+    margin-top: 0;
+}
+
+.codeText {
+    font-family: "Josefin Sans", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+    font-size: 1.2rem; /* Ajusta el tamaño según lo que necesites */
+}
+
+.iconTeacher{
+    width: 30px; /* Ajusta el tamaño del ícono */
+    height: auto;
+    
+}
+
+.teacherInfoContainer{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}

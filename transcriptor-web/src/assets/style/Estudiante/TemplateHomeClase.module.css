@@ -1,0 +1,45 @@
+.flex{
+    display: flex;
+    height: 100%;
+}
+
+.SpaceSiderbar{
+    width: 5%;
+}
+.container{
+    width: 95%;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.OtherContainer{
+    display: flex;
+    flex-direction: column;
+    
+    background-color: #ffffff;
+    min-height: 86.7%; /* Ocupa al menos el 83% de la pantalla */
+    /* height: 86.7% el header se arregla */
+  
+    overflow-y: auto; /* Agrega scroll si el contenido supera el max-height */
+}
+
+
+
+.ContainerCards{
+    height:65%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.HeaderContainer{
+    height: 13%;
+    width: 100%;
+}
+
+
+.HeaderClass{
+    background-color:red;
+    height:13rem;
+}

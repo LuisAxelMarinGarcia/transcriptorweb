@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+.modalFondo{
+    position: fixed; /* Fija el modal en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.modalContent{
+    width: 23.5%;
+    height: 50%;
+    background-color: white;
+    border-radius: 18px;
+    display: flex;
+  flex-direction: column;
+}
+
+.titleBaja {
+    font-size: 1.15rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 550;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 18%;
+    text-align: center;
+    padding: 0 2rem;
+  }
+
+.IconCrear{
+    text-align: center;
+    margin-left: 1rem;
+}
+
+
+.form {
+  border-top: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  padding: 0.2rem 3rem 1rem 3rem; /* Reduce el padding */
+  justify-content: center;
+  height: 82%; /* Asigna el 80% del espacio */
+  gap: 1rem;
+}
+
+.modalActions {
+    display: flex;
+    justify-content: space-around; /* Espacio uniforme entre botones */
+    gap: 8%;
+    margin-top: 0.2rem;
+}
+.textDescription{
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size:1.1rem;
+    color: #000000;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+}
+.createButton {
+    background-color: #007BFF; /* Azul para el botón de Crear */
+    color: white;
+    padding: 0.70rem 0rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.9rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    height: 100%;
+    max-width: 50%; /* Máximo ancho para evitar desbordamientos */
+    flex: 1;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+  
+.cancelButton {
+    background-color: #797979; /* Gris para el botón de Cancelar */
+    color: white;
+    padding: 0.70rem 0rem;
+    font-family: "Poppins", sans-serif;
+    font-size: 0.95rem;
+    border-radius: 40px;
+    cursor: pointer;
+    font-weight: 500;
+    border: none;
+    max-width: 40%; /* Máximo ancho para evitar desbordamientos */
+    height: 100%;
+    flex: 1;
+    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra horizontalmente */
+}
+
+
+  .textInfo{
+    margin: 0;
+    font-family: "Nunito", serif;
+  font-optical-sizing: auto;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 0.9rem;
+  text-align: justify;
+  }
+
+  .textAviso{
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size:1.1rem;
+    color: #cb0c0c;
+    margin-top: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .iconAviso {
+    width: 20px; /* Ajusta el tamaño según lo necesario */
+    height: 20px;
+    margin-left: 8px; /* Espacio entre el icono y el texto */
+    vertical-align: middle; /* Alineación vertical */
+    margin-bottom: 4px;
+  }

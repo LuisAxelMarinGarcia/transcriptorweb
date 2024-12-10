@@ -1,0 +1,119 @@
+.modalFondo{
+  position: fixed; /* Fija el modal en la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+}
+
+.modalContent{
+  width: 28%;
+  height: 50%;
+  background-color: white;
+  border-radius: 18px;
+  display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.infoActions{
+  margin-top: -0.9rem;
+}
+
+
+.title {
+  font-size: 1rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 550;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 20%;
+  width: 60%;
+  text-align: center;
+}
+
+
+.form {
+  border-top: 2px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  padding: 0rem 2.5rem; /* Reduce el padding */
+  justify-content: center;
+  height: 80%; /* Asigna el 80% del espacio */
+  gap: 0.7rem;
+}
+
+
+
+.modalActions {
+  display: flex;
+  justify-content: space-around; /* Espacio uniforme entre botones */
+  gap: 8%;
+  margin-top: 0rem;
+}
+
+.createButton {
+  background-color: #007BFF; /* Azul para el botón de Crear */
+  color: white;
+  padding: 0.70rem 0rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.84rem;
+  border-radius: 40px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  max-width: 52%; /* Máximo ancho para evitar desbordamientos */
+  flex: 1;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+.cancelButton {
+  background-color: #797979; /* Gris para el botón de Cancelar */
+  color: white;
+  padding: 0.70rem 0rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 0.95rem;
+  border-radius: 40px;
+  cursor: pointer;
+  font-weight: 500;
+  border: none;
+  max-width: 40%; /* Máximo ancho para evitar desbordamientos */
+  flex: 1;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Sombra */
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+}
+
+.textCuestion{
+  font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+    font-size:0.9rem;
+    color: #003DB3;
+}
+
+.textInfo{
+  font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size:0.9rem;
+}
+
+
+.textDescription{
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size:1rem;
+  color: #000000;
+  margin-top: 0;
+}

@@ -1,0 +1,209 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+/* Contenedor principal que incluye el formulario y las imágenes */
+.page-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; /* Ocupa toda la pantalla */
+}
+
+/* Contenedor principal para el contenido de la página */
+.content-wrapper {
+  display: flex;
+  flex-grow: 1; /* Permite que el contenido ocupe el espacio restante antes del footer */
+  width: 100%;
+}
+
+/* Sección izquierda (formulario) y derecha (logo) */
+.left-side, .right-side {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Sección del formulario a la izquierda */
+.left-side {
+  background-color: #E3E4F1;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Sección de la imagen y el logo a la derecha */
+.right-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Mantiene el contenido centrado verticalmente */
+  align-items: center;
+  background-color: #fff;
+  height: 100%;
+}
+
+/* Ajusta el tamaño del logo */
+.right-side img {
+  max-width: 83%;
+  margin-top: 1.5rem;
+  height: auto;
+}
+
+/* Ajuste general del formulario */
+.form-container {
+  background-color: white;
+  padding: 0rem 0rem; /* Sin padding alrededor del formulario */
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 63%;
+  height: 54%;
+
+}
+
+/* Estilo para los botones de tipo de usuario */
+.user-type-selector {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 1rem; /* Espacio debajo de los botones */
+  border-radius: 0.5rem 0.5rem 0 0; /* Bordes redondeados solo en la parte superior */
+  overflow: hidden; /* Asegura que los bordes redondeados se vean correctamente */
+ 
+}
+
+/* Ajusta los botones para que ocupen el 50% cada uno */
+.user-type-selector button {
+  width: 50%; /* Cada botón ocupa el 50% */
+  background-color: #121353;
+  color: white;
+  padding: 1.4rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 1.2rem;
+}
+
+/* Botón izquierdo (Estudiante) */
+.user-type-selector button:first-child {
+  border-radius: 1rem 0 0 0; /* Redondeo en la esquina superior izquierda */
+}
+
+/* Botón derecho (Docente) */
+.user-type-selector button:last-child {
+  border-radius: 0 1rem 0 0; /* Redondeo en la esquina superior derecha */
+}
+
+/* Botón activo */
+.user-type-selector button.active {
+  background-color: #2B2C74; /* Color de fondo para el botón activo */
+}
+
+
+/* Contenedor de los campos con íconos */
+.form-field {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  margin-bottom: 1rem; /* Espacio entre los campos */
+  margin-top: 1.5rem;
+}
+
+/* Icono al lado izquierdo del input */
+.input-icon {
+  width: 2.8rem;
+  height: 2.8rem;
+  margin-right: 1.2rem; /* Espacio entre el ícono y el input */
+}
+
+/* Estilos para los campos de entrada */
+input {
+  width: 100%;
+  flex: 1; /* Hacer que el input ocupe el resto del espacio */
+  border: none;
+  border-bottom: 1px solid #37396E; /* Línea inferior visible siempre */
+  font-size: 1rem;
+  color: #37396E;
+  background-color: transparent; /* Fondo transparente */
+  padding: 0.3rem;
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: Light;
+}
+
+input:focus {
+  outline: none;
+  border-bottom: 2px solid #37396E; /* Engrosar línea al enfocar */
+}
+
+/* Estilo para el enlace de "¿Olvidaste tu contraseña?" */
+a {
+  color: #032033;
+  text-decoration: none;
+  font-size: 0.9rem;
+  margin-top: 1.5rem;
+  display: block;
+  text-align: center; /* Centrar el enlace */
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:700;
+  font-style: normal;
+  text-decoration: underline;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Iconos en los botones */
+.icon {
+  width: 1.5rem;
+  height: auto;
+  margin-right: 0.7rem;
+  vertical-align: middle;
+}
+
+/* Footer */
+.footer {
+  height: 20vh; /* Ocupa el 20% del alto total */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+
+/* Contenedor del botón de inicio de sesión fuera del formulario */
+.submit-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2.2rem; /* Espacio entre el form y el botón */
+  width: 25%;
+}
+
+/* Botón de inicio de sesión */
+.submit-button {
+  background-color: #37396F;
+  color: white;
+  border: none;
+  padding: 0.8rem;
+  border-radius: 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight:400;
+  font-style: normal;
+}
+
+.submit-button:hover {
+  background-color: #2e306a;
+}

@@ -1,0 +1,143 @@
+.header {
+    height: 13%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 95%;
+    padding: 0 24px;
+    justify-content: space-between;
+    box-sizing: border-box; /* Incluye padding en el cálculo del width */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+/* 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    height: 13%;
+    width: 80%;
+    position: fixed;
+    padding: 0 20px;
+    top: 0; 
+    
+
+*/
+
+
+.ContainerMaterias{
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Distribuye el título centrado y el botón a la derecha */
+    width: 100%;
+}
+
+.content{
+    width: 100%;
+}
+
+.ContainerTitleMaterias{
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el título y el ícono dentro del contenedor */
+    flex-grow: 2;
+}
+
+.createClassButton{
+    background-color: #1446A8;
+    color: white;
+    border: none;
+    padding: 0 1.5rem; /* Solo para el ancho */
+    height: 2.6rem;
+    border-radius: 16px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-right: 2rem;
+}
+
+.logoContainer {
+    display: flex;
+    align-items: center;
+}
+
+.IconoHome{
+    margin-left: 1.2rem;
+    width: 1.4rem;
+    height: 1.4rem;
+}
+
+.titleMateria {
+    font-size: 1.5rem;
+    color: #37396E;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    font-weight: 650;
+  font-style: normal;
+  text-shadow: 1.2px 1.2px 2px rgba(160, 181, 229, 0.7);
+  }
+
+.ContainerTitleArchivados{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+
+.IconoArchivado{
+    margin-left: 1.2rem;
+    width: 1.6rem;
+    height: 1.7rem; 
+    
+}
+
+.titleMateriaArchivado{
+    font-size: 1.5rem;
+    color: #37396E;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    font-weight: 650;
+  font-style: normal;
+  text-shadow: 1.2px 1.2px 2px rgba(160, 181, 229, 0.7);
+  display: flex; /* Convierte el título en un contenedor flex */
+    align-items: center;
+}
+
+/* Header UNIRME EN VIVO*/
+
+.transcriptionButton{
+    background-color: #121353;
+    color: white;
+    border: none;
+    padding: 0 1.5rem; /* Solo para el ancho */
+    height: 2.6rem;
+    border-radius: 16px;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    margin-right: 2rem;
+}
+
+.icon {
+    
+    margin-left: 0.5rem; /* Espacio entre el texto y el ícono */
+}
+
+.transcriptionContent {
+    display: flex;
+    align-items: center; /* Alinea verticalmente */
+    justify-content: flex-end; /* Empuja el contenido hacia la derecha */
+    gap: 1rem; /* Espacio entre el botón y el avatar */
+  }
+

@@ -1,0 +1,29 @@
+.flex{
+    display: flex;
+    height: 100%;
+}
+
+.SpaceSiderbar{
+    width: 5%;
+}
+.container{
+    width: 95%;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.HeaderContainer{
+    height: 13%;
+}
+
+.OtherContainer{
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center;
+    padding: 0rem 2rem;
+    background-color: #E3E6EE;
+    height: 73%; /* Ocupa al menos el 83% de la pantalla */
+   flex: 1;
+   gap: 10rem;
+    overflow-y: auto; /* Agrega scroll si el contenido supera el max-height */
+}

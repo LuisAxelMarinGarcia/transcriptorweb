@@ -1,17 +1,43 @@
 // RecordingPage.jsx
 
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate, useLocation, useParams } from 'react-router-dom';
 import Header from '../../organisms/HeaderEnVivoDocente';
 import Footer from '../../organisms/Footer';
 import RecordingView from '../../organisms/RecordingView';
 import { io } from 'socket.io-client';
 
 const RecordingPage = () => {
+  const { classId } = useParams(); // Obtener classId desde la URL
+  const location = useLocation();   // Obtener el estado de la navegación
+  const navigate = useNavigate();   // Hook para navegación si es necesario
+
+  // Extraer datos de la clase desde location.state
+  const { state } = location;
+
+  // Validar que los datos de la clase estén presentes
+  if (
+    !state ||
+    !state.name ||
+    !state.students ||
+    !state.teacherName ||
+    !state.classGroup ||
+    !state.classCode ||
+    !state.status
+  ) {
+    console.error('[RecordingPage.jsx] No se proporcionaron datos de la clase en el estado de navegación.');
+    return <p className="error-message">Error: No se proporcionaron datos de la clase.</p>;
+  }
+
+  const { name, students, teacherName, classGroup, classCode, status, userId } = state; // Asegúrate de que 'userId' esté en el estado
+
+  // Estados locales
   const [transcript, setTranscript] = useState('');
   const [isListening, setIsListening] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
   const [time, setTime] = useState('2:38:20');
 
+  // Referencias
   const recognitionRef = useRef(null);
   const finalTranscriptRef = useRef('');
   const socketRef = useRef(null);
@@ -28,6 +54,7 @@ const RecordingPage = () => {
   const animationIdRef = useRef(null);
   const canvasRef = useRef(null);
 
+  // Actualizar referencias cuando cambian los estados
   useEffect(() => {
     isListeningRef.current = isListening;
   }, [isListening]);
@@ -36,13 +63,16 @@ const RecordingPage = () => {
     isPausedRef.current = isPaused;
   }, [isPaused]);
 
+  // Configuración de reconocimiento de voz y socket.io
   useEffect(() => {
     // Conectar al servidor Socket.IO
     socketRef.current = io('http://localhost:4000');
 
+    // Unirse a la clase específica
+    socketRef.current.emit('joinClass', classId);
+
     // Verificar si el navegador soporta la API de reconocimiento de voz
-    const SpeechRecognition =
-      window.SpeechRecognition || window.webkitSpeechRecognition;
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (SpeechRecognition) {
       recognitionRef.current = new SpeechRecognition();
@@ -65,9 +95,12 @@ const RecordingPage = () => {
         const fullTranscript = finalTranscriptRef.current + interimTranscript;
         setTranscript(fullTranscript);
 
-        // Emitir el texto transcrito al servidor
+        // Emitir el texto transcrito al servidor con classId
         if (socketRef.current) {
-          socketRef.current.emit('transcript', fullTranscript);
+          socketRef.current.emit('transcript', {
+            classId: classId,
+            message: fullTranscript,
+          });
         }
       };
 
@@ -102,13 +135,12 @@ const RecordingPage = () => {
       }
       stopAudioProcessing(); // Detener el procesamiento de audio
     };
-  }, []);
+  }, [classId]); // Asegurarse de que useEffect se ejecute cuando classId cambie
 
   // Función para iniciar el procesamiento de audio para el waveform
   const startAudioProcessing = async () => {
     if (!audioContextRef.current) {
-      audioContextRef.current = new (window.AudioContext ||
-        window.webkitAudioContext)();
+      audioContextRef.current = new (window.AudioContext || window.webkitAudioContext)();
     }
 
     try {
@@ -194,6 +226,7 @@ const RecordingPage = () => {
     draw();
   };
 
+  // Función para iniciar la grabación
   const handleRecord = () => {
     if (recognitionRef.current && !isListening && !isPaused) {
       // Iniciar nueva transcripción
@@ -208,6 +241,7 @@ const RecordingPage = () => {
     }
   };
 
+  // Función para pausar o reanudar la grabación
   const handlePause = () => {
     if (recognitionRef.current) {
       if (isPausedRef.current) {
@@ -234,6 +268,7 @@ const RecordingPage = () => {
     }
   };
 
+  // Función para detener la grabación
   const handleStop = () => {
     if (recognitionRef.current) {
       recognitionRef.current.abort();
@@ -251,9 +286,9 @@ const RecordingPage = () => {
     <div>
       <Header />
       <RecordingView
-        title="7B - Minería de datos"
-        teacherName="Horacio Irán Solís Cisneros"
-        studentCount={30}
+        title={`${name} - Grupo ${classGroup}`} // Usar datos del estado
+        teacherName={teacherName} // Usar datos del estado
+        studentCount={students} // Usar datos del estado
         time={time}
         onPause={handlePause}
         onRecord={handleRecord}
@@ -261,6 +296,9 @@ const RecordingPage = () => {
         isListening={isListening}
         isPaused={isPaused}
         canvasRef={canvasRef} // Pasamos el canvasRef a RecordingView
+        transcript={transcript} // Pasamos la transcripción como prop
+        classId={classId} // Pasamos classId
+        userId={userId} // Pasamos userId
       />
       <Footer />
     </div>

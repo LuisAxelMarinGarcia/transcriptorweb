@@ -1,4 +1,5 @@
-// TeacherHeader.jsx
+// src/components/organisms/Docente/TeacherHeaderGenerico.jsx
+
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../../../assets/style/Docente/TeacherHeaderGenerico.module.css';
@@ -8,7 +9,7 @@ import IconHome from '../../../assets/imgs/IconHome.png';
 import clasesArchivadas from '../../../assets/imgs/clasesArchivadas.png';
 import iconLive from '../../../assets/imgs/iconEnVivo.png';
 
-const TeacherHeader = ({ view, classId, transcriptionStatus, classData }) => { // Añadir classData como prop
+const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenModal }) => { // Añadido onOpenModal
   const navigate = useNavigate();
 
   const handleTranscriptionClick = () => {
@@ -31,7 +32,7 @@ const TeacherHeader = ({ view, classId, transcriptionStatus, classData }) => { /
               </h1>
             </div>
 
-            <button className={styles.createClassButton} onClick={handleTranscriptionClick}>
+            <button className={styles.createClassButton} onClick={onOpenModal}> {/* Cambiado onClick */}
               Crear clase <i className="fas fa-plus-circle"></i>
             </button>
           </div>

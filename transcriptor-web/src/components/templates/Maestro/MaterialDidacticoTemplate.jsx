@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+// MaterialDidactico.jsx
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import Header from '../../organisms/Docente/TeacherHeaderGenerico';
@@ -13,7 +14,7 @@ import iconoMaterial from '../../../assets/imgs/iconAgregar.png';
 import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
 import ModalSubirMaterialNOdisponible from '../../organisms/Docente/ModalSubirMaterialNOdisponible';
 
-const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, students, teacherName, classGroup, materialStatus }) => {
+const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, students, teacherName, classGroup, materialStatus, typeFilter, classStatus }) => {
 
     console.log('[MaterialDidactico] Props recibidas:', {
         title,
@@ -24,9 +25,14 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
         students,
         teacherName,
         classGroup,
-        materialStatus
+        materialStatus,
+        classStatus
     });
+  const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
 
+  const classData = { name, students: studentCount, teacherName, classGroup, classCode: codeClass, status };
+
+  
     const [isTranscriptionModalOpen, setIsTranscriptionModalOpen] = useState(false);
     const [isMaterialModalOpen, setIsMaterialModalOpen] = useState(false);
 
@@ -47,7 +53,17 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
             setIsMaterialModalOpen(true);
         } else {
             // Si no está archivado, lleva a la vista para subir material
-            navigate('/docente-crear-material');
+            navigate('/docente-crear-material', {
+              state: {
+                classId,
+                name,
+                students,
+                teacherName,
+                classGroup,
+                classCode: codeClass,
+                status: 'DISPONIBLE'
+              }
+            });
         }
     };
 
@@ -63,21 +79,29 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
                 </div>
 
                 <div className={styles.container}>
-                    {/* HEADER CONTENER */}
-                    <div className={styles.HeaderContainer}>
-                        <Header view="transcripcion" onOpenModal={handleOpenTranscriptionModal} />
-                    </div>
+          <div className={styles.HeaderContainer}>
+            <Header 
+              view="transcripcion" 
+              classId={classId} // Pasamos classId como prop
+              transcriptionStatus={transcriptionStatus} // Opcional
+              classData={classData} // Pasar classData
+              classStatus={classStatus}
+            />
+          </div>
 
-                    <div className={styles.OtherContainer}>
-                        {/* HEADER CLASE */}
-                        <div className={styles.HeaderClass}>
-                            <HeaderClase
-                                title={title}
-                                studentCount={studentCount}
-                                codeClass={codeClass}
-                            />
-                        </div>
-
+          <div className={styles.OtherContainer}>
+            <div className={styles.HeaderClass}>
+              <HeaderClase
+                title={title}
+                studentCount={studentCount}
+                codeClass={codeClass}
+                classId={classId}
+                name={name}
+                teacherName={teacherName}
+                classGroup={classGroup}
+                classStatus={classStatus}
+              />
+            </div>
                         {/* SUBIR MATERIAL */}
                         <div className={styles.SubirMaterial}>
                             <button
@@ -91,7 +115,11 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
 
                         {/* CARDS */}
                         <div className={styles.ContainerCards}>
-                            <ClassListTypeContent classId={classId} status="DISPONIBLE" />
+                            <ClassListTypeContent 
+                              classId={classId} 
+                              status="DISPONIBLE" 
+                              typeFilter={typeFilter} // Pasamos el filtro
+                            />
                         </div>
 
                     </div>
@@ -104,13 +132,13 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
 
             {/* Modal para transcripción en vivo (solo se abre desde el botón del Header) */}
             <ModalTranscription
-                isOpen={isTranscriptionModalOpen}
+                show={isTranscriptionModalOpen}
                 onClose={handleCloseTranscriptionModal}
             />
 
             {/* Modal para "Subir Material No Disponible" (solo se abre si el material está archivado y se hace clic en el botón Subir Material) */}
             <ModalSubirMaterialNOdisponible
-                isOpen={isMaterialModalOpen}
+                show={isMaterialModalOpen}
                 onClose={handleCloseMaterialModal}
             />
         </>

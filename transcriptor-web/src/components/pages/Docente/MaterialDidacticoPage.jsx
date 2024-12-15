@@ -1,20 +1,23 @@
+// MaterialDidacticoPage.jsx
 import React from 'react';
 import { useLocation } from 'react-router-dom'; // Importar useLocation
-import CrearMaterial from '../../templates/Maestro/CrearMaterialTemplate';
+import MaterialDidactico from '../../templates/Maestro/MaterialDidacticoTemplate';
+import styles from '../../../assets/style/Docente/ClaseHome.module.css';
 
 const MaterialDidacticoPage = () => {
-  // Aquí se usa `useLocation` para obtener el estado pasado desde la navegación
   const location = useLocation();
   const { state } = location;
 
   console.log('[MaterialDidacticoPage] Estado recibido:', state);
 
-  if (!state || !state.classId) {
+  if (!state || !state.classId || !state.materialStatus) { // Añadido check para materialStatus
     console.error('[MaterialDidacticoPage] No se proporcionaron datos de la clase en el estado de navegación.');
-    return <p>Error: No se proporcionaron datos de la clase.</p>;
+    return <p className={styles.errorMessage}>Error: No se proporcionaron datos de la clase.</p>;
   }
 
-  const { classId, name, students, teacherName, classGroup, classCode } = state;
+  const { classId, name, students, teacherName, classGroup, classCode, materialStatus, classStatus } = state;
+
+  const finalClassStatus = classStatus || 'NO ARCHIVADO';
 
   console.log('[MaterialDidacticoPage] Datos de clase:', {
     classId,
@@ -22,18 +25,23 @@ const MaterialDidacticoPage = () => {
     students,
     teacherName,
     classGroup,
-    classCode
+    classCode,
+    materialStatus,
+    classStatus
   });
 
   return (
-    <CrearMaterial
-      title={name}         // Usar name de la clase
-      studentCount={students}  // Usar cantidad de estudiantes
-      codeClass={classCode}    // Usar código de clase
-      classId={classId}        // Usar classId
-      name={name}              // Usar nombre de la clase
-      teacherName={teacherName}  // Usar nombre del profesor
-      classGroup={classGroup}    // Usar grupo de clase
+    <MaterialDidactico
+      title={`${name} - Grupo ${classGroup}`}
+      studentCount={students}
+      codeClass={classCode}
+      classId={classId}
+      name={name}
+      teacherName={teacherName}
+      classGroup={classGroup}
+      materialStatus={materialStatus}
+      classStatus={finalClassStatus}
+      typeFilter="MATERIAL" // Agregado: Para filtrar materiales
     />
   );
 };

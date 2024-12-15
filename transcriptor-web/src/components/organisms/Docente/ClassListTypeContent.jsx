@@ -4,7 +4,7 @@ import Card from '../Docente/CardTypeContent';
 import styles from '../../../assets/style/Docente/ClassListTypeContent.module.css'; 
 import teacherImage from "../../../assets/imgs/Avatar Teacher.png";
 
-function ClassList({ classId, status }) {
+function ClassList({ classId, status, typeFilter = 'all' }) {
   const [transcriptions, setTranscriptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -20,7 +20,7 @@ function ClassList({ classId, status }) {
         return;
       }
 
-      console.log('[ClassListTypeContent] Parámetros recibidos:', { classId, status });
+      console.log('[ClassListTypeContent] Parámetros recibidos:', { classId, status, typeFilter });
 
       if (!classId || !status) {
         setError('No se han proporcionado los parámetros necesarios (classId o status).');
@@ -50,7 +50,12 @@ function ClassList({ classId, status }) {
 
         const data = await response.json();
         if (data.success) {
-          setTranscriptions(data.data);
+          // Filtrar según typeFilter
+          let filteredData = data.data;
+          if (typeFilter && typeFilter.toUpperCase() !== 'ALL') {
+            filteredData = filteredData.filter(item => item.transcriptionType === typeFilter.toUpperCase());
+          }
+          setTranscriptions(filteredData);
         } else {
           setError(data.message || 'Error al obtener las transcripciones.');
         }
@@ -63,7 +68,7 @@ function ClassList({ classId, status }) {
     };
 
     fetchTranscriptions();
-  }, [classId, status]);
+  }, [classId, status, typeFilter]);
 
   const handleDeleteTranscription = async (transcriptionId) => {
     const token = getToken();
@@ -72,19 +77,15 @@ function ClassList({ classId, status }) {
       return;
     }
 
-    // Usar ruta relativa como en el ejemplo de HomeTemplate.jsx
-    // Nueva ruta según la petición del usuario (sin body, método PUT)
     const url = `/transcription/${encodeURIComponent(transcriptionId)}/ELIMINADO`;
 
     try {
       const response = await fetch(url, {
         method: 'DELETE',
         headers: {
-          // Igual que en HomeTemplate.jsx
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`
         }
-        // No se envía body, ya que solo se cambia el estado con la URL
       });
 
       if (!response.ok) {
@@ -129,7 +130,7 @@ function ClassList({ classId, status }) {
           date={transcription.transcriptionDate}
           type={transcription.transcriptionType}
           link={transcription.transcriptionUrl}
-          fileType={transcription.transcriptionType === 'MATERIAL' ? 'image' : ''}
+          fileType={transcription.transcriptionType === 'MATERIAL' ? 'image' : 'pdf'} // Actualizado para manejar PDF
           author={{
             name: `${transcription.userName} ${transcription.userSurname}`,
             image: teacherImage,

@@ -10,9 +10,9 @@ import PeopleList from '../../organisms/Docente/ClassListPersons';
 import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
 import teacherImage from "../../../assets/imgs/DocenteFoto.png"; // Importa la imagen por defecto del maestro
 
-const PersonasMateriaTemplate = ({ title, studentCount, codeClass, classId, name, teacherName, classGroup }) => {
-  console.log('PersonasMateriaTemplate Props:', { title, studentCount, codeClass, classId, name, teacherName, classGroup });
-
+const PersonasMateriaTemplate = ({ title, studentCount, codeClass, classId, name, teacherName, classGroup, classStatus }) => {
+  console.log('PersonasMateriaTemplate Props:', { title, studentCount, codeClass, classId, name, teacherName, classGroup, classStatus });
+  const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
   // Estado que guarda qué pestaña está activa (Todos o Baja)
   const [activeTab, setActiveTab] = useState("Todos");
 
@@ -40,6 +40,8 @@ const PersonasMateriaTemplate = ({ title, studentCount, codeClass, classId, name
     return "docenteYAlumnos"; // Valor por defecto
   };
 
+  const classData = { name, students: studentCount, teacherName, classGroup, classCode: codeClass, status };
+
   return(
     <>
       <div className={styles.flex}>
@@ -49,7 +51,13 @@ const PersonasMateriaTemplate = ({ title, studentCount, codeClass, classId, name
 
         <div className={styles.container}>
           <div className={styles.HeaderContainer}>
-            <Header view="transcripcion" onOpenModal={handleOpenModal} />
+            <Header 
+              view="transcripcion" 
+              classId={classId} // Pasamos classId como prop
+              transcriptionStatus={transcriptionStatus} // Opcional
+              classData={classData} // Pasar classData
+              classStatus={classStatus}
+            />
           </div>
 
           <div className={styles.OtherContainer}>
@@ -62,6 +70,7 @@ const PersonasMateriaTemplate = ({ title, studentCount, codeClass, classId, name
                 name={name}                 // Pasar el nombre de la clase
                 teacherName={teacherName}   // Pasar el nombre del profesor
                 classGroup={classGroup}     // Pasar el grupo de la clase
+                classStatus={classStatus}
               />
             </div>
 

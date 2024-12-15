@@ -1,28 +1,31 @@
-// src/components/organisms/Docente/ClassListPersons.jsx
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import Card from '../CardPersonas'; // Asegúrate de tener un componente Card reutilizable
+import CardPerson from '../CardPersonas'; // Asegúrate de que este es el componente correcto
 import styles from '../../../assets/style/Docente/ClasePersonasLista.module.css'; 
-import teacherImageDefault from "../../../assets/imgs/DocenteFoto.png"; // Imagen por defecto del maestro
-import studentImageDefault from "../../../assets/imgs/AlumnoFoto.png"; // Imagen por defecto del alumno
+import teacherImageDefault from "../../../assets/imgs/DocenteFoto.png";
+import studentImageDefault from "../../../assets/imgs/AlumnoFoto.png";
 
-function PeopleList({ type, view, classId, teacherName, teacherImage }) {
+function PeopleList({ view, classId, teacherName, teacherImage = teacherImageDefault }) {
   const [peopleData, setPeopleData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  // Funciones para obtener el userId y token del localStorage
-  const getUserId = () => localStorage.getItem('userId');
   const getToken = () => localStorage.getItem('token');
 
   useEffect(() => {
     const fetchPeopleData = async () => {
-      const userId = getUserId();
       const token = getToken();
 
-      if (!userId || !token) {
+      if (!token) {
         setError('Usuario no autenticado. Por favor, inicia sesión nuevamente.');
         console.error('[PeopleList.jsx] Usuario no autenticado.');
+        setLoading(false);
+        return;
+      }
+
+      if (!classId) {
+        setError('ID de clase no proporcionado.');
+        console.error('[PeopleList.jsx] classId no proporcionado.');
         setLoading(false);
         return;
       }
@@ -33,61 +36,41 @@ function PeopleList({ type, view, classId, teacherName, teacherImage }) {
       try {
         let fetchedData = [];
 
+        // Definir el endpoint según la vista
+        let endpoint = '';
         if (view === "docenteYAlumnos") {
-          // Fetch INSCRITO students
-          const inscritosResponse = await fetch(`/user-class/students/${classId}/INSCRITO`, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,
-            },
-          });
-
-          if (!inscritosResponse.ok) {
-            throw new Error('Error al obtener alumnos inscritos.');
-          }
-
-          const inscritosJson = await inscritosResponse.json();
-          const inscritosData = inscritosJson.data; // Extraer el array 'data'
-
-          // Fetch BAJA students
-          const bajaResponse = await fetch(`/user-class/students/${classId}/BAJA`, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,
-            },
-          });
-
-          if (!bajaResponse.ok) {
-            throw new Error('Error al obtener alumnos dados de baja.');
-          }
-
-          const bajaJson = await bajaResponse.json();
-          const bajaData = bajaJson.data; // Extraer el array 'data'
-
-          // Combinar los datos
-          fetchedData = [...inscritosData, ...bajaData];
+          endpoint = `/user-class/students/${classId}/INSCRITO`;
         } else if (view === "baja") {
-          // Fetch BAJA students
-          const bajaResponse = await fetch(`/user-class/students/${classId}/BAJA`, {
-            method: 'GET',
-            headers: {
-              'Content-Type': 'application/json',
-              'Authorization': `Bearer ${token}`,
-            },
-          });
-
-          if (!bajaResponse.ok) {
-            throw new Error('Error al obtener alumnos dados de baja.');
-          }
-
-          const bajaJson = await bajaResponse.json();
-          const bajaData = bajaJson.data; // Extraer el array 'data'
-          fetchedData = bajaData;
+          endpoint = `/user-class/students/${classId}/BAJA`;
         } else {
-          // Si hay otros views, manejar según sea necesario
           throw new Error('Vista no soportada.');
+        }
+
+        // Realizar la petición
+        const response = await fetch(endpoint, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error(`Error al obtener datos: ${response.status}`);
+        }
+
+        const jsonData = await response.json();
+
+        if (jsonData.success && Array.isArray(jsonData.data)) {
+          fetchedData = jsonData.data.map(person => ({
+            id: person.studentId || person.userId, // Asegúrate de que el ID es consistente
+            fullName: `${person.studentName || person.userName} ${person.studentSurname || person.userSurname}`,
+            role: 'estudiante',
+            status: view === "docenteYAlumnos" ? 'INSCRITO' : 'BAJA',
+            image: person.image || studentImageDefault,
+          }));
+        } else {
+          throw new Error(jsonData.message || 'No se pudieron obtener los datos de las personas.');
         }
 
         setPeopleData(fetchedData);
@@ -103,7 +86,7 @@ function PeopleList({ type, view, classId, teacherName, teacherImage }) {
   }, [classId, view]);
 
   if (loading) {
-    return <p className={styles.loadingMessage}>Cargando alumnos...</p>;
+    return <p className={styles.loadingMessage}>Cargando personas...</p>;
   }
 
   if (error) {
@@ -112,29 +95,38 @@ function PeopleList({ type, view, classId, teacherName, teacherImage }) {
 
   return (
     <div className={styles.peopleList}>
+      {/* Mostrar al docente solo en la vista de inscritos */}
       {view === "docenteYAlumnos" && (
         <>
-          {/* Sección del Docente */}
           <div className={styles.sectionTitle}>Docente</div>
-          <Card
+          <CardPerson
             key="docente"
             title={teacherName}
-            image={teacherImage || teacherImageDefault} // Usa la imagen pasada o la por defecto
+            image={teacherImage || teacherImageDefault}
             type="profile"
           />
+        </>
+      )}
 
+      {/* Renderizar según la vista */}
+      {view === "docenteYAlumnos" && (
+        <>
           {/* Sección de Alumnos Inscritos */}
           <div className={styles.sectionTitle}>Alumnos Inscritos</div>
-          {peopleData
-            .filter(person => person.role.toLowerCase() === 'estudiante' && person.userStatus === 'INSCRITO')
-            .map((person, index) => (
-              <Card
-                key={index}
-                title={`${person.userName} ${person.userSurname}`}
-                image={person.image || studentImageDefault} // Usa la imagen pasada o la por defecto
-                type="profile"
-              />
-            ))}
+          {peopleData.filter(person => person.role === 'estudiante' && person.status === 'INSCRITO').length > 0 ? (
+            peopleData
+              .filter(person => person.role === 'estudiante' && person.status === 'INSCRITO')
+              .map(person => (
+                <CardPerson
+                  key={person.id}
+                  title={person.fullName}
+                  image={person.image}
+                  type="profile"
+                />
+              ))
+          ) : (
+            <p>No hay alumnos inscritos para mostrar.</p>
+          )}
         </>
       )}
 
@@ -142,14 +134,20 @@ function PeopleList({ type, view, classId, teacherName, teacherImage }) {
         <>
           {/* Sección de Alumnos Dados de Baja */}
           <div className={styles.sectionTitle}>Alumnos Dados de Baja</div>
-          {peopleData.map((person, index) => (
-            <Card
-              key={index}
-              title={`${person.userName} ${person.userSurname}`}
-              image={person.image || studentImageDefault}
-              type="profile"
-            />
-          ))}
+          {peopleData.filter(person => person.role === 'estudiante' && person.status === 'BAJA').length > 0 ? (
+            peopleData
+              .filter(person => person.role === 'estudiante' && person.status === 'BAJA')
+              .map(person => (
+                <CardPerson
+                  key={person.id}
+                  title={person.fullName}
+                  image={person.image}
+                  type="profile"
+                />
+              ))
+          ) : (
+            <p>No hay alumnos dados de baja para mostrar.</p>
+          )}
         </>
       )}
     </div>
@@ -157,15 +155,10 @@ function PeopleList({ type, view, classId, teacherName, teacherImage }) {
 }
 
 PeopleList.propTypes = {
-  type: PropTypes.string,
   view: PropTypes.string.isRequired, // 'docenteYAlumnos' o 'baja'
   classId: PropTypes.string.isRequired,
-  teacherName: PropTypes.string.isRequired, // Nuevo prop para el nombre del maestro
-  teacherImage: PropTypes.string, // Nuevo prop opcional para la imagen del maestro
-};
-
-PeopleList.defaultProps = {
-  teacherImage: teacherImageDefault, // Imagen por defecto si no se pasa ninguna
+  teacherName: PropTypes.string.isRequired,
+  teacherImage: PropTypes.string,
 };
 
 export default PeopleList;

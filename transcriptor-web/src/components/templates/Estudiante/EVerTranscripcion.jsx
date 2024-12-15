@@ -10,9 +10,7 @@ import Footer from "../../organisms/Footer";
 import HeaderDeClase from '../../organisms/Estudiante/HeaderHomeMateria';
 import ClassListTypeContentE from '../../organisms/Estudiante/ClassListContentType';
 
-
 const EVerTranscripcion = ({ title, studentCount, teacherName, classId }) => {
-
     console.log('[EVerTranscripcion.jsx] Props recibidos:', { classId, title, studentCount, teacherName });
 
     return(
@@ -25,12 +23,13 @@ const EVerTranscripcion = ({ title, studentCount, teacherName, classId }) => {
                 <div className={styles.container}>
 
                     <div className={styles.HeaderContainer}>
-                        <Header   view="Clase-unirme-a-transcripcion"
-                        classId={classId}
-                        name={title}
-                        students={studentCount}
-                        teacherName={teacherName}
-                        status="NO ARCHIVADO" // Pasar status si es necesario
+                        <Header
+                            view="Clase-unirme-a-transcripcion"
+                            classId={classId}
+                            name={title}
+                            students={studentCount}
+                            teacherName={teacherName}
+                            status="NO ARCHIVADO" // Pasar status si es necesario
                         />
                     </div>
                     
@@ -38,16 +37,17 @@ const EVerTranscripcion = ({ title, studentCount, teacherName, classId }) => {
 
                         <div className={styles.HeaderClass}>
                             <HeaderDeClase
-                                    title={title}
-                                    studentCount={studentCount}
-                                    teacherName={teacherName}
+                                title={title}
+                                studentCount={studentCount}
+                                teacherName={teacherName}
                             />
                         </div>
                         
                         <div className={styles.ContainerCards}>
                             <ClassListTypeContentE 
-                                classId={classId}        // Pasar classId (UUID)
-                                status="DISPONIBLE"       // Filtrar transcripciones disponibles
+                                classId={classId}         
+                                status="DISPONIBLE"       
+                                typeFilter="TRANSCRIPCION" // Aquí aplicamos el filtro TRANSCRIPCION
                             />
                         </div>
 

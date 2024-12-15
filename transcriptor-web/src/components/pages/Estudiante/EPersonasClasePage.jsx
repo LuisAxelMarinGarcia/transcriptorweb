@@ -9,38 +9,41 @@ const EPersonasClasePage = () => {
   const location = useLocation();
   const { state } = location;
 
-  console.log('[EPersonasClasePage.jsx] classId de useParams():', classId);
-  console.log('[EPersonasClasePage.jsx] Datos recibidos del estado:', state);
+  console.log('[EMaterialDidacticoPage.jsx] classId de useParams():', classId);
+  console.log('[EMaterialDidacticoPage.jsx] Datos recibidos del estado:', state);
 
   // Verificar que classId está definido
   if (!classId) {
-    console.error('[EPersonasClasePage.jsx] classId es undefined.');
+    console.error('[EMaterialDidacticoPage.jsx] classId es undefined.');
     return <p className={styles.errorMessage}>Error: classId no está definido.</p>;
   }
 
-  // Verificar si los datos de la clase están disponibles en el estado
-  // Solo requerimos name, students y teacherName
-  if (!state || 
-      !state.name || 
-      !state.students || 
-      !state.teacherName) {
-    console.error('[EPersonasClasePage.jsx] No se proporcionaron todos los datos de la clase en el estado de navegación.');
-    return <p className={styles.errorMessage}>Error: No se proporcionaron datos de la clase.</p>;
+  // Verificar si los datos esenciales están en el estado
+  if (!state || !state.name || !state.students || !state.teacherName) {
+    console.error('[EMaterialDidacticoPage.jsx] Faltan datos esenciales en el estado.');
+    return <p className={styles.errorMessage}>Error: No se proporcionaron datos esenciales de la clase.</p>;
   }
 
-  const { name, students, teacherName, classGroup, classCode } = state;
+  const { name, students, teacherName, status, classGroup, codeClass } = state;
 
-  console.log('[EPersonasClasePage.jsx] Datos desestructurados:', { name, students, teacherName, classGroup, classCode });
+  // Si no se define status, asume que es "NO ARCHIVADO"
+  const effectiveStatus = status ? status : 'NO ARCHIVADO';
+  
+  // Luego normalizas el estado
+  const normalizedStatus = effectiveStatus === "NO ARCHIVADO" ? "DISPONIBLE" : effectiveStatus;
+
+  console.log('[EMaterialDidacticoPage.jsx] Datos desestructurados y normalizados:', { name, students, teacherName, normalizedStatus });
 
   return (
     <EPersonasClase
-      title={name}
-      studentCount={students}
-      teacherName={teacherName}
-      classId={classId}            // Pasar classId (UUID)
-      classGroup={classGroup}      // Puede ser undefined
-      codeClass={classCode}        // Puede ser undefined
-    />
+    title={name}
+    studentCount={students}
+    teacherName={teacherName}
+    classId={classId}
+    status={normalizedStatus} // Estado normalizado
+    classGroup={classGroup} // Opcional: pasar si está disponible
+    codeClass={codeClass}     // Opcional: pasar si está disponible
+  />
   );
 };
 

@@ -1,4 +1,5 @@
 // src/components/pages/Maestro/PersonasMateriaPage.jsx
+
 import React, { useEffect, useState } from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import PersonasMateria from '../../templates/Maestro/PersonasMateriaTemplate';
@@ -45,6 +46,7 @@ const PersonasMateriaPage = () => {
             classGroup: state.classGroup,
             classCode: state.classCode,
             status: state.status,
+            classStatus: state.classStatus || 'NO ARCHIVADO', // Añadir classStatus si está disponible
           };
         } else {
           // Si el estado no está disponible, realizar una solicitud para obtener los datos
@@ -71,6 +73,7 @@ const PersonasMateriaPage = () => {
             classGroup: foundClass.classGroup,
             classCode: foundClass.classCode,
             status: foundClass.classStatus,
+            classStatus: foundClass.classStatus, // Asignar classStatus obtenido de la API
           };
         }
 
@@ -94,7 +97,7 @@ const PersonasMateriaPage = () => {
     return <p className={styles.errorMessage}>Error: {error}</p>;
   }
 
-  const { name, students, teacherName, classGroup, classCode, status } = classData;
+  const { name, students, teacherName, classGroup, classCode, status, classStatus } = classData;
 
   console.log('[PersonasMateriaPage.jsx] Datos recibidos:', classData);
 
@@ -108,6 +111,7 @@ const PersonasMateriaPage = () => {
       teacherName={teacherName}   // Pasar el nombre del profesor
       classGroup={classGroup}     // Pasar el grupo de la clase
       status={status}             // Pasar el status si es necesario
+      classStatus={classStatus}   // Pasar classStatus como prop
     />
   );
 };

@@ -53,7 +53,7 @@ const ModalGuardarTranscripcion = ({ show, onClose, transcript, classId }) => {
     formData.append('description', description);
     formData.append('date', dateStr);
     formData.append('url', '');          // URL vacío según lo indicado
-    formData.append('type', 'MATERIAL'); // Tipo MATERIAL, según el ejemplo
+    formData.append('type', 'TRANSCRIPCION'); // Tipo MATERIAL, según el ejemplo
     formData.append('classId', classId); // Cambiado a 'classId'
     formData.append('file', pdfBlob, `Transcripcion_${title}.pdf`);
 

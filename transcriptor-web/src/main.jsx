@@ -69,7 +69,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         } 
       />
       <Route 
-        path="/docente-home-materia" 
+        path="/docente-home-materia/:classId" 
         element={
           <PrivateRoute allowedRoles={['MAESTRO']}>
             <HomeMateria />
@@ -91,8 +91,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             <CrearMaterial />
           </PrivateRoute>
         } 
-      />
-      <Route 
+      />      <Route 
         path="/docente-personas-materia/:classId" 
         element={
           <PrivateRoute allowedRoles={['MAESTRO']}>
@@ -160,15 +159,15 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         } 
       />
       <Route 
-        path="/estudiante-home-clase" 
+        path="/estudiante-home-clase/:classId" 
         element={
           <PrivateRoute allowedRoles={['ESTUDIANTE']}>
-            <HomeEstudiante />
+            <EstudianteHomeMateria />
           </PrivateRoute>
         } 
       />
       <Route 
-        path="/estudiante-material-didactico-clase" 
+        path="/estudiante-material-didactico-clase/:classId" 
         element={
           <PrivateRoute allowedRoles={['ESTUDIANTE']}>
             <EMaterialDidacticoClase />

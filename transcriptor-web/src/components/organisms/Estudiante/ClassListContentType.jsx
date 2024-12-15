@@ -1,17 +1,10 @@
-// src/components/organisms/Estudiante/ClassList.jsx
-
+// ClassList.jsx (Versión del Estudiante)
 import React, { useEffect, useState } from 'react';
 import Card from '../Estudiante/CardTypeContent'; // Asegúrate de que este sea el componente correcto para estudiantes
 import styles from '../../../assets/style/Estudiante/ClassListTypeContentE.module.css'; 
-import teacherImage from "../../../assets/imgs/Avatar Teacher.png"; // Importa la imagen
+import teacherImage from "../../../assets/imgs/Avatar Teacher.png"; // Imagen por defecto del autor
 
-// Autor constante
-const defaultAuthor = {
-  name: 'Horacio Irán Solís Cisneros',
-  image: teacherImage,
-};
-
-function ClassList({ classId, status }) { // Renombrar a ClassList
+function ClassList({ classId, status, typeFilter }) {
   const [transcriptions, setTranscriptions] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -37,7 +30,7 @@ function ClassList({ classId, status }) { // Renombrar a ClassList
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`, // Incluir el token correctamente
+            'Authorization': `Bearer ${token}`, 
           },
         });
 
@@ -50,7 +43,22 @@ function ClassList({ classId, status }) { // Renombrar a ClassList
 
         const data = await response.json();
         if (data.success) {
-          setTranscriptions(data.data);
+          // Filtrado en base a typeFilter
+          let filteredTranscriptions = data.data || [];
+          if (typeFilter === 'MATERIAL') {
+            filteredTranscriptions = filteredTranscriptions.filter(t => t.transcriptionType === 'MATERIAL');
+          } else if (typeFilter === 'TRANSCRIPCION') {
+            filteredTranscriptions = filteredTranscriptions.filter(t => t.transcriptionType === 'TRANSCRIPCION');
+          }
+
+          // Ordenar las transcripciones por fecha (más reciente primero)
+          filteredTranscriptions.sort((a, b) => {
+            const dateA = new Date(a.transcriptionDate);
+            const dateB = new Date(b.transcriptionDate);
+            return dateB - dateA; // Orden descendente
+          });
+
+          setTranscriptions(filteredTranscriptions);
         } else {
           setError(data.message || 'Error al obtener las transcripciones.');
         }
@@ -63,7 +71,7 @@ function ClassList({ classId, status }) { // Renombrar a ClassList
     };
 
     fetchTranscriptions();
-  }, [classId, status]);
+  }, [classId, status, typeFilter]);
 
   if (loading) {
     return <p className={styles.loading}>Cargando transcripciones...</p>;
@@ -74,7 +82,7 @@ function ClassList({ classId, status }) { // Renombrar a ClassList
   }
 
   if (!transcriptions || transcriptions.length === 0) {
-    return <p className={styles.noData}>No hay transcripciones disponibles.</p>;
+    return <p className={styles.noData}>No hay contenido disponible.</p>;
   }
 
   return (
@@ -82,15 +90,16 @@ function ClassList({ classId, status }) { // Renombrar a ClassList
       {transcriptions.map((transcription) => (
         <Card
           key={transcription.transcriptionId}
+          transcriptionId={transcription.transcriptionId}
           title={transcription.transcriptionTitle}
           description={transcription.transcriptionDescription}
           date={transcription.transcriptionDate}
           type={transcription.transcriptionType}
           link={transcription.transcriptionUrl}
-          fileType={transcription.transcriptionType === 'MATERIAL' ? 'image' : ''} // Ajusta según el tipo
+          fileType={transcription.transcriptionType === 'MATERIAL' ? 'image' : 'pdf'} // Actualizado para manejar PDF
           author={{
             name: `${transcription.userName} ${transcription.userSurname}`,
-            image: teacherImage, // Puedes ajustar para usar una imagen específica si está disponible
+            image: teacherImage, 
           }}
         />
       ))}

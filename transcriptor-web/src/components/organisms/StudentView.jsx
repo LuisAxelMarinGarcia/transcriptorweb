@@ -1,11 +1,11 @@
-// src/components/organisms/StudentView.jsx
-
-import React from 'react';
+import React, { useState } from 'react';
 import styles from '../../assets/style/StudentView.module.css';
 import Users from '../../assets/imgs/Users.png';
 import teacherAvatar from '../../assets/imgs/Avatar Teacher.png';
 import IconMicrofono from '../../assets/imgs/EscuchandoEnVivo.png';
 import { jsPDF } from 'jspdf'; // Importamos jsPDF
+import ModalEnVivoFinalizado from './Estudiante/ModalEnVivoFinalizado'; // Importar el modal
+import { useNavigate } from 'react-router-dom';
 
 const StudentView = ({
   title,
@@ -13,9 +13,11 @@ const StudentView = ({
   studentCount,
   transcriptionText,
 }) => {
+  const [showModal, setShowModal] = useState(false); // Estado para controlar el modal
+  const navigate = useNavigate(); // Hook para la navegación
+
   // Función para manejar la descarga del PDF
   const handleDownloadPDF = () => {
-    // Verificar si la transcripción está vacía
     if (!transcriptionText || transcriptionText.trim() === '') {
       alert('No hay transcripción disponible para descargar.');
       return;
@@ -23,7 +25,6 @@ const StudentView = ({
 
     const doc = new jsPDF();
 
-    // Añadir contenido al PDF
     doc.setFont('Helvetica');
     doc.setFontSize(16);
     doc.text(`Transcripción de la clase: ${title}`, 10, 20);
@@ -31,16 +32,48 @@ const StudentView = ({
     doc.text(`Profesor: ${teacherName}`, 10, 30);
     doc.text('Transcripción:', 10, 40);
 
-    // Dividir el texto para ajustarlo al ancho del PDF
     const textLines = doc.splitTextToSize(transcriptionText, 180);
     doc.text(textLines, 10, 50);
 
-    // Guardar el PDF
     doc.save(`Transcripcion_${title}.pdf`);
   };
 
+  // Función para abrir el modal
+  const handleExitClick = () => {
+    console.log('[StudentView.jsx] Botón "Salir de la transmisión" clicado. Mostrando modal.');
+    setShowModal(true);
+  };
+
+  // Función para cerrar el modal
+  const handleCloseModal = () => {
+    console.log('[StudentView.jsx] Modal cerrado.');
+    setShowModal(false);
+  };
+
+  // Función para confirmar la salida y redirigir
+  const handleConfirmExit = () => {
+    console.log('[StudentView.jsx] Confirmación de salida. Redirigiendo a /home-estudiante.');
+    navigate('/home-estudiante', { replace: true }); // Reemplaza la entrada actual en el historial
+  };
+  
+  
+
+  console.log('[StudentView.jsx] Renderizando componente con props:', {
+    title,
+    teacherName,
+    studentCount,
+    transcriptionText,
+  });
+
   return (
     <div className={styles.container}>
+      {/* Modal para confirmar salida */}
+      <ModalEnVivoFinalizado
+        show={showModal}
+        onClose={handleCloseModal}
+        onConfirm={handleConfirmExit} // Nueva prop para manejar la confirmación
+      />
+
       {/* Sección del título, nombre del maestro y fondo */}
       <div className={styles.headerContainer}>
         <div className={styles.titleInfo}>
@@ -76,12 +109,13 @@ const StudentView = ({
       {/* Texto de transcripción con scroll */}
       <div className={styles.mainContent}>
         <div className={styles.transcriptionContainer}>
-          <div className={styles.transcriptionText}>
-            {transcriptionText}
-          </div>
+          <div className={styles.transcriptionText}>{transcriptionText}</div>
         </div>
 
-        <button className={styles.exitButton}>Salir de la transmisión</button>
+        {/* Botón para salir de la transmisión */}
+        <button className={styles.exitButton} onClick={handleExitClick}>
+          Salir de la transmisión
+        </button>
       </div>
     </div>
   );

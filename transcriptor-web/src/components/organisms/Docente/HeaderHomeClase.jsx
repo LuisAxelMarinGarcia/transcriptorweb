@@ -1,6 +1,8 @@
 // src/components/organisms/Docente/HeaderClase.jsx
+
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';  // Importar Link y useNavigate
+import { useNavigate } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import styles from '../../../assets/style/Docente/ClaseHeader.module.css'; 
 import UsersIcon from '../../../assets/imgs/Users.png';
 
@@ -10,7 +12,7 @@ import iconPanel from '../../../assets/imgs/IconPanel.png';
 import iconMaterialDidactico from '../../../assets/imgs/iconMaterial.png';
 import iconTranscripcion from '../../../assets/imgs/iconTranscripcion.png';
 
-const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherName, classGroup }) => {
+const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherName, classGroup, classStatus }) => {
   const navigate = useNavigate();  // Inicializar el hook
 
   // Función para manejar el click en "Material Didáctico"
@@ -19,19 +21,23 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
     console.log('[HeaderClase] Datos enviados:', {
       classId,
       name,
-      students: studentCount, // Asegúrate de usar 'studentCount' aquí
+      students: studentCount,
       teacherName,
       classGroup,
       classCode: codeClass,
+      materialStatus: 'DISPONIBLE', // Cambiado de 'status' a 'materialStatus'
+      classStatus // Añadido
     });
     navigate(`/docente-material-didactico/${classId}`, {
       state: {
-        classId,         // Pasar el classId (UUID)
-        name,            // Nombre de la clase
-        students: studentCount, // Cantidad de estudiantes
-        teacherName,     // Nombre del profesor
-        classGroup,      // Grupo de clase
-        classCode: codeClass, // Código de clase
+        classId,
+        name,
+        students: studentCount,
+        teacherName,
+        classGroup,
+        classCode: codeClass,
+        materialStatus: 'DISPONIBLE', // Cambiado de 'status' a 'materialStatus'
+        classStatus // Añadido
       }
     });
   };
@@ -42,73 +48,114 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
     console.log('[HeaderClase] Datos enviados:', {
       classId,
       name,
-      students: studentCount, // Asegúrate de usar 'studentCount' aquí
+      students: studentCount,
       teacherName,
       classGroup,
       classCode: codeClass,
-      status: 'DISPONIBLE'
+      status: 'DISPONIBLE', // Mantenemos 'status' para Transcripciones
+      classStatus // Añadido
     });
-    navigate(`/transcripciones-docente/${classId}`, {  // Navega a /transcripciones-docente/:classId
+    navigate(`/transcripciones-docente/${classId}`, {  
       state: {
-        classId,         // Pasar el classId (UUID)
-        name,            // Nombre de la clase
-        students: studentCount, // Cantidad de estudiantes
-        teacherName,     // Nombre del profesor
-        classGroup,      // Grupo de clase
-        classCode: codeClass, // Código de clase
-        status: 'DISPONIBLE'   // Puedes cambiar esto según lo que necesites
+        classId,
+        name,
+        students: studentCount,
+        teacherName,
+        classGroup,
+        classCode: codeClass,
+        status: 'DISPONIBLE', // Mantenemos 'status' para Transcripciones
+        classStatus // Añadido
+      }
+    });
+  };
+
+  // Función para manejar el click en "Panel" con navegación programática
+  const handlePanelClick = () => {
+    console.log(`[HeaderClase] Navegando a Panel con classId: ${classId}`);
+    console.log('[HeaderClase] Datos enviados:', {
+      classId,
+      name,
+      students: studentCount,
+      teacherName,
+      classGroup,
+      classCode: codeClass,
+      status: 'DISPONIBLE', // Mantenemos 'status' para Transcripciones
+      classStatus // Añadido
+    });
+    navigate(`/docente-home-materia/${classId}`, {
+      state: {
+        classId,
+        name,
+        students: studentCount,
+        teacherName,
+        classGroup,
+        classCode: codeClass,
+        status: 'DISPONIBLE', // Mantenemos 'status' para Transcripciones
+        classStatus // Añadido
+      }
+    });
+  };
+
+  // Función para manejar el click en "Personas"
+  const handlePersonasClick = () => {
+    console.log(`[HeaderClase] Navegando a Personas con classId: ${classId}`);
+    console.log('[HeaderClase] Datos enviados:', {
+      classId,
+      name,
+      students: studentCount,
+      teacherName,
+      classGroup,
+      classCode: codeClass,
+      status: 'DISPONIBLE', // Añadimos 'status'
+      classStatus // Añadido
+    });
+    navigate(`/docente-personas-materia/${classId}`, {
+      state: {
+        classId,
+        name,
+        students: studentCount,
+        teacherName,
+        classGroup,
+        classCode: codeClass,
+        status: 'DISPONIBLE', // Añadimos 'status'
+        classStatus // Añadido
       }
     });
   };
 
   return (
     <div className={styles.headerContent}>
+      {/* Condicionalmente renderiza la superposición si la clase está archivada */}
+      {classStatus === 'ARCHIVADO' && (
+        <div className={styles.archivedOverlay}>
+          <p>Esta clase se encuentra archivada</p>
+        </div>
+      )}
+
       <div className={styles.titleInfo}>
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.teacherInfo}>
           <img src={UsersIcon} alt="Icon Docente" className={styles.teacherIcon} />
-          <p className={styles.studentCount}> {studentCount} </p>
+          <p className={styles.studentCount}>{studentCount}</p>
         </div>
       </div>
 
       <div className={styles.navContainer}>
         <ul className={styles.navList}>
-          {/* Opción 1: Usar <Link> para "Personas" */}
+          {/* "Personas" con navegación programática */}
           <li className={styles.navItem}>
             <img src={iconPersonas} alt="Icono de Personas" className={styles.icon} />
-            <Link 
-              to={`/docente-personas-materia/${classId}`} 
-              state={{ 
-                classId, 
-                name, 
-                students: studentCount, 
-                teacherName, 
-                classGroup, 
-                classCode: codeClass 
-              }}
-              className={styles.navLink}  // Asegúrate de definir estilos para navLink
-            >
+            <button onClick={handlePersonasClick} className={styles.navButton}>
               Personas
-            </Link>
+            </button>
           </li>
 
-          {/* Opción 2: Usar <Link> para "Panel" */}
+          {/* "Panel" con navegación programática */}
           <li className={styles.navItem}>
             <img src={iconPanel} alt="Icono de Panel" className={styles.icon} />
-            <Link 
-              to={`/panel-clase/${classId}`} 
-              state={{ 
-                classId, 
-                name, 
-                students: studentCount, 
-                teacherName, 
-                classGroup, 
-                classCode: codeClass 
-              }}
-              className={styles.navLink}
-            >
+            <button onClick={handlePanelClick} className={styles.navButton}>
               Panel
-            </Link>
+            </button>
           </li>
 
           {/* "Material Didáctico" con navegación programática */}
@@ -136,6 +183,17 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
       </div>
     </div>
   );
+};
+
+HeaderClase.propTypes = {
+  title: PropTypes.string.isRequired,
+  studentCount: PropTypes.number.isRequired,
+  codeClass: PropTypes.string.isRequired,
+  classId: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  teacherName: PropTypes.string.isRequired,
+  classGroup: PropTypes.string,
+  classStatus: PropTypes.string.isRequired, // Añadido
 };
 
 export default HeaderClase;

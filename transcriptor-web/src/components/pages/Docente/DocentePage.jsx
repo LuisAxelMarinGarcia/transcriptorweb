@@ -15,21 +15,26 @@ const RecordingPage = () => {
   // Extraer datos de la clase desde location.state
   const { state } = location;
 
+  // Definir los campos requeridos (excluyendo 'userId' y 'status')
+  const requiredFields = ['name', 'students', 'teacherName', 'classGroup', 'classCode'];
+
+  // Verificar qué campos faltan
+  const missingFields = requiredFields.filter(field => !state || !state[field]);
+
   // Validar que los datos de la clase estén presentes
-  if (
-    !state ||
-    !state.name ||
-    !state.students ||
-    !state.teacherName ||
-    !state.classGroup ||
-    !state.classCode ||
-    !state.status
-  ) {
-    console.error('[RecordingPage.jsx] No se proporcionaron datos de la clase en el estado de navegación.');
-    return <p className="error-message">Error: No se proporcionaron datos de la clase.</p>;
+  if (missingFields.length > 0) {
+    console.error(
+      `[RecordingPage.jsx] Faltan los siguientes datos de la clase en el estado de navegación: ${missingFields.join(', ')}.`
+    );
+    return (
+      <p className="error-message">
+        Error: No se proporcionaron todos los datos de la clase. Faltan: {missingFields.join(', ')}.
+      </p>
+    );
   }
 
-  const { name, students, teacherName, classGroup, classCode, status, userId } = state; // Asegúrate de que 'userId' esté en el estado
+  // Extraer campos opcionales con valores predeterminados si no están presentes
+  const { name, students, teacherName, classGroup, classCode, status = 'activo', userId = null } = state;
 
   // Estados locales
   const [transcript, setTranscript] = useState('');
@@ -298,7 +303,8 @@ const RecordingPage = () => {
         canvasRef={canvasRef} // Pasamos el canvasRef a RecordingView
         transcript={transcript} // Pasamos la transcripción como prop
         classId={classId} // Pasamos classId
-        userId={userId} // Pasamos userId
+        userId={userId} // Pasamos userId (puede ser null)
+        status={status} // Pasamos status (puede ser 'activo' por defecto)
       />
       <Footer />
     </div>

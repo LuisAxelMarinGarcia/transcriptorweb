@@ -10,7 +10,8 @@ import iconEnlace from '../../../assets/imgs/enlace.png';
 import iconSubir from '../../../assets/imgs/subir.png';
 import iconSubirFile from '../../../assets/imgs/subirFile.png';
 
-const CrearMaterial = ({ title, studentCount, codeClass, classId, name, teacherName, classGroup }) => {
+const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherName, classGroup }) => {
+  const [title, setTitle] = useState(''); // Estado para el título personalizado
   const [inputType, setInputType] = useState(null);
   const [file, setFile] = useState(null);  // Para almacenar el archivo
   const [link, setLink] = useState('');   // Para almacenar el enlace
@@ -38,8 +39,17 @@ const CrearMaterial = ({ title, studentCount, codeClass, classId, name, teacherN
     setDescription(e.target.value);  // Capturar la descripción
   };
 
+  const handleTitleChange = (e) => {
+    setTitle(e.target.value); // Capturar el título ingresado
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!title.trim()) {
+      alert('Por favor, ingresa un título para el material.');
+      return;
+    }
 
     const token = localStorage.getItem('token');
     if (!token) {
@@ -105,6 +115,7 @@ const CrearMaterial = ({ title, studentCount, codeClass, classId, name, teacherN
         setFile(null);  // Limpiar el archivo
         setDescription('');  // Limpiar descripción
         setLink('');  // Limpiar enlace
+        setTitle('');  // Limpiar título
       } else {
         alert('Error al crear el material');
       }
@@ -144,7 +155,7 @@ const CrearMaterial = ({ title, studentCount, codeClass, classId, name, teacherN
 
             <div className={styles.ContenidoCrear}>
               <div className={styles.infoMaterial}>
-                <p><strong>Asignar a:</strong> {name}</p>  {/* Nombre de la clase */}
+                <p><strong>Asignar a:</strong> {className}</p>  {/* Nombre de la clase */}
                 <p><strong>Por:</strong> {teacherName}</p> {/* Nombre del profesor */}
               </div>
 
@@ -155,7 +166,7 @@ const CrearMaterial = ({ title, studentCount, codeClass, classId, name, teacherN
                   id="title"
                   className={styles.titleInput}
                   value={title}
-                  readOnly
+                  onChange={handleTitleChange} // Permitir edición del título
                 />
 
                 <div className={styles.SectionIcon} onClick={() => handleShowInput("archivo")}>

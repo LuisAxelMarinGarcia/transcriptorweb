@@ -1,6 +1,6 @@
 // src/components/organisms/Docente/TeacherHeaderGenerico.jsx
 
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from '../../../assets/style/Docente/TeacherHeaderGenerico.module.css';
 import Logo from '../../atoms/LogoTranscribeme'; 
@@ -8,16 +8,27 @@ import Avatar from '../../atoms/AvatarPerfil';
 import IconHome from '../../../assets/imgs/IconHome.png';
 import clasesArchivadas from '../../../assets/imgs/clasesArchivadas.png';
 import iconLive from '../../../assets/imgs/iconEnVivo.png';
+import ModalIniciarEnVivo from './ModalIniciarEnVivo'; // Asegúrate de que la ruta es correcta
 
-const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenModal }) => { // Añadido onOpenModal
+const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenModal, classStatus }) => {
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false); // Estado para controlar el modal
 
   const handleTranscriptionClick = () => {
-    if (classId && classData) { // Asegurarse de que classData está disponible
-      navigate(`/docente/${classId}`, { state: { ...classData } }); // Pasar el state
+    if (classId && classData && classStatus !== 'ARCHIVADO') {
+      setShowModal(true); // Abrir el modal
     } else {
-      console.error('No se proporcionó classId o classData para la transcripción.');
+      console.error('No se proporcionó classId o classData para la transcripción, o la clase está archivada.');
     }
+  };
+
+  const handleConfirmTranscription = () => {
+    navigate(`/docente/${classId}`, { state: { ...classData } }); // Navegar después de confirmar
+    setShowModal(false); // Cerrar el modal
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false); // Cerrar el modal sin hacer nada
   };
 
   const renderHeaderContent = () => {
@@ -32,7 +43,7 @@ const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenMo
               </h1>
             </div>
 
-            <button className={styles.createClassButton} onClick={onOpenModal}> {/* Cambiado onClick */}
+            <button className={styles.createClassButton} onClick={onOpenModal}>
               Crear clase <i className="fas fa-plus-circle"></i>
             </button>
           </div>
@@ -43,7 +54,7 @@ const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenMo
           <div className={styles.ContainerTitleArchivados}>
             <h1 className={styles.titleMateriaArchivado}>
               <i className="fas fa-book"></i> Clases archivadas
-              <img src={clasesArchivadas} alt="Icon-Home" className={styles.IconoArchivado} />
+              <img src={clasesArchivadas} alt="Icon-Archivado" className={styles.IconoArchivado} />
             </h1>
           </div>
         );
@@ -52,8 +63,10 @@ const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenMo
         return (
           <div className={styles.transcriptionContent}>
             <button 
-              className={`${styles.transcriptionButton} ${ transcriptionStatus === 'ARCHIVADO' ? styles.archivedButton : ''}`}  
-              onClick={handleTranscriptionClick}
+              className={`${styles.transcriptionButton} ${classStatus === 'ARCHIVADO' ? styles.archivedButton : ''}`}  
+              onClick={classStatus !== 'ARCHIVADO' ? handleTranscriptionClick : undefined} // Condicional para onClick
+              disabled={classStatus === 'ARCHIVADO'} // Deshabilitar el botón si está archivado
+              title={classStatus === 'ARCHIVADO' ? "La clase está archivada y no se puede iniciar la transcripción." : "Iniciar transcripción en vivo"}
             >
               Iniciar transcripción en vivo <img src={iconLive} alt="Icono de transmisión en vivo" className={styles.icon} />
             </button>
@@ -78,6 +91,13 @@ const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenMo
       </div>
       
       <Avatar size="medium" />
+
+      {/* Incluir el ModalIniciarEnVivo */}
+      <ModalIniciarEnVivo 
+        show={showModal} 
+        onClose={handleCloseModal} 
+        onConfirm={handleConfirmTranscription} 
+      />
     </header>
   );
 };

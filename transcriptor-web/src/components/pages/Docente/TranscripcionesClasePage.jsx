@@ -1,3 +1,5 @@
+// src/components/pages/Maestro/TranscripcionesClasePage.jsx
+
 import React from 'react';
 import { useParams, useLocation } from 'react-router-dom';
 import TranscripcionesClaseDocente from '../../templates/Maestro/TranscripcionesClaseTemplate';
@@ -14,7 +16,10 @@ const TranscripcionesClasePage = () => {
     return <p className={styles.errorMessage}>Error: No se proporcionaron datos de la clase.</p>;
   }
 
-  const { name, students, teacherName, classGroup, classCode, status } = state;
+  const { name, students, teacherName, classGroup, classCode, status, classStatus } = state;
+
+  // Verificar si classStatus está presente; si no, asignar un valor por defecto
+  const finalClassStatus = classStatus || 'NO ARCHIVADO';
 
   console.log('[TranscripcionesClasePage.jsx] Datos recibidos del estado:', {
     name,
@@ -23,6 +28,7 @@ const TranscripcionesClasePage = () => {
     classGroup,
     classCode,
     status,
+    classStatus: finalClassStatus
   });
 
   return (
@@ -35,6 +41,8 @@ const TranscripcionesClasePage = () => {
       teacherName={teacherName} // Pasa el nombre del profesor
       classGroup={classGroup}   // Pasa el grupo de la clase
       status={status}       // Pasa el status para que se use en la llamada a la API
+      classStatus={finalClassStatus} // Pasar classStatus como prop
+      typeFilter="TRANSCRIPCION" // Para filtrar transcripciones
     />
   );
 };

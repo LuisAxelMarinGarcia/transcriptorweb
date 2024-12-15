@@ -7,10 +7,10 @@ import iconDelete from '../../../assets/imgs/IconEliminar.png';
 import iconFecha from '../../../assets/imgs/IconFecha.png';
 
 import ModalCompartirQR from '../../organisms/ModalCompartirQR'; 
-import styles from '../../../assets/style/Docente/CardTypeContent.module.css';
-
 import ModalEliminarTranscription from '../../organisms/Docente/ModalEliminarTranscripcion'; 
 import ModalEliminarOther from '../../organisms/Docente/ModalEliminarMaterialD'; 
+
+import styles from '../../../assets/style/Docente/CardTypeContent.module.css';
 
 function Card({ transcriptionId, title, description, date, type, link, fileType, author, onDelete }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +25,7 @@ function Card({ transcriptionId, title, description, date, type, link, fileType,
     e.stopPropagation();
     if (type === 'MATERIAL') {
       setActiveModal('transcription');
-    } else if (type === 'LINK' || type === 'FILE') {
+    } else if (type === 'LINK' || type === 'FILE' || type === 'TRANSCRIPCION') { // Añadido 'TRANSCRIPCION'
       setActiveModal('other');
     }
     setIsModalOpen(true);
@@ -75,13 +75,18 @@ function Card({ transcriptionId, title, description, date, type, link, fileType,
           <span className={styles.cardDate}>
             <img src={iconFecha} alt="Fecha" className={styles.icon} /> {date}
           </span>
+          {type === 'TRANSCRIPCION' && link && (
+            <a href={link} target="_blank" rel="noopener noreferrer" className={styles.verTranscripcion}>
+              Ver Transcripción
+            </a>
+          )}
           {type === 'MATERIAL' && (
             <>
               <img src={iconShare} alt="Compartir" className={styles.cardIcon} onClick={openModalShare} />
               <img src={iconDownload} alt="Descargar" className={styles.cardIcon} onClick={handleDownload} />
             </>
           )}
-          {(type === 'MATERIAL' || type === 'LINK' || type === 'FILE') && (
+          {(type === 'MATERIAL' || type === 'LINK' || type === 'FILE' || type === 'TRANSCRIPCION') && (
             <img src={iconDelete} alt="Eliminar" className={styles.cardIcon} onClick={openModalDelete} />
           )}
         </div>
@@ -100,9 +105,14 @@ function Card({ transcriptionId, title, description, date, type, link, fileType,
             {link}
           </a>
         )}
-        {type === 'MATERIAL' && link && (
-          <a href={link} target="_blank" rel="noopener noreferrer">
+        {type === 'TRANSCRIPCION' && link && (
+          <a href={link} target="_blank" rel="noopener noreferrer" className={styles.verTranscripcion}>
             Ver Transcripción
+          </a>
+        )}
+        {type === 'MATERIAL' && link && (
+          <a href={link} target="_blank" rel="noopener noreferrer" className={styles.verMaterial}>
+            Ver Material
           </a>
         )}
       </div>
@@ -131,7 +141,7 @@ function Card({ transcriptionId, title, description, date, type, link, fileType,
         />
       )}
 
-      {/* Modal para Eliminar Otro (Link o File) */}
+      {/* Modal para Eliminar Otro (Link, File o Transcripción) */}
       {isModalOpen && activeModal === 'other' && (
         <ModalEliminarOther 
           show={isModalOpen} 

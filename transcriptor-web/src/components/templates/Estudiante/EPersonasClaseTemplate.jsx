@@ -7,8 +7,8 @@ import Footer from "../../organisms/Footer";
 import HeaderDeClase from '../../organisms/Estudiante/HeaderHomeMateria';
 import ListaPersonas from '../../organisms/Estudiante/ClassListPersonas';
 
-const HomeTemplate = ({ title, studentCount, teacherName, classId, classGroup, codeClass }) => {
-    console.log('[EPersonasClaseTemplate.jsx] Props recibidas:', { title, studentCount, teacherName, classId, classGroup, codeClass });
+const HomeTemplate = ({ title, studentCount, teacherName, classId, status, classGroup, codeClass }) => {
+    console.log('[EPersonasClaseTemplate.jsx] Props recibidas:', { classId, title, studentCount, teacherName, status, classGroup, codeClass });
 
     return (
         <>
@@ -19,8 +19,15 @@ const HomeTemplate = ({ title, studentCount, teacherName, classId, classGroup, c
 
                 <div className={styles.container}>
 
-                    <div className={styles.HeaderContainer}>
-                        <Header view="Clase-personas" />
+                <div className={styles.HeaderContainer}>
+                        <Header
+                            view="Clase-unirme-a-transcripcion" // Asegúrate de que este valor coincida con la lógica del modal
+                            classId={classId}
+                            name={title}
+                            students={studentCount}
+                            teacherName={teacherName}
+                            status={status} // Estado normalizado
+                        />
                     </div>
 
                     <div className={styles.OtherContainer}>
@@ -30,8 +37,8 @@ const HomeTemplate = ({ title, studentCount, teacherName, classId, classGroup, c
                                 title={title}
                                 studentCount={studentCount}
                                 teacherName={teacherName}
-                                classGroup={classGroup}
-                                codeClass={codeClass}
+                                classGroup={classGroup} // Opcional
+                                codeClass={codeClass}     // Opcional
                             />
                         </div>
 

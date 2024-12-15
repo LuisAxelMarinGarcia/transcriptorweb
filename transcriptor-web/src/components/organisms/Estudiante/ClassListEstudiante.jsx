@@ -10,7 +10,7 @@ function ClassListEstudiante({ classes, onStatusChange, onDelete }) {
   console.log('[ClassListEstudiante.jsx] Clases recibidas:', classes);
 
   if (!classes || classes.length === 0) {
-    return <p>No hay clases no archivadas para mostrar.</p>;
+    return <p>No hay clases para mostrar.</p>;
   }
 
   return (
@@ -21,8 +21,8 @@ function ClassListEstudiante({ classes, onStatusChange, onDelete }) {
           classId={classItem.classId}
           name={classItem.className}
           students={classItem.classNumberOfStudents}
-          teacherName={classItem.userName}
-          status={classItem.classStatus}
+          teacherName={classItem.teacherName} 
+          status={classItem.classStatus || 'NO ARCHIVADO'} 
           onStatusChange={onStatusChange}
           onDelete={onDelete}
         />

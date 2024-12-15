@@ -1,79 +1,95 @@
+// HomeMateria.jsx
 import React, { useState } from 'react';
-import Header from '../../organisms/Docente/TeacherHeaderGenerico'
-import SidebarGenerico from '../../organisms/Docente/SidebarGenerico'
-import styles from '../../../assets/style/Docente/ClaseHome.module.css'
+import { useParams } from 'react-router-dom';
+import Header from '../../organisms/Docente/TeacherHeaderGenerico';
+import SidebarGenerico from '../../organisms/Docente/SidebarGenerico';
 import Footer from "../../organisms/Footer";
-
-import HeaderClase from '../../organisms/Docente/HeaderHomeClase'
+import HeaderClase from '../../organisms/Docente/HeaderHomeClase';
 import ClassListTypeContent from '../../organisms/Docente/ClassListTypeContent';
-
-
 import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
-import ModalArchivedTranscription from '../../organisms/Docente/ModalEnVivoNODisponible'; // Importa el modal para transcripción archivada
+import ModalArchivedTranscription from '../../organisms/Docente/ModalEnVivoNODisponible'; // Modal para transcripción archivada
+import styles from '../../../assets/style/Docente/ClaseHome.module.css';
 
-const HomeMateria = ({ title, studentCount,codeClass }) => {
+const HomeMateria = ({
+  title,
+  studentCount,
+  codeClass,
+  name,
+  teacherName,
+  classGroup,
+  status,
+  classStatus
+}) => {
+  const { classId } = useParams();
+  console.log('[HomeMateria] classId:', classId);
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [transcriptionStatus] = useState('ARCHIVADO'); 
-    
+  const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-    const handleOpenModal = () => {
-        if (transcriptionStatus === 'ACTIVO') {
-            console.log('Modal de transcripción en vivo abierto');
-            setIsModalOpen(true);
-        } else if (transcriptionStatus === 'ARCHIVADO') {
-            console.log('Modal de transcripción archivada abierto');
-            setIsModalOpen(true); // Usamos el mismo estado para ambos, pero mostramos el modal adecuado en el render
-        }
-    };
-    
-    const handleCloseModal = () => {
-        console.log('Modal cerrado');
-        setIsModalOpen(false);
-    };
+  const classData = { name, students: studentCount, teacherName, classGroup, classCode: codeClass, status };
 
-    return(
-        <>
-            <div className={styles.flex}>
-                <div className={styles.SpaceSiderbar}>
-                <SidebarGenerico />
-                </div>
+  const handleOpenModal = () => {
+    console.log(`Abriendo modal de transcripción con estado: ${transcriptionStatus}`);
+    setIsModalOpen(true);
+  };
 
-                <div className={styles.container}>
-                    
-                    <div className={styles.HeaderContainer}>
-                        <Header view="transcripcion" onOpenModal={handleOpenModal} transcriptionStatus={transcriptionStatus}/>
-                    </div>
+  const handleCloseModal = () => {
+    console.log('Modal cerrado');
+    setIsModalOpen(false);
+  };
 
-                    <div className={styles.OtherContainer}>
+  return (
+    <>
+      <div className={styles.flex}>
+        <div className={styles.SpaceSiderbar}>
+          <SidebarGenerico />
+        </div>
 
-                        
-                        <div className={styles.HeaderClass}>
-                            <HeaderClase
-                                    title={title}
-                                    studentCount={studentCount}
-                                    codeClass={codeClass}
-                            />
-                        </div>
+        <div className={styles.container}>
+          <div className={styles.HeaderContainer}>
+            <Header 
+              view="transcripcion" 
+              classId={classId} // Pasamos classId como prop
+              transcriptionStatus={transcriptionStatus} // Opcional
+              classData={classData} // Pasar classData
+              classStatus={classStatus}
+            />
+          </div>
 
-                        <div className={styles.ContainerCards}>
-                            <ClassListTypeContent typeFilter="all"/>
-                        </div>
-                        
-                    </div>
-                    <Footer />
-
-                </div>
+          <div className={styles.OtherContainer}>
+            <div className={styles.HeaderClass}>
+              <HeaderClase
+                title={title}
+                studentCount={studentCount}
+                codeClass={codeClass}
+                classId={classId}
+                name={name}
+                teacherName={teacherName}
+                classGroup={classGroup}
+                classStatus={classStatus}
+              />
             </div>
 
-            {transcriptionStatus === 'ACTIVO' ? (
-                <ModalTranscription show={isModalOpen} onClose={handleCloseModal} />
-            ) : (
-                <ModalArchivedTranscription show={isModalOpen} onClose={handleCloseModal} />
-            )}
             
-        </>
-    );
+            <div className={styles.ContainerCards}>
+              <ClassListTypeContent 
+                classId={classId}
+                status={transcriptionStatus} 
+                typeFilter="all"
+              />
+            </div>
+          </div>
+          <Footer />
+        </div>
+      </div>
+
+      {transcriptionStatus === 'ACTIVO' ? (
+        <ModalTranscription show={isModalOpen} onClose={handleCloseModal} />
+      ) : transcriptionStatus === 'ARCHIVADO' ? (
+        <ModalArchivedTranscription show={isModalOpen} onClose={handleCloseModal} />
+      ) : null}
+    </>
+  );
 };
 
 export default HomeMateria;

@@ -1,4 +1,5 @@
 // src/components/organisms/Estudiante/ECardMateria.jsx
+
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -42,7 +43,7 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
 
   const handleCardClick = () => {
     // Navegar a la página de transcripciones del estudiante, pasando classId
-    navigate(`/estudiante-transcripciones-clase/${classId}`, { 
+    navigate(`/estudiante-home-clase/${classId}`, { 
       state: { 
         classId, 
         name, 
@@ -52,6 +53,9 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
       } 
     });
   };
+
+  // Determinar el estado actual de la clase de manera segura
+  const currentStatus = status ? status.toUpperCase() : 'NO ARCHIVADO';
 
   return (
     <div className={styles.card} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
@@ -67,7 +71,7 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
       <div className={styles.cardFooter}>
         <p className={styles.teacherName}>{teacherName}</p>
         <div className={styles.cardActions}>
-          {status && status.toLowerCase() === 'no archivado' ? (
+          {currentStatus === 'NO ARCHIVADO' ? (
             <>
               <button
                 className={styles.iconButton}

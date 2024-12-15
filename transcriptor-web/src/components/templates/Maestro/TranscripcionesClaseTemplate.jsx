@@ -7,6 +7,7 @@ import styles from '../../../assets/style/Docente/ClaseHome.module.css';
 import Footer from "../../organisms/Footer";
 import HeaderClase from '../../organisms/Docente/HeaderHomeClase';
 import ClassListTypeContent from '../../organisms/Docente/ClassListTypeContent';
+
 import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
 
 const TranscripcionesClaseDocente = ({ 
@@ -17,10 +18,12 @@ const TranscripcionesClaseDocente = ({
   name, 
   teacherName, 
   classGroup, 
-  status 
+  status,
+  typeFilter,
+  classStatus // Nueva prop para el filtro
 }) => {
-  const { classId: urlClassId } = useParams();
-  console.log('[TranscripcionesClaseDocente] classId:', urlClassId);
+  // const { classId: urlClassId } = useParams(); // Eliminado para evitar redundancia
+  console.log('[TranscripcionesClaseDocente] classId:', classId);
 
   const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
 
@@ -40,6 +43,7 @@ const TranscripcionesClaseDocente = ({
               classId={classId} // Pasamos classId como prop
               transcriptionStatus={transcriptionStatus} // Opcional
               classData={classData} // Pasar classData
+              classStatus={classStatus}
             />
           </div>
 
@@ -53,6 +57,7 @@ const TranscripcionesClaseDocente = ({
                 name={name}
                 teacherName={teacherName}
                 classGroup={classGroup}
+                classStatus={classStatus}
               />
             </div>
 
@@ -60,6 +65,7 @@ const TranscripcionesClaseDocente = ({
               <ClassListTypeContent 
                 classId={classId}
                 status={transcriptionStatus} 
+                typeFilter={typeFilter} // Pasamos el filtro
               />
             </div>
           </div>

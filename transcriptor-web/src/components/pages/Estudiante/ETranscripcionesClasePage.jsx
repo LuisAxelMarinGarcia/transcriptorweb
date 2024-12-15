@@ -29,9 +29,9 @@ const ETranscripcionesClasePage = () => {
     return <p className={styles.errorMessage}>Error: No se proporcionaron datos esenciales de la clase.</p>;
   }
 
-  const { name, students, teacherName, status } = state;
+  const { name, students, teacherName, status, classGroup, codeClass } = state;
 
-  console.log('[ETranscripcionesClasePage.jsx] Datos desestructurados:', { name, students, teacherName, status });
+  console.log('[ETranscripcionesClasePage.jsx] Datos desestructurados:', { name, students, teacherName, status, classGroup, codeClass });
 
   return (
     <EVerTranscripcion
@@ -40,6 +40,9 @@ const ETranscripcionesClasePage = () => {
       teacherName={teacherName}
       classId={classId}           // Pasar classId (UUID)
       status={status}             // Puede ser undefined
+      classGroup={classGroup}     // Opcional: pasar si está disponible
+      codeClass={codeClass}       // Opcional: pasar si está disponible
+      typeFilter="TRANSCRIPCION"   // Filtrar para mostrar solo transcripciones
     />
   );
 };

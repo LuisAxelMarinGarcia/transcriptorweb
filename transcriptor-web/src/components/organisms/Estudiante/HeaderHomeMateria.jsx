@@ -11,11 +11,11 @@ import iconMaterialDidactico from '../../../assets/imgs/iconMaterial.png';
 import iconTranscripcion from '../../../assets/imgs/iconTranscripcion.png';
 import iconTeacher from '../../../assets/imgs/IconDocente.png';
 
-const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeClass }) => {
+const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeClass, classStatus }) => {
     const navigate = useNavigate(); // Inicializar el hook
     const { classId } = useParams(); // Obtener classId desde la URL
 
-    console.log('[HeaderHomeMateria.jsx] Props recibidas:', { title, studentCount, teacherName, classGroup, codeClass, classId });
+    console.log('[HeaderHomeMateria.jsx] Props recibidas:', { title, studentCount, teacherName, classGroup, codeClass, classId, classStatus });
 
     // Función para manejar el click en "Personas"
     const handlePersonasClick = () => {
@@ -49,11 +49,63 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
 
     // Funciones para otros botones (Panel, Material Didáctico, Transcripciones)
     const handlePanelClick = () => {
-        // Implementar navegación similar si es necesario
+        if (!classId) {
+            console.error('[HeaderHomeMateria] classId es undefined. No se puede navegar.');
+            alert('No se pudo navegar a Personas de la Clase: ID de clase no definido.');
+            return;
+        }
+
+        console.log(`[HeaderHomeMateria] Navegando a Personas con classId: ${classId}`);
+        console.log('[HeaderHomeMateria] Datos enviados:', {
+            classId,
+            name: title,
+            students: studentCount,
+            teacherName,
+            classGroup,
+            classCode: codeClass,
+            classStatus
+        });
+
+        navigate(`/estudiante-home-clase/${classId}`, {
+            state: {
+                classId,
+                name: title,
+                students: studentCount,
+                teacherName,
+                classGroup,
+                classCode: codeClass,
+                classStatus
+            }
+        });
     };
 
     const handleMaterialDidacticoClick = () => {
-        // Implementar navegación similar si es necesario
+        if (!classId) {
+            console.error('[HeaderHomeMateria] classId es undefined. No se puede navegar.');
+            alert('No se pudo navegar a Personas de la Clase: ID de clase no definido.');
+            return;
+        }
+
+        console.log(`[HeaderHomeMateria] Navegando a Personas con classId: ${classId}`);
+        console.log('[HeaderHomeMateria] Datos enviados:', {
+            classId,
+            name: title,
+            students: studentCount,
+            teacherName,
+            classGroup,
+            classCode: codeClass,
+        });
+
+        navigate(`/estudiante-material-didactico-clase/${classId}`, {
+            state: {
+                classId,
+                name: title,
+                students: studentCount,
+                teacherName,
+                classGroup,
+                classCode: codeClass,
+            }
+        });
     };
 
     const handleTranscripcionesClick = () => {

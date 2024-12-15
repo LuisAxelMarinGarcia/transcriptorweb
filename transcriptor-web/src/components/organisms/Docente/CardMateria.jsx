@@ -1,6 +1,7 @@
 // src/components/organisms/Docente/CardMateria.jsx
 
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import styles from '../../../assets/style/CardMateria.module.css';
 import EliminarIcon from '../../../assets/imgs/IconEliminar.png';
@@ -11,16 +12,16 @@ import ModalEliminarClase from './ModalEliminarClase';
 import ModalDesarchivarClase from './ModalDesarchivarClase';
 
 function CardMateria({
-  classId = '',
-  name = 'Sin Nombre',
-  students = 0,
-  teacherName = 'Docente',
-  status = 'NO ARCHIVADO',
-  classGroup = '',    // Acepta classGroup
-  classCode = '',     // Acepta classCode
+  classId,
+  name,
+  students,
+  teacherName,
+  status, // Este es classStatus: 'ARCHIVADO' o 'NO ARCHIVADO'
+  classGroup,
+  classCode,
   onStatusChange,
   onDelete,
-  userId,             // Añadir userId como prop
+  userId,
 }) {
   const [activeModal, setActiveModal] = useState(null);
   const navigate = useNavigate();
@@ -35,17 +36,17 @@ function CardMateria({
     classCode,
   });
 
-  const openModal = (modalType) => {
+  const openModal = useCallback((modalType) => {
     console.log(`[CardMateria.jsx] Abriendo modal: ${modalType} para claseId: ${classId}`);
     setActiveModal(modalType);
-  };
+  }, [classId]);
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     console.log(`[CardMateria.jsx] Cerrando modal: ${activeModal} para claseId: ${classId}`);
     setActiveModal(null);
-  };
+  }, [activeModal, classId]);
 
-  const handleStatusChange = (newStatus) => {
+  const handleStatusChange = useCallback((newStatus) => {
     console.log(`[CardMateria.jsx] handleStatusChange called with: ${newStatus}`);
     if (typeof onStatusChange === 'function') {
       onStatusChange(classId, newStatus);
@@ -53,9 +54,9 @@ function CardMateria({
       console.error('[CardMateria.jsx] onStatusChange no es una función');
     }
     closeModal();
-  };
+  }, [onStatusChange, classId, closeModal]);
 
-  const handleDelete = () => {
+  const handleDelete = useCallback(() => {
     console.log(`[CardMateria.jsx] handleDelete called`);
     if (typeof onDelete === 'function') {
       onDelete(classId, status);
@@ -63,12 +64,11 @@ function CardMateria({
       console.error('[CardMateria.jsx] onDelete no es una función');
     }
     closeModal();
-  };
+  }, [onDelete, classId, status, closeModal]);
 
-  const handleCardClick = () => {
+  const handleCardClick = useCallback(() => {
     console.log(`[CardMateria.jsx] Tarjeta clickeada: ${classId}`);
-    // Pasar los datos de la clase y userId como estado en la navegación
-    navigate(`/transcripciones-docente/${classId}`, { 
+    navigate(`/docente-home-materia/${classId}`, { 
       state: { 
         classId, 
         name, 
@@ -76,11 +76,11 @@ function CardMateria({
         teacherName, 
         classGroup, 
         classCode, 
-        status,
+        classStatus: status, // Pasar classStatus en lugar de status
         userId // Incluir userId en el estado
       } 
     });
-  };
+  }, [navigate, classId, name, students, teacherName, classGroup, classCode, status, userId]);
 
   return (
     <div className={styles.card} onClick={handleCardClick} style={{ cursor: 'pointer' }}>
@@ -96,15 +96,16 @@ function CardMateria({
       <div className={styles.cardFooter}>
         <p className={styles.teacherName}>{teacherName}</p>
         <div className={styles.cardActions}>
-          {status && status.toLowerCase() === 'no archivado' ? (
+          {status.toLowerCase() === 'no archivado' ? (
             <>
               <button
                 className={styles.iconButton}
                 onClick={(e) => { 
-                  e.stopPropagation(); // Evita que el clic se propague al contenedor principal
+                  e.stopPropagation(); 
                   openModal('eliminar'); 
                 }}
                 title="Eliminar Clase"
+                aria-label="Eliminar Clase"
               >
                 <img src={EliminarIcon} alt="Eliminar" className={styles.icon} />
               </button>
@@ -112,10 +113,11 @@ function CardMateria({
               <button
                 className={styles.iconButton}
                 onClick={(e) => { 
-                  e.stopPropagation(); // Evita que el clic se propague al contenedor principal
+                  e.stopPropagation(); 
                   openModal('archivar'); 
                 }}
                 title="Archivar Clase"
+                aria-label="Archivar Clase"
               >
                 <img src={ArchivarIcon} alt="Archivar" className={styles.icon} />
               </button>
@@ -125,10 +127,11 @@ function CardMateria({
               <button
                 className={styles.iconButton}
                 onClick={(e) => { 
-                  e.stopPropagation(); // Evita que el clic se propague al contenedor principal
+                  e.stopPropagation(); 
                   openModal('eliminar'); 
                 }}
                 title="Eliminar Clase"
+                aria-label="Eliminar Clase"
               >
                 <img src={EliminarIcon} alt="Eliminar" className={styles.icon} />
               </button>
@@ -136,10 +139,11 @@ function CardMateria({
               <button
                 className={styles.iconButton}
                 onClick={(e) => { 
-                  e.stopPropagation(); // Evita que el clic se propague al contenedor principal
+                  e.stopPropagation(); 
                   openModal('desarchivar'); 
                 }}
                 title="Desarchivar Clase"
+                aria-label="Desarchivar Clase"
               >
                 <img src={ArchivarIcon} alt="Desarchivar" className={styles.icon} />
               </button>
@@ -174,5 +178,18 @@ function CardMateria({
     </div>
   );
 }
+
+CardMateria.propTypes = {
+  classId: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  students: PropTypes.number.isRequired,
+  teacherName: PropTypes.string.isRequired,
+  status: PropTypes.string.isRequired, // Este es classStatus
+  classGroup: PropTypes.string,
+  classCode: PropTypes.string,
+  onStatusChange: PropTypes.func.isRequired,
+  onDelete: PropTypes.func.isRequired,
+  userId: PropTypes.string.isRequired,
+};
 
 export default CardMateria;

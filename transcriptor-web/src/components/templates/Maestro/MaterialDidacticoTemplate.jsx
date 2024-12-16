@@ -28,11 +28,17 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
         materialStatus,
         classStatus
     });
-  const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
+    const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
 
-  const classData = { name, students: studentCount, teacherName, classGroup, classCode: codeClass, status };
+    const classData = { 
+        name, 
+        students: studentCount, 
+        teacherName, 
+        classGroup, 
+        classCode: codeClass, 
+        status: classStatus // Asegurarse de usar classStatus
+    };
 
-  
     const [isTranscriptionModalOpen, setIsTranscriptionModalOpen] = useState(false);
     const [isMaterialModalOpen, setIsMaterialModalOpen] = useState(false);
 
@@ -47,22 +53,27 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
         setIsTranscriptionModalOpen(false);
     };
 
-    // Controla el modal de "Subir Material No Disponible" al hacer clic en el botón Subir Material, solo si está archivado
+    // Controla el modal de "Subir Material No Disponible" al hacer clic en el botón Subir Material, solo si la clase está archivada
     const handleOpenMaterialModal = () => {
+        if (classStatus === 'ARCHIVADO') { // Cambiado a classStatus
+            // No hacer nada o mostrar un mensaje adicional si es necesario
+            return;
+        }
+
         if (materialStatus === 'ARCHIVADO') {
             setIsMaterialModalOpen(true);
         } else {
             // Si no está archivado, lleva a la vista para subir material
             navigate('/docente-crear-material', {
-              state: {
-                classId,
-                name,
-                students,
-                teacherName,
-                classGroup,
-                classCode: codeClass,
-                status: 'DISPONIBLE'
-              }
+                state: {
+                    classId,
+                    name,
+                    students,
+                    teacherName,
+                    classGroup,
+                    classCode: codeClass,
+                    status: 'DISPONIBLE'
+                }
             });
         }
     };
@@ -79,34 +90,36 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
                 </div>
 
                 <div className={styles.container}>
-          <div className={styles.HeaderContainer}>
-            <Header 
-              view="transcripcion" 
-              classId={classId} // Pasamos classId como prop
-              transcriptionStatus={transcriptionStatus} // Opcional
-              classData={classData} // Pasar classData
-              classStatus={classStatus}
-            />
-          </div>
+                    <div className={styles.HeaderContainer}>
+                        <Header 
+                            view="transcripcion" 
+                            classId={classId} // Pasamos classId como prop
+                            transcriptionStatus={transcriptionStatus} // Opcional
+                            classData={classData} // Pasar classData
+                            classStatus={classStatus}
+                        />
+                    </div>
 
-          <div className={styles.OtherContainer}>
-            <div className={styles.HeaderClass}>
-              <HeaderClase
-                title={title}
-                studentCount={studentCount}
-                codeClass={codeClass}
-                classId={classId}
-                name={name}
-                teacherName={teacherName}
-                classGroup={classGroup}
-                classStatus={classStatus}
-              />
-            </div>
+                    <div className={styles.OtherContainer}>
+                        <div className={styles.HeaderClass}>
+                            <HeaderClase
+                                title={title}
+                                studentCount={studentCount}
+                                codeClass={codeClass}
+                                classId={classId}
+                                name={name}
+                                teacherName={teacherName}
+                                classGroup={classGroup}
+                                classStatus={classStatus}
+                            />
+                        </div>
                         {/* SUBIR MATERIAL */}
                         <div className={styles.SubirMaterial}>
                             <button
-                                className={`${styles.botonSubirMaterial} ${materialStatus === 'ARCHIVADO' ? styles.SubirMaterialArchived : ''}`}
+                                className={`${styles.botonSubirMaterial} ${classStatus === 'ARCHIVADO' ? styles.SubirMaterialArchived : ''}`}
                                 onClick={handleOpenMaterialModal}
+                                disabled={classStatus === 'ARCHIVADO'} // Deshabilitar el botón si está archivado
+                                title={classStatus === 'ARCHIVADO' ? "La clase está archivada y no se puede subir material." : "Subir Material"}
                             >
                                 <img src={iconoMaterial} alt="Ícono de subir material" className={styles.iconoMaterial} />
                                 Subir Material
@@ -116,9 +129,9 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
                         {/* CARDS */}
                         <div className={styles.ContainerCards}>
                             <ClassListTypeContent 
-                              classId={classId} 
-                              status="DISPONIBLE" 
-                              typeFilter={typeFilter} // Pasamos el filtro
+                                classId={classId} 
+                                status="DISPONIBLE" 
+                                typeFilter={typeFilter} // Pasamos el filtro
                             />
                         </div>
 

@@ -1,4 +1,5 @@
 // src/components/organisms/Estudiante/HeaderHomeMateria.jsx
+
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom'; // Importar useNavigate y useParams
 import styles from '../../../assets/style/Estudiante/ClaseHeaderEstudiante.module.css'; // Verifica la ruta correcta
@@ -51,11 +52,11 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
     const handlePanelClick = () => {
         if (!classId) {
             console.error('[HeaderHomeMateria] classId es undefined. No se puede navegar.');
-            alert('No se pudo navegar a Personas de la Clase: ID de clase no definido.');
+            alert('No se pudo navegar a Panel de la Clase: ID de clase no definido.');
             return;
         }
 
-        console.log(`[HeaderHomeMateria] Navegando a Personas con classId: ${classId}`);
+        console.log(`[HeaderHomeMateria] Navegando a Panel con classId: ${classId}`);
         console.log('[HeaderHomeMateria] Datos enviados:', {
             classId,
             name: title,
@@ -63,7 +64,6 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
             teacherName,
             classGroup,
             classCode: codeClass,
-            classStatus
         });
 
         navigate(`/estudiante-home-clase/${classId}`, {
@@ -74,7 +74,6 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
                 teacherName,
                 classGroup,
                 classCode: codeClass,
-                classStatus
             }
         });
     };
@@ -82,11 +81,11 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
     const handleMaterialDidacticoClick = () => {
         if (!classId) {
             console.error('[HeaderHomeMateria] classId es undefined. No se puede navegar.');
-            alert('No se pudo navegar a Personas de la Clase: ID de clase no definido.');
+            alert('No se pudo navegar a Material Didáctico de la Clase: ID de clase no definido.');
             return;
         }
 
-        console.log(`[HeaderHomeMateria] Navegando a Personas con classId: ${classId}`);
+        console.log(`[HeaderHomeMateria] Navegando a Material Didáctico con classId: ${classId}`);
         console.log('[HeaderHomeMateria] Datos enviados:', {
             classId,
             name: title,
@@ -111,11 +110,11 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
     const handleTranscripcionesClick = () => {
         if (!classId) {
             console.error('[HeaderHomeMateria] classId es undefined. No se puede navegar.');
-            alert('No se pudo navegar a Personas de la Clase: ID de clase no definido.');
+            alert('No se pudo navegar a Transcripciones de la Clase: ID de clase no definido.');
             return;
         }
 
-        console.log(`[HeaderHomeMateria] Navegando a Personas con classId: ${classId}`);
+        console.log(`[HeaderHomeMateria] Navegando a Transcripciones con classId: ${classId}`);
         console.log('[HeaderHomeMateria] Datos enviados:', {
             classId,
             name: title,
@@ -139,6 +138,13 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
 
     return (
         <div className={styles.headerContent}>
+            {/* Condicionalmente renderiza la superposición si la clase está archivada */}
+            {classStatus === 'ARCHIVADO' && (
+                <div className={styles.archivedOverlay}>
+                    <p>Esta clase está archivada</p>
+                </div>
+            )}
+
             <div className={styles.titleInfo}>
                 <h1 className={styles.title}>{title}</h1>
                 <div className={styles.teacherInfo}>

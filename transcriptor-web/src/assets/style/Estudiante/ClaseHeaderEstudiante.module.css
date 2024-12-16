@@ -1,7 +1,10 @@
+/* src/assets/style/Estudiante/ClaseHeaderEstudiante.module.css */
+
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;500;600;700&family=Julius+Sans+One&family=Nunito:wght@200;400;600;800;1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .headerContent {
+    position: relative; /* Añadido para posicionamiento del overlay */
     background-image: linear-gradient(rgba(6, 9, 110, 0.58), rgba(6, 9, 110, 0.58)), url(../../imgs/logo.jpeg);
     background-position: 50% 55%; /* Muestra una parte específica de la imagen */
     background-repeat: no-repeat;
@@ -13,10 +16,23 @@
     
     box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2); /* Sombra sutil */
 }
-.teacherInfo{
+
+.archivedOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3rem; /* Ajusta la altura según necesidad */
+    background-color: rgba(0, 0, 0, 0.8); /* Negro semiopaco */
+    color: white;
     display: flex;
-    
+    align-items: center;
+    justify-content: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    z-index: 10; /* Asegura que esté por encima de otros elementos */
 }
+
 .titleInfo {
     height: 70%;
     display: flex;
@@ -24,7 +40,6 @@
     align-items: center; /* Centra horizontalmente */
     justify-content: center; /* Centra verticalmente */
     text-align: center;
-    
 }
 
 .title {
@@ -44,7 +59,6 @@
 }
 
 .teacherIcon {
-    
     width: 1.5rem; /* Ajusta el tamaño */
     height: auto; 
     margin-right: 1rem;
@@ -65,28 +79,27 @@
     height: 30%;
     display: flex;
     width: 100%;
+    margin-top: 1.2rem; /* Espacio superior para separar del título */
 }
 
-
-.navList{
-    width: 70%; /* Ocupa el 70% del ancho del contenedor */
+.navList {
+    width: 75%; /* Ocupa el 75% del ancho del contenedor */
     display: flex;
     align-items: center; /* Centra verticalmente los elementos */
     list-style: none; /* Quitar puntos de la lista */
     justify-content: space-around; /* Distribuye espacio alrededor de cada elemento */
     margin: 0; /* Agrega esta línea */
     padding: 0; /* Agrega esta línea */
-    background-color: #737cc0; /* Negro con 50% de transparencia */
+    background-color: #737cc0; /* Color de fondo */
 }
 
-.CodeClass{ 
-    width: 30%; /* Ocupa el 30% del ancho del contenedor */
+.CodeClass { 
+    width: 25%; /* Ocupa el 25% del ancho del contenedor */
     height: 100%; /* Ocupa toda la altura del contenedor */
     display: flex;
     align-items: center; /* Centra verticalmente el texto */
     justify-content: center; /* Centra horizontalmente el texto */
     background-color: rgba(34, 36, 105, 0.567); /* Fondo semitransparente */
-    
 }
 
 .icon {
@@ -118,7 +131,6 @@
     font-style: normal;
     color: white;
     font-size: 1.2rem; /* Ajusta el tamaño según lo que necesites */
-    margin-top: 0;
 }
 
 .codeText {
@@ -133,11 +145,25 @@
 .iconTeacher{
     width: 30px; /* Ajusta el tamaño del ícono */
     height: auto;
-    
 }
 
 .teacherInfoContainer{
     display: flex;
     align-items: center;
     gap: 0.6rem;
+}
+
+.navButton {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-family: "Poppins", sans-serif;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.navButton:hover {
+    text-decoration: underline;
 }

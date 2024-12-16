@@ -11,7 +11,7 @@ import ModalEArchivarClase from '../../organisms/Estudiante/ModalArchivarClase';
 import ModalEliminarClase from '../../organisms/Estudiante/EModalEliminarClase';
 import ModalDesarchivarClase from '../../organisms/Estudiante/EModalDesarchivarClase'; 
 
-function ECardMateria({ classId, name, students, teacherName, status, onStatusChange, onDelete }) {
+function ECardMateria({ classId, name, students, teacherName, status, classStatus, onStatusChange, onDelete }) {
   const [activeModal, setActiveModal] = useState(null);
   const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
 
   const handleDelete = () => {
     if (typeof onDelete === 'function') {
-      onDelete(classId, status);
+      onDelete(classId, classStatus);
     } else {
       console.error('[ECardMateria.jsx] onDelete no es una función');
     }
@@ -48,8 +48,9 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
         classId, 
         name, 
         students, 
-        teacherName, 
-        status 
+        teacherName, // Ya incluye nombre y apellido
+        status,
+        classStatus
       } 
     });
   };
@@ -69,7 +70,7 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
         {/* Otros elementos del encabezado si es necesario */}
       </div>
       <div className={styles.cardFooter}>
-        <p className={styles.teacherName}>{teacherName}</p>
+        <p className={styles.teacherName}>{teacherName}</p> {/* Ahora contiene nombre y apellido */}
         <div className={styles.cardActions}>
           {currentStatus === 'NO ARCHIVADO' ? (
             <>
@@ -77,6 +78,7 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
                 className={styles.iconButton}
                 onClick={(e) => { e.stopPropagation(); openModal('eliminar'); }}
                 title="Eliminar Clase"
+                aria-label="Eliminar Clase"
               >
                 <img src={EliminarIcon} alt="Eliminar" className={styles.icon} />
               </button>
@@ -85,6 +87,7 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
                 className={styles.iconButton}
                 onClick={(e) => { e.stopPropagation(); openModal('archivar'); }}
                 title="Archivar Clase"
+                aria-label="Archivar Clase"
               >
                 <img src={ArchivarIcon} alt="Archivar" className={styles.icon} />
               </button>
@@ -95,6 +98,7 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
                 className={styles.iconButton}
                 onClick={(e) => { e.stopPropagation(); openModal('eliminar'); }}
                 title="Eliminar Clase"
+                aria-label="Eliminar Clase"
               >
                 <img src={EliminarIcon} alt="Eliminar" className={styles.icon} />
               </button>
@@ -103,6 +107,7 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
                 className={styles.iconButton}
                 onClick={(e) => { e.stopPropagation(); openModal('desarchivar'); }}
                 title="Desarchivar Clase"
+                aria-label="Desarchivar Clase"
               >
                 <img src={ArchivarIcon} alt="Desarchivar" className={styles.icon} />
               </button>
@@ -131,7 +136,7 @@ function ECardMateria({ classId, name, students, teacherName, status, onStatusCh
         <ModalDesarchivarClase
           show={true}
           onClose={closeModal}
-          onConfirm={() => handleStatusChange('NO ARCHIVADO')}
+          onConfirm={() => handleStatusChange('NO ARCHIVADO')} // Cambio realizado
         />
       )}
     </div>

@@ -15,18 +15,24 @@ function ClassListEstudiante({ classes, onStatusChange, onDelete }) {
 
   return (
     <div className={styles.classList}>
-      {classes.map((classItem) => (
-        <ECardMateria
-          key={classItem.classId}
-          classId={classItem.classId}
-          name={classItem.className}
-          students={classItem.classNumberOfStudents}
-          teacherName={classItem.teacherName} 
-          status={classItem.classStatus || 'NO ARCHIVADO'} 
-          onStatusChange={onStatusChange}
-          onDelete={onDelete}
-        />
-      ))}
+      {classes.map((classItem) => {
+        // Combina el nombre y el apellido del profesor
+        const teacherFullName = `${classItem.teacherName} ${classItem.teacherSurname}`.trim();
+
+        return (
+          <ECardMateria
+            key={classItem.classId}
+            classId={classItem.classId}
+            name={classItem.className}
+            students={classItem.classNumberOfStudents}
+            teacherName={teacherFullName} 
+            status={classItem.status || 'NO ARCHIVADO'}
+            classStatus={classItem.classStatus || 'NO ARCHIVADO'}
+            onStatusChange={onStatusChange}
+            onDelete={onDelete}
+          />
+        );
+      })}
     </div>
   );
 }

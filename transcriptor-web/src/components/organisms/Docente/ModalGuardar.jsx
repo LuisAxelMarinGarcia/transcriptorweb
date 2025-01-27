@@ -24,7 +24,7 @@ const ModalGuardarTranscripcion = ({ show, onClose, transcript, classId }) => {
     const day = String(today.getDate()).padStart(2, '0');
     const month = String(today.getMonth() + 1).padStart(2, '0');
     const year = String(today.getFullYear()).slice(-2); // últimos 2 dígitos del año
-    const dateStr = `${day}-${month}-${year}`;
+    const dateStr = `${day}/${month}/${year}`;
 
     // Generar el PDF con jsPDF
     const doc = new jsPDF();

@@ -1,0 +1,41 @@
+.flex {
+    flex-direction: column; /* Apila los elementos verticalmente */
+    height: 100vh; /* La altura total de la pantalla */
+    margin: 0;
+  }
+  
+  .HeaderContainer {
+    height: 13%; /* 13% de la altura total */
+    background-color: #f5f5f5; /* (opcional) Color de fondo */
+  }
+  
+  .Main {
+    flex-grow: 1; /* Toma el espacio restante después de Header y Footer */
+    background-color: #ffffff; /* (opcional) Color de fondo */
+    height: 87%;
+  }
+
+
+
+  @media (max-height: 1400px){
+    .HeaderContainer {
+        height: 10%; /* 13% de la altura total */
+        background-color: #f5f5f5; /* (opcional) Color de fondo */
+    }
+    .Main {
+        flex-grow: 1; /* Toma el espacio restante después de Header y Footer */
+        background-color: #ffffff; /* (opcional) Color de fondo */
+        height: 90%;
+      }
+  }
+  @media (max-height: 705px){
+    .HeaderContainer {
+        height: 13%; /* 13% de la altura total */
+        background-color: #f5f5f5; /* (opcional) Color de fondo */
+    }
+    .Main {
+        flex-grow: 1; /* Toma el espacio restante después de Header y Footer */
+        background-color: #ffffff; /* (opcional) Color de fondo */
+        height: 87%;
+      }
+  }

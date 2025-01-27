@@ -15,7 +15,7 @@
 
 .modalContent{
     width: 23.5%;
-    height: 60%;
+    /*height: 60%;*/
     background-color: white;
     border-radius: 18px;
     display: flex;
@@ -29,9 +29,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 18%;
+    /*height: 18%;*/
     text-align: center;
-    padding: 0 2rem;
+    padding: 0.5rem 2rem;
   }
 
 .IconCrear{
@@ -44,9 +44,9 @@
   border-top: 2px solid #ccc;
   display: flex;
   flex-direction: column;
-  padding: 0.2rem 3rem 1rem 3rem; /* Reduce el padding */
+  padding: 1rem 2rem 1.5rem 2rem; /* Reduce el padding */
   justify-content: center;
-  height: 82%; /* Asigna el 80% del espacio */
+  /*height: 82%; */
   gap: 1rem;
 }
 
@@ -71,7 +71,7 @@
     color: white;
     padding: 0.70rem 0rem;
     font-family: "Poppins", sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     border-radius: 40px;
     cursor: pointer;
     font-weight: 500;
@@ -87,7 +87,7 @@
     color: white;
     padding: 0.70rem 0rem;
     font-family: "Poppins", sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     border-radius: 40px;
     cursor: pointer;
     font-weight: 500;
@@ -129,3 +129,96 @@
     vertical-align: middle; /* Alineación vertical */
     margin-bottom: 4px;
   }
+
+  @media (max-width: 1024px){
+    .modalContent{
+      width: 40%;
+      height: auto;
+    }
+    
+    .form {
+      padding: 1.5rem 2rem 1.5rem 2rem; /* Reduce el padding */
+      height: auto; /* Asigna el 80% del espacio */
+    }
+
+    .titleBaja {
+      font-size: 1.3rem;
+      padding: 0.27rem 2rem; /* Reduce el padding */
+    }
+    .createButton {
+      font-size: 1rem;
+    }
+    
+    .cancelButton {
+      font-size: 1rem;
+     }
+     .textInfo{
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 768px){
+    .modalContent{
+      width: 50%;
+      height: auto;
+    }
+    
+    .form {
+      padding: 1.5rem 2rem 1.5rem 2rem; /* Reduce el padding */
+      height: auto; /* Asigna el 80% del espacio */
+    }
+    .createButton {
+      font-size: 0.9rem;
+    }
+    
+    .cancelButton {
+      font-size: 0.9rem;
+     }
+
+     .titleBaja {
+      font-size: 1.2rem;
+      padding: 0.2rem 2rem; /* Reduce el padding */
+    }
+    .textInfo{
+      font-size: 1rem;
+    }
+  }
+
+@media (max-width: 568px){
+  .modalContent{
+    width: 65%;
+    height: auto;
+}
+ 
+.form {
+  padding: 1.5rem 2rem 1.5rem 2rem; /* Reduce el padding */
+  height: auto; /* Asigna el 80% del espacio */
+}
+
+.createButton {
+  font-size: 0.7rem;
+}
+
+.cancelButton {
+  font-size: 0.7rem;
+ }
+ .titleBaja {
+  font-size: 1rem;
+  padding: 0.2rem 2rem; /* Reduce el padding */
+}
+.textDescription{
+  font-size:0.95rem;
+}
+
+.textAviso{
+  font-size:0.95rem;
+}
+
+.iconAviso {
+  width: 18px; /* Ajusta el tamaño según lo necesario */
+  height: 18px;
+}
+.textInfo{
+  font-size: 0.9rem;
+}
+}

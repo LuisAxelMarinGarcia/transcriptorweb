@@ -15,7 +15,7 @@
 
 .modalContent{
     width: 23.5%;
-    height: 50%;
+    /*height: 50%; AQUI*/
     background-color: white;
     border-radius: 18px;
     display: flex;
@@ -29,9 +29,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 18%;
+    /*height: 18%;AQUI*/
     text-align: center;
-    padding: 0 2rem;
+    padding: 0.5rem 2rem;
   }
 
 .IconCrear{
@@ -44,9 +44,9 @@
   border-top: 2px solid #ccc;
   display: flex;
   flex-direction: column;
-  padding: 0.2rem 3rem 1rem 3rem; /* Reduce el padding */
+  padding: 1rem 2rem 1.5rem 2rem; /* Reduce el padding */
   justify-content: center;
-  height: 82%; /* Asigna el 80% del espacio */
+  /*height: 82%; AQUI*/
   gap: 1rem;
 }
 
@@ -61,7 +61,7 @@
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
-    font-size:1.1rem;
+    font-size:1rem;
     color: #000000;
     margin-top: 0;
     margin-bottom: 0.5rem;
@@ -71,7 +71,7 @@
     color: white;
     padding: 0.70rem 0rem;
     font-family: "Poppins", sans-serif;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     border-radius: 40px;
     cursor: pointer;
     font-weight: 500;
@@ -87,7 +87,7 @@
     color: white;
     padding: 0.70rem 0rem;
     font-family: "Poppins", sans-serif;
-    font-size: 0.95rem;
+    font-size: 0.8rem;
     border-radius: 40px;
     cursor: pointer;
     font-weight: 500;
@@ -107,7 +107,7 @@
   font-optical-sizing: auto;
   font-weight: 200;
   font-style: normal;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   text-align: justify;
   }
 
@@ -116,16 +116,124 @@
     font-optical-sizing: auto;
     font-weight: 700;
     font-style: normal;
-    font-size:1.1rem;
+    font-size:1rem;
     color: #cb0c0c;
     margin-top: 0.6rem;
     margin-bottom: 0.5rem;
   }
 
   .iconAviso {
-    width: 20px; /* Ajusta el tamaño según lo necesario */
-    height: 20px;
+    width: 18px; /* Ajusta el tamaño según lo necesario */
+    height: 18px;
     margin-left: 8px; /* Espacio entre el icono y el texto */
     vertical-align: middle; /* Alineación vertical */
     margin-bottom: 4px;
   }
+
+  
+@media (max-width: 1024px){
+  .modalContent{
+    width: 45%;
+    height: auto;
+  }
+  
+  .form {
+    padding: 1.5rem 2rem 1.5rem 2rem; /* Reduce el padding */
+    height: auto; /* Asigna el 80% del espacio */
+  }
+
+  .textInfo{
+    font-size: 1rem;
+  }
+  .createButton {
+    font-size: 1rem;
+  }
+
+  .cancelButton {
+    font-size: 1rem;
+   }
+   .textDescription{
+    font-size:1.1rem;
+  }
+
+  .titleBaja {
+    font-size: 1.2rem;
+    padding: 0.5rem 2rem; /* Reduce el padding */
+  }
+}
+
+@media (max-width: 768px){
+  .modalContent{
+    width: 50%;
+    height: auto;
+  }
+  
+  .form {
+    padding: 1.5rem 2rem 1.5rem 2rem; /* Reduce el padding */
+    height: auto; /* Asigna el 80% del espacio */
+  }
+
+  .textInfo{
+    font-size: 0.9rem;
+  }
+  .createButton {
+    font-size: 0.8rem;
+  }
+
+  .cancelButton {
+    font-size: 0.8rem;
+   }
+   .textDescription{
+    font-size:1.1rem;
+  }
+
+  .titleBaja {
+    font-size: 1.2rem;
+    padding: 0.5rem 2rem; /* Reduce el padding */
+  }
+}
+
+@media (max-width: 568px) {
+    .modalContent{
+      width: 65%;
+      height: auto;
+  }
+   
+  .form {
+    padding: 1.5rem 2rem 1.5rem 2rem; /* Reduce el padding */
+    height: auto; /* Asigna el 80% del espacio */
+  }
+  
+  .textInfo{
+    font-size: 0.8rem;
+  }
+
+  .createButton {
+    font-size: 0.7rem;
+  }
+
+  .cancelButton {
+    font-size: 0.7rem;
+    max-width: 50%;
+   }
+
+   .titleBaja {
+    font-size: 1rem;
+    padding: 0.5rem 2rem; /* Reduce el padding */
+  }
+
+  .textDescription{
+    font-size:0.9rem;
+  }
+
+  .textAviso{
+    font-size:0.9rem;
+  }
+
+  .iconAviso {
+    width: 18px; /* Ajusta el tamaño según lo necesario */
+    height: 18px;
+  }
+
+}
+

@@ -162,9 +162,9 @@
             </div>
 
             <div className={styles.container}>
-            <div className={styles.HeaderContainer}>
-                <Header view="clases-inscritas" />
-            </div>
+                <div className={styles.HeaderContainer}>
+                    <Header view="clases-inscritas" />
+                </div>
 
             <div className={styles.OtherContainer}>
                 {/* Mostrar mensajes de carga o error */}

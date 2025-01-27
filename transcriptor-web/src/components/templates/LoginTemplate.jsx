@@ -24,7 +24,6 @@ const LoginTemplate = () => {
             navigate('/login-docente');
         }
     };
-
     
     return (
 
@@ -32,16 +31,16 @@ const LoginTemplate = () => {
             <div className={styles.ContainerCompleto}>
 
                 <div className={styles.ContainerPadre} >
+                    <div className={styles.child2}>
+                        <img src={LogoTranscriMe} alt="" className={styles.ImgLogo} />
+                        <img src={UserDeco} alt="" className={styles.ImgUserDeco} />
+                    </div>
                     <div className={styles.child1}>
                         {isAlumno ? (
                             <LoginFormEstudiante onSwitchForm={() => handleFormSwitch(false)} />
                         ) : (
                             <LoginFormDocente onSwitchForm={() => handleFormSwitch(true)} />
                         )}
-                    </div>
-                    <div className={styles.child2}>
-                        <img src={LogoTranscriMe} alt="" className={styles.ImgLogo} />
-                        <img src={UserDeco} alt="" className={styles.ImgUserDeco} />
                     </div>
                 </div>
                 

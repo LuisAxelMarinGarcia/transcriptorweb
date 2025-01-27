@@ -1,4 +1,11 @@
 .avatar {
     border-radius: 50%;
     object-fit: cover;
+    height: 100%;
+}
+
+@media (max-width: 768px) {
+    .avatar {
+        height: 3.5rem;
+    }
 }

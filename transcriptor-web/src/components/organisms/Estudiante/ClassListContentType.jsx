@@ -43,8 +43,9 @@ function ClassList({ classId, status, typeFilter }) {
 
         const data = await response.json();
         if (data.success) {
-          // Filtrado en base a typeFilter
+          // Filtrado en base a typeFilter AQUI AÑADI LOG
           let filteredTranscriptions = data.data || [];
+          console.log("Transcripciones recibidas:", filteredTranscriptions);
           if (typeFilter === 'MATERIAL') {
             filteredTranscriptions = filteredTranscriptions.filter(t => t.transcriptionType === 'MATERIAL');
           } else if (typeFilter === 'TRANSCRIPCION') {

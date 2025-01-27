@@ -10,6 +10,8 @@ import ArchivarIcon from '../../../assets/imgs/ArchivarClase.png';
 import ModalEArchivarClase from '../../organisms/Estudiante/ModalArchivarClase'; 
 import ModalEliminarClase from '../../organisms/Estudiante/EModalEliminarClase';
 import ModalDesarchivarClase from '../../organisms/Estudiante/EModalDesarchivarClase'; 
+import teacherImage from '../../../assets/imgs/Avatar Teacher.png'
+import cantUsers from '../../../assets/imgs/cantUsers.png'
 
 function ECardMateria({ classId, name, students, teacherName, status, classStatus, onStatusChange, onDelete }) {
   const [activeModal, setActiveModal] = useState(null);
@@ -64,8 +66,12 @@ function ECardMateria({ classId, name, students, teacherName, status, classStatu
         <div className={styles.cardInfo}>
           <h3 className={styles.cardTitle}>{name}</h3>
           <div className={styles.cardStudents}>
+            <img src={cantUsers} alt="cantUsers"  className={styles.cantUsers}/>
             <i className="fas fa-users"></i> {students}
           </div>
+        </div>
+        <div className={styles.cardTeacher}>
+            <img src={teacherImage} alt="Teacher" className={styles.teacherImage} />
         </div>
         {/* Otros elementos del encabezado si es necesario */}
       </div>
@@ -77,7 +83,7 @@ function ECardMateria({ classId, name, students, teacherName, status, classStatu
               <button
                 className={styles.iconButton}
                 onClick={(e) => { e.stopPropagation(); openModal('eliminar'); }}
-                title="Eliminar Clase"
+                title="Darse de baja"
                 aria-label="Eliminar Clase"
               >
                 <img src={EliminarIcon} alt="Eliminar" className={styles.icon} />

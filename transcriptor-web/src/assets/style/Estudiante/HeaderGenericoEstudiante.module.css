@@ -1,5 +1,5 @@
 .header {
-    height: 13%;
+    height: 6rem;
     background-color: white;
     display: flex;
     align-items: center;
@@ -28,45 +28,23 @@
 
 */
 
-
-.ContainerMaterias{
+.ContainerTitleArchivados{
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Distribuye el título centrado y el botón a la derecha */
-    width: 100%;
+    justify-content: center; 
 }
+
 
 .content{
     width: 100%;
 }
 
-.ContainerTitleMaterias{
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Centra el título y el ícono dentro del contenedor */
-    flex-grow: 2;
-}
 
-.createClassButton{
-    background-color: #1446A8;
-    color: white;
-    border: none;
-    padding: 0 1.5rem; /* Solo para el ancho */
-    height: 2.6rem;
-    border-radius: 16px;
-    font-size: 0.9rem;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    font-family: "Poppins", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    margin-right: 2rem;
-}
 
 .logoContainer {
     display: flex;
     align-items: center;
+    height: 70%;
 }
 
 .IconoHome{
@@ -75,21 +53,12 @@
     height: 1.4rem;
 }
 
-.titleMateria {
-    font-size: 1.5rem;
-    color: #37396E;
-    font-weight: bold;
-    font-family: "Poppins", sans-serif;
-    font-weight: 650;
-  font-style: normal;
-  text-shadow: 1.2px 1.2px 2px rgba(160, 181, 229, 0.7);
-  }
-
-.ContainerTitleArchivados{
-    display: flex;
-    align-items: center;
-    justify-content: center; 
+.containerAvatar{
+    height:75%
 }
+
+
+
 
 .IconoArchivado{
     margin-left: 1.2rem;
@@ -141,3 +110,75 @@
     gap: 1rem; /* Espacio entre el botón y el avatar */
   }
 
+
+  
+@media (max-width: 1024px) {
+
+    /* Header home docente */
+    .header {
+        width: 93%;
+    }
+
+    /* Header clases archivadas */
+    
+}
+
+@media (max-width: 768px) {
+
+    .header{
+        height: 4.59rem;
+        z-index: 1000;
+        width: 85%;
+        padding: 10px 10px;
+    }
+
+    .titleMateriaArchivado{
+        display: none;
+    }
+
+}
+
+@media (max-width: 542px){
+
+    .icon {
+    
+        margin-left: 0rem; /* Espacio entre el texto y el ícono */
+    }
+    .hiddenText {
+        display: none;
+      }
+
+      .transcriptionButton{
+        padding: 0 0.7rem;
+        border-radius: 10px; 
+    }
+}
+
+@media (max-width: 550px) {
+
+    /* Header home docente */
+    .header{
+        height: 4.59rem;
+        z-index: 1000;
+        width: 85%;
+        padding: 10px 10px;
+    }
+    .titleMateriaArchivado{
+        display: none;
+    }
+
+    
+    .transcriptionButton{
+        padding: 0 0.7rem;
+        border-radius: 10px; 
+    }
+
+    .hiddenText {
+        display: none;
+      }
+
+    .icon {
+    
+        margin-left: 0rem; /* Espacio entre el texto y el ícono */
+    }
+}

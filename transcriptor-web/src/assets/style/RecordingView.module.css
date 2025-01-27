@@ -1,11 +1,14 @@
 /* RecordingView.module.css */
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: #f5f5f5;
   width: 100%;
+  padding: 0;
+    margin: 0;
+  height: 100%;
 }
 
 .headerContainer {
@@ -19,8 +22,9 @@
   background-repeat: no-repeat;
   color: white;
   width: 100%;
-  height: 11rem;
-  margin-bottom: 1.5rem;
+  height: 30%;
+  margin: 0 auto;
+  /*margin-bottom: 1.5rem;*/
   font-family: 'Poppins', sans-serif;
 }
 
@@ -43,7 +47,7 @@
 
 .titleInfo h1 {
   margin: 0;
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -51,7 +55,7 @@
 
 .teacherInfo p {
   margin: 0;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-family: 'Julius Sans One', sans-serif;
   font-weight: 100;
   font-style: normal;
@@ -62,7 +66,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  height: 70%;
   margin: 0 auto;
 }
 
@@ -72,21 +76,30 @@
   align-items: center;
   justify-content: center;
   width: 30%;
+  height: 100%;
 }
-
+.ContainerImg{
+  width: 100%;
+  height: 80%;
+  display: flex; /* Asegura que el contenido se alinee */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+.ContainerTime{
+  height: 20%;
+}
 .mic {
-  width: 25rem;
-  height: 25rem;
-  position: relative;
-  top: -2.5rem;
+  max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+  max-height: 100%; /* Asegura que la imagen no exceda la altura del contenedor */
+  object-fit: contain; /* Mantiene la proporción de la imagen */
 }
 
 .timer {
-  margin-top: -3rem;
-  margin-bottom: 3rem;
+  margin:0;
   font-size: 1.7rem;
   color: #333;
   text-align: center;
+  font-family: 'Poppins', sans-serif;
 }
 
 .controlsWrapper {
@@ -94,27 +107,40 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: -1rem;
   width: 70%;
+  height: 100%;
 }
 
-.canvas {
+.containerCanvas{
   width: 80%;
-  height: 150px;
+  height: 30%;
+}
+.canvas {
+  width: 100%;
+  height: 100%;
   background-color: #000000;
   border: 1px solid #ccc;
   margin-bottom: 1rem;
 }
 
 .waveform {
-  width: 100%;
+  width: 80%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  font-style: normal;
+  align-items: center;
+}
+
+.containerControlls{
+  width: 80%;
+  height: 30%;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
-  font-style: normal;
+  
 }
-
 .statusText {
   font-size: 1.5rem;
   color: #333;
@@ -126,4 +152,96 @@
   gap: 2rem;
   width: 100%;
 }
-
+@media (max-width: 854px) and (max-height: 1367px) {
+  .mainContent {
+    flex-direction: column ; /* Asegúrate de que .mainContent esté configurado como un flex container */
+    height: 80%;
+  }
+  .controlsWrapper {
+    width: 100%;
+    height: 50%;
+  }
+  .containerCanvas{
+    width: 90%;
+  }
+  .waveform {
+    width: 90%;
+  }
+  .containerControlls{
+    width: 95%;
+    height: 50%;
+  }
+  .micContainer {
+    width: 100%;
+    height: 50%;
+  }
+  .headerContainer{
+    height: 20%;
+  }
+}
+@media (max-width: 576px){
+  .mainContent {
+    flex-direction: column ; /* Asegúrate de que .mainContent esté configurado como un flex container */
+  }
+  .controlsWrapper {
+    width: 100%;
+    height: 50%;
+  }
+  .containerCanvas{
+    width: 90%;
+  }
+  .waveform {
+    width: 90%;
+  }
+  .containerControlls{
+    width: 95%;
+    height: 50%;
+  }
+  .micContainer {
+    width: 100%;
+    height: 50%;
+  }
+  .titleInfo h1 {
+    font-size: 1rem;
+  }
+  .teacherInfo p {
+    font-size: 1rem;
+  }
+  .statusText {
+    font-size: 1.2rem;
+    margin-top: 3rem;
+  }
+}
+@media (max-width: 413px){
+  .mainContent {
+    flex-direction: column ; /* Asegúrate de que .mainContent esté configurado como un flex container */
+  }
+  .controlsWrapper {
+    width: 100%;
+    height: 50%;
+  }
+  .containerCanvas{
+    width: 90%;
+  }
+  .waveform {
+    width: 90%;
+  }
+  .containerControlls{
+    width: 95%;
+    height: 50%;
+  }
+  .micContainer {
+    width: 100%;
+    height: 50%;
+  }
+  .titleInfo h1 {
+    font-size: 1.1rem;
+  }
+  .teacherInfo p {
+    font-size: 1.1rem;
+  }
+  .statusText {
+    margin-top: 2rem;
+  }
+  
+}

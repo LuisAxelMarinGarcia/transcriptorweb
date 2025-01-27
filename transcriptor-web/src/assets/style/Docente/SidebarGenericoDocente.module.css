@@ -1,6 +1,5 @@
 .sidebar{
     background-color: #37396E;
-    width: 4.2rem;
     display: flex;
     flex-direction: column; /* Coloca los elementos en columna */
     align-items: center;    /* Centra los elementos horizontalmente */
@@ -29,7 +28,6 @@
     flex-direction: column;
     text-align: left;
      position: fixed;
-   
 }
 
 .sidebar ul li a {
@@ -73,4 +71,53 @@
 .sidebar ul li img {
     transform: scale(0.8); /* Ajusta el valor para aumentar o reducir el tamaño */
     
+}
+
+@media (max-width: 1024px) {
+    .sidebar{
+        width: 7%;
+       
+    }
+    .expandableSection {
+
+        left: 7%; /* Se coloca a la derecha del sidebar cerrado */
+    
+    }
+    .sidebar ul {
+        margin-top: 5.9rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar{
+        width: 15%;
+        height:4.6rem;
+    }
+
+
+    .expandableSection{
+        left: 15%;
+    }
+    .sidebar ul {
+      display: none;
+      margin-top: 4.6rem;
+    }
+
+    .menuButton{
+        margin-top: 1rem;
+    }
+    
+    .ExpandableSB{
+        height: 100vh !important;
+        background-color: #37396E !important;
+        z-index: 1000;
+    }
+    
+    .ExpandableSB ul{
+        display: block !important;
+    }
+
+    .expandableSection ul li {
+        margin: 2.1rem 0;
+    }
 }

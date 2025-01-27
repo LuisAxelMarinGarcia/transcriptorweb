@@ -4,7 +4,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;500;600;700&family=Julius+Sans+One&family=Nunito:wght@200;400;600;800;1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .headerContent {
-    position: relative; /* Añadido para posicionamiento del overlay */
+    
     background-image: linear-gradient(rgba(6, 9, 110, 0.58), rgba(6, 9, 110, 0.58)), url(../../imgs/logo.jpeg);
     background-position: 50% 55%; /* Muestra una parte específica de la imagen */
     background-repeat: no-repeat;
@@ -99,6 +99,7 @@
     align-items: center; /* Centra verticalmente el texto */
     justify-content: center; /* Centra horizontalmente el texto */
     background-color: rgba(34, 36, 105, 0.567); /* Fondo semitransparente */
+    padding: 0 1rem;
 }
 
 .icon {
@@ -154,4 +155,129 @@
 
 .navButton:hover {
     text-decoration: underline;
+}
+
+@media (max-width: 1024px){
+
+    .navButton {
+        font-size: 0.8rem;
+    }
+
+    .navList {
+        padding: 0 0.7rem; /* Agrega esta línea */
+    }
+
+    .navItem {
+        gap: 0.1rem; /* Espacio entre el ícono y el texto */
+    }
+
+    .CodeClass{ 
+        height: 3rem;
+        width: 47%;
+        text-align: center;
+    }
+
+    .labelText {
+        font-size: 0.9rem; /* Ajusta el tamaño según lo que necesites */
+        margin-right: 0.2rem;
+        font-weight: 500;
+    }
+    
+    .codeText {
+        font-weight: 400;
+        font-size: 1rem; /* Ajusta el tamaño según lo que necesites */
+    }
+}
+
+
+
+@media (max-width: 889px){
+
+    .navList .navButton {
+        display: none;
+    }
+
+    .navList{
+        height: 3rem;
+        width: 53%;
+    }
+
+    .CodeClass{ 
+        height: 3rem;
+        width: 47%;
+        text-align: center;
+    }
+
+    .labelText {
+        font-size: 0.9rem; /* Ajusta el tamaño según lo que necesites */
+        margin-right: 0.2rem;
+        font-weight: 500;
+    }
+    
+    .codeText {
+        font-weight: 400;
+        font-size: 1rem; /* Ajusta el tamaño según lo que necesites */
+    }
+    .headerContent {
+
+        padding-top: 1.5rem; /* Solo padding en la parte inferior */
+
+    }
+
+    .titleInfo {
+       padding-left: 0.5rem; 
+       padding-right: 0.5rem;
+    }
+
+    .headerContent {
+    
+    
+        background-position: 67% 20%; /* Muestra una parte específica de la imagen */
+    }
+}
+
+
+@media (max-width: 768px){
+
+    .navList .navButton {
+        display: none;
+    }
+
+    .navList{
+        height: 3rem;
+        width: 53%;
+    }
+
+    .CodeClass{ 
+        height: 3rem;
+        width: 47%;
+        text-align: center;
+    }
+
+    .labelText {
+        font-size: 70%; /* Ajusta el tamaño según lo que necesites */
+        margin-right: 0.2rem;
+        font-weight: 500;
+    }
+    
+    .codeText {
+        font-weight: 400;
+        font-size: 0.75rem; /* Ajusta el tamaño según lo que necesites */
+    }
+    .headerContent {
+
+        padding-top: 1.5rem; /* Solo padding en la parte inferior */
+
+    }
+
+    .titleInfo {
+       padding-left: 0.5rem; 
+       padding-right: 0.5rem;
+    }
+
+    .headerContent {
+    
+    
+        background-position: 67% 20%; /* Muestra una parte específica de la imagen */
+    }
 }

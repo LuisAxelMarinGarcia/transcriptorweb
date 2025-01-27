@@ -9,17 +9,27 @@ const ModalCompartirQR = ({ show, onClose, link }) => {
   return (
     <div className={styles.modalFondo} onClick={onClose}>
       <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
-        <h2>Compartir Transcripción</h2>
-        <p>Escanea este código QR o sigue el enlace:</p>
-        <div style={{ textAlign: 'center', margin: '20px 0' }}>
-          <QRCodeCanvas value={link} size={200} />
-        </div>
-        <p>
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            {link}
-          </a>
-        </p>
-        <button onClick={onClose}>Cerrar</button>
+        <h1 className={styles.title}>
+            <i className="fas fa-book"></i> Compartir transcripción
+        </h1>
+
+        <form action="" className={styles.form}>
+          <div className={styles.infoActions}>
+            <p className={styles.textInfo}>Escanea este código QR o sigue el enlace:</p>
+            <div style={{ textAlign: 'center', margin: '0 0' }}>
+              <QRCodeCanvas value={link} size={150} />
+            </div>
+            
+              <a className={styles.textLink} href={link} target="_blank" rel="noopener noreferrer">
+                {link}
+              </a>
+            
+          </div>
+
+          <div className={styles.modalActions}>
+            <button onClick={onClose}className={styles.cancelButton} >Hecho</button>
+          </div>
+        </form>
       </div>
     </div>
   );

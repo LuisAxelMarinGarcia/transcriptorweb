@@ -10,6 +10,8 @@ import ArchivarIcon from '../../../assets/imgs/ArchivarClase.png';
 import ModalArchivarClase from './ModalArchivarClase';
 import ModalEliminarClase from './ModalEliminarClase';
 import ModalDesarchivarClase from './ModalDesarchivarClase';
+import teacherImage from '../../../assets/imgs/Avatar Teacher.png'
+import cantUsers from '../../../assets/imgs/cantUsers.png'
 
 function CardMateria({
   classId,
@@ -88,8 +90,13 @@ function CardMateria({
         <div className={styles.cardInfo}>
           <h3 className={styles.cardTitle}>{name}</h3>
           <div className={styles.cardStudents}>
+            <img src={cantUsers} alt="cantUsers"  className={styles.cantUsers}/>
             <i className="fas fa-users"></i> {students}
+
           </div>
+        </div>
+        <div className={styles.cardTeacher}>
+          <img src={teacherImage} alt="Teacher" className={styles.teacherImage} />
         </div>
         {/* Otros elementos del encabezado si es necesario */}
       </div>

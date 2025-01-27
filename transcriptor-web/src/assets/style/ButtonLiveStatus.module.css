@@ -4,7 +4,7 @@
   background-color: #518450;
   color: white;
   border: none;
-  padding: 0.6rem 1.5rem;
+  padding: 0rem 1.3rem;
   border-radius: 20px;
   font-size: 0.8rem;
   display: flex;
@@ -13,8 +13,23 @@
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   font-style: normal;
+  height: 70%;
 }
 
 .liveIcon {
   margin-left: 0.5rem;
+}
+
+@media (max-width: 507px) {
+  .liveButton {
+    display: none;
+  }
+
+}
+
+@media (max-height: 500px) {
+  .liveButton {
+    font-size: 0.7rem;
+  }
+
 }

@@ -84,3 +84,106 @@
     margin-top: 0; /* Elimina el margen superior */
     margin-bottom: 0;
 }
+
+.cardDateRes {
+  display: flex;
+  align-items: center; /* Asegura que la fecha se alinee verticalmente */
+  margin-right: 0rem; /* Espacio entre la fecha y el primer ícono */
+  font-size: 0.8rem; /* Ajusta el tamaño de la fuente si es necesario */
+  line-height: 1.5; /* Alinea mejor el texto */
+  margin-top: 0.05rem;
+  font-family: "Josefin Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  color: #3B3B3B;
+}
+
+.cardIconRes {
+  width: 20px; /* Ajusta el tamaño de los íconos */
+  height: 20px;
+  margin-left: 1rem; /* Espacio entre los íconos */
+  cursor: pointer;
+}
+
+
+.FechaResponsive{
+display: none; /* AQUI CAMBIAR A FLEX */
+margin-left: auto; 
+}
+
+.cardIconEscrit{
+  width: 20px; /* Ajusta el tamaño de los íconos */
+  height: 20px;
+  margin-left: 1rem; /* Espacio entre los íconos */
+  cursor: pointer;
+}
+
+
+.PerfilDocente{
+  height: auto;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+
+  .PerfilDocente{
+    height: 2rem;
+    width: auto;
+  }
+
+  .card{
+    box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.258);
+    width: 100%;
+  }
+  .cardHeader {
+    font-size: 0.9rem;
+    padding: 0.9rem 0.8rem;
+  }
+
+  .cardBody {
+    gap: 0.2rem; 
+    padding: 0.9rem 0.8rem;
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 350;
+    font-style: normal;
+    font-size: 0.9rem;
+  }
+
+  .cardDate {
+
+    display: none;
+  }
+  .cardIconEscrit{
+    display: none;
+  }
+
+  .cardIcon {
+    width: 20px; /* Ajusta el tamaño de los íconos */
+    height: 20px;
+    margin-left: 0.6rem; /* Espacio entre los íconos */
+    cursor: pointer;
+  }
+
+  .cardFooter {
+    font-size: 0.8rem;
+    gap: 0.4rem;
+    padding: 0 1.4rem 0.7rem 0.8rem; /* Top 0, lados 1.4rem, bottom 0.5rem */
+  }
+
+  .DocenteImg{
+    width: 30px; /* Ajusta el tamaño de los íconos */
+    height: 30px;
+  }
+
+  .cardIconFecha{
+    display: none;
+  }
+
+  .FechaResponsive{
+    display: flex; /* AQUI CAMBIAR A FLEX */
+    margin-left: auto; 
+    }
+
+}

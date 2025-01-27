@@ -51,7 +51,7 @@ const EstudianteHeader = ({ view, classId, name, students, teacherName, status }
         return (
           <div className={styles.transcriptionContent}>
             <button className={styles.transcriptionButton} onClick={handleJoinLive}>
-              Unirme en vivo <img src={iconLive} alt="Icono de transmisión en vivo" className={styles.icon} />
+              <span className={styles.hiddenText}>Unirme en vivo </span><img src={iconLive} alt="Icono de transmisión en vivo" className={styles.icon} />
             </button>
           </div>
         );
@@ -72,7 +72,10 @@ const EstudianteHeader = ({ view, classId, name, students, teacherName, status }
       <div className={styles.content}>
         {renderHeaderContent()}
       </div>
-      <Avatar size="medium" />
+      <div className={styles.containerAvatar}>
+        <Avatar size="medium" />
+      </div>
+      
     </div>
   );
 };

@@ -7,23 +7,85 @@
     width: 5%;
 }
 .container{
-    width: 95%;
-    flex-direction: column;
+    display: flex; /* Habilitar flexbox */
+    flex-direction: column; /* Ordenar los hijos en columna */
+    width: 95%; /* Mantener el ancho definido */
     height: 100vh;
-}
-
-.HeaderContainer{
-    height: 13%;
 }
 
 .OtherContainer{
     display: flex;
     justify-content: center; /* Centra horizontalmente */
     align-items: center;
-    padding: 0rem 2rem;
+    padding:2rem;
     background-color: #E3E6EE;
-    height: 73%; /* Ocupa al menos el 83% de la pantalla */
+    /*min-height: 69%; Ocupa al menos el 83% de la pantalla */
    flex: 1;
    gap: 10rem;
     overflow-y: auto; /* Agrega scroll si el contenido supera el max-height */
 }
+
+.HeaderContainer{
+    height: 6rem;
+    width: 100%;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+    .container{
+        width: 93%;
+    }
+    .SpaceSiderbar{
+        width: 7%;
+    }
+
+    .OtherContainer{
+        padding: 2rem 0 2rem 0;
+        flex-direction: column; 
+        gap: 0rem;
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    .SpaceSiderbar{
+        width: 0%;
+    }
+
+    .OtherContainer{
+        padding: 2rem 0 0 0;
+        width: 100%;
+        gap: 0;
+        flex-direction: column; 
+    }
+
+    .HeaderContainer{
+        height: 4.59rem;
+        width: 85%;
+        align-self: flex-end; /* Mueve el elemento a la derecha */
+    }
+    
+    .container{
+        width: 100%;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+
+}
+
+
+@media (max-width: 375px) {
+    .OtherContainer{
+        padding: 1rem 0 0 0;
+    }
+}
+
+@media (max-width: 321px){
+    .OtherContainer{
+        padding: 0 0 0 0;
+    }
+}
+

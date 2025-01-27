@@ -6,6 +6,7 @@ import SidebarGenerico from '../../organisms/Estudiante/SidebarGenericoEstudiant
 import styles from '../../../assets/style/Docente/HomeDocente.module.css';
 import ClassListEstudiante from "../../organisms/Estudiante/ClassListEstudiante";
 import Footer from "../../organisms/Footer";
+import clasesArchivadas from '../../../assets/imgs/iconHome.png'; 
 
 const HomeTemplateArchivado = () => {
   const [classes, setClasses] = useState([]); // Estado para almacenar las clases archivadas
@@ -180,6 +181,14 @@ const HomeTemplateArchivado = () => {
         <div className={styles.HeaderContainer}>
           <Header view="clases-archivadas" />
         </div>
+        
+        <div className={styles.AvisoArchivado}>
+              <h1 className={styles.titleMateriaArchivado}>
+                  <i className="fas fa-book"></i> Clases archivadas
+                  <img src={clasesArchivadas} alt="Icon-Archivado" className={styles.IconoArchivado} />
+              </h1>
+        </div>        
+
         <div className={styles.OtherContainer}>
           {loading && <p>Cargando clases archivadas...</p>}
           {error && <p className={styles.errorMessage}>{error}</p>}

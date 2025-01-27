@@ -6,6 +6,8 @@ import Header from '../../organisms/HeaderEnVivoDocente';
 import Footer from '../../organisms/Footer';
 import RecordingView from '../../organisms/RecordingView';
 import { io } from 'socket.io-client';
+import styles from '../../../assets/style/Docente/EnVivoPage.module.css';
+
 
 const RecordingPage = () => {
   const { classId } = useParams(); // Obtener classId desde la URL
@@ -288,24 +290,28 @@ const RecordingPage = () => {
   };
 
   return (
-    <div>
-      <Header />
-      <RecordingView
-        title={`${name} - Grupo ${classGroup}`} // Usar datos del estado
-        teacherName={teacherName} // Usar datos del estado
-        studentCount={students} // Usar datos del estado
-        time={time}
-        onPause={handlePause}
-        onRecord={handleRecord}
-        onStop={handleStop}
-        isListening={isListening}
-        isPaused={isPaused}
-        canvasRef={canvasRef} // Pasamos el canvasRef a RecordingView
-        transcript={transcript} // Pasamos la transcripción como prop
-        classId={classId} // Pasamos classId
-        userId={userId} // Pasamos userId (puede ser null)
-        status={status} // Pasamos status (puede ser 'activo' por defecto)
-      />
+    <div className={styles.flex}>
+      <div className={styles.HeaderContainer}>     
+        <Header />
+      </div>
+      <main className={styles.Main}>
+        <RecordingView
+          title={`${name} - Grupo ${classGroup}`} // Usar datos del estado
+          teacherName={teacherName} // Usar datos del estado
+          studentCount={students} // Usar datos del estado
+          time={time}
+          onPause={handlePause}
+          onRecord={handleRecord}
+          onStop={handleStop}
+          isListening={isListening}
+          isPaused={isPaused}
+          canvasRef={canvasRef} // Pasamos el canvasRef a RecordingView
+          transcript={transcript} // Pasamos la transcripción como prop
+          classId={classId} // Pasamos classId
+          userId={userId} // Pasamos userId (puede ser null)
+          status={status} // Pasamos status (puede ser 'activo' por defecto)
+        />
+      </main>
       <Footer />
     </div>
   );

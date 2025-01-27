@@ -2,15 +2,23 @@ import React from 'react';
 import Header from '../../organisms/HeaderEnVivoDocente';
 import Footer from '../../organisms/Footer';
 
+import styles from '../../../assets/style/Estudiante/StudentViewTemplate.module.css';
+
 const StudentTemplate = ({ children }) => {
   return (
-    <div>
-      <Header />
-      <main className="">
-        {children} 
-      </main>
-      <Footer />
-    </div>
+    <>
+      <div className={styles.flex}>
+        <div className={styles.HeaderContainer}>
+            <Header />
+        </div>
+        
+        <main className={styles.Main}>
+          {children} 
+        </main>
+        <Footer />
+      </div>
+    
+    </>
   );
 };
 

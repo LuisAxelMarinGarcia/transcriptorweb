@@ -94,8 +94,8 @@ function PeopleList({ type, classId, teacherName }) {
 
   return (
     <div className={styles.peopleList}>
-      {type === 'docente' && <div className={styles.sectionTitle}>Docentes</div>}
-      {type === 'alumno' && <div className={styles.sectionTitle}>Alumnos Inscritos</div>}
+      {type === 'docente' && <div className={styles.sectionTitle}></div>}
+      {type === 'alumno' && <div className={styles.sectionTitle}></div>}
 
       {loading && <p>Cargando {type === 'alumno' ? 'alumnos inscritos' : 'docentes'}...</p>}
       {error && <p className={styles.errorMessage}>{error}</p>}

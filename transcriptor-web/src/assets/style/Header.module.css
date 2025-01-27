@@ -3,18 +3,23 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 2rem;
+  /*padding: 1rem 2rem; QUITADO*/
   background-color: white;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  padding: 0 1rem;
 }
 
 .logoContainer {
   display: flex;
   align-items: center;
+  height: 70%;
 }
 
 .statusContainer {
   display: flex;
   align-items: center; /* Alinea el botón y el avatar */
   gap: 1.5rem; /* Espacio entre el botón y el avatar */
+  height: 75%;
 }
+

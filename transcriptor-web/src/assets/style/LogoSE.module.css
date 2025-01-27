@@ -1,5 +1,10 @@
 .logo {
-    width: 70%; /* El logo ocupará el 100% del contenedor asignado */
+    width: 7rem; /* El logo ocupará el 100% del contenedor asignado */
     height: auto;
   }
   
+  @media (max-width: 768px) {
+    .logo{
+      width: 7rem;
+    }
+  }

@@ -35,7 +35,7 @@
 
 
 .HeaderContainer{
-    height: 13%;
+    height: 6rem;
     width: 100%;
 }
 
@@ -98,4 +98,57 @@
     flex-direction: column; /* Muestra el contenido en columna */
     align-items: center; /* Centra el contenido horizontalmente */
     padding: 2rem 4rem;
+}
+
+
+@media (max-width: 1024px) {
+    .container{
+        width: 93%;
+    }
+    .SpaceSiderbar{
+        width: 7%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .SpaceSiderbar{
+        width: 0%;
+    }
+
+    .OtherContainer{
+        padding: 0rem;
+        width: 100%;
+
+    }
+
+    .HeaderContainer{
+        height: 4.59rem;
+        
+        width: 85%;
+        float: right;
+    }
+    
+    .container{
+        width: 100%;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .OptionsPersons{
+        height:3rem;        
+    }
+
+    .PersonsAll h1, .PersonsBaja h1 {
+        font-size: 1.1rem;
+    }
+
+    .active::after {
+        height: 4px; /* Grosor de la línea */
+    }
+
+    .TypePersons{
+        padding: 0 2rem;
+    }
+    
 }

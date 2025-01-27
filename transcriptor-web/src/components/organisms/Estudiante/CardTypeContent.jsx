@@ -53,8 +53,9 @@ function Card({ transcriptionId, title, description, date, type, link, fileType,
         <span className={styles.cardTitle}>{title}</span>
         <div className={styles.cardActions}>
           <span className={styles.cardDate}>
-            <img src={iconFecha} alt="Fecha" className={styles.icon} /> {new Date(date).toLocaleDateString()}
+             {new Date(date).toLocaleDateString()}
           </span>
+          <img src={iconFecha} alt="Fecha" className={styles.cardIconEscrit} />
           {type === 'TRANSCRIPCION' && link && (
             <>
               {/* Icono de Compartir QR */}
@@ -105,8 +106,13 @@ function Card({ transcriptionId, title, description, date, type, link, fileType,
 
       {/* Footer de la card */}
       <div className={styles.cardFooter}>
-        <img src={author.image} alt={author.name} className={styles.authorImage} />
+        <img src={author.image} alt={author.name} className={styles.PerfilDocente} />
         <span>{author.name}</span>
+
+        <div className={styles.FechaResponsive}>
+                  <span className={styles.cardDateRes}>{date}</span>
+                  <img src={iconFecha} alt="Fecha" className={styles.cardIconRes} /> 
+                </div>
       </div>
 
       {/* Modal para Compartir QR */}

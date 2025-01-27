@@ -1,5 +1,5 @@
 .header {
-    height: 13%;
+    height: 6rem;
     background-color: white;
     display: flex;
     align-items: center;
@@ -50,6 +50,7 @@
 .logoContainer {
     display: flex;
     align-items: center;
+    height: 70%;
 }
 
 .IconoHome{
@@ -138,3 +139,110 @@
     justify-content: flex-end; /* Empuja el contenido hacia la derecha */
     gap: 1rem; /* Espacio entre el botón y el avatar */
   }
+
+  .iconCrear{
+    margin-left: 0.5rem;
+    width: 1.5rem;
+  }
+
+  .containerAvatar{
+    height:75%
+}
+
+
+
+@media (max-width: 1024px) {
+
+    /* Header home docente */
+    .header {
+        width: 93%;
+    }
+
+    /* Header clases archivadas */
+    
+}
+
+@media (max-width: 768px) {
+
+    /* Header home docente */
+    .titleMateria {
+        display: none;
+    }
+    .header{
+        height: 4.59rem;
+        z-index: 1000;
+        width: 85%;
+        padding: 10px 10px;
+    }
+
+    /* Header clases archivadas */
+    .titleMateriaArchivado{
+        display: none;
+    }
+}
+
+@media (max-width: 638px){
+
+    .icon {
+    
+        margin-left: 0rem; /* Espacio entre el texto y el ícono */
+    }
+    .hiddenText {
+        display: none;
+      }
+
+      .transcriptionButton{
+        padding: 0 0.7rem;
+        border-radius: 10px; 
+    }
+}
+
+  @media (max-width: 550px) {
+
+    /* Header home docente */
+    .header{
+        height: 4.59rem;
+        z-index: 1000;
+        width: 85%;
+        padding: 10px 10px;
+    }
+
+    .transcriptionButton{
+        padding: 0 0.7rem;
+        border-radius: 10px; 
+    }
+
+
+    .titleMateria {
+        display: none;
+    }
+
+    .iconCrear{
+        margin-left: 0;
+        width: 1.5rem;
+    }
+
+    .createClassButton{
+        padding: 0 0.7rem;
+        border-radius: 10px; 
+    }
+
+    .hiddenText {
+        display: none;
+      }
+      
+    /* Header clases archivadas */
+    .titleMateriaArchivado{
+        display: none;
+    }
+
+
+    .icon {
+    
+        margin-left: 0rem; /* Espacio entre el texto y el ícono */
+    }
+    
+}
+
+
+

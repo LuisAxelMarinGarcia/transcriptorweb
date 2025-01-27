@@ -4,7 +4,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;300;400;500;600;700&family=Julius+Sans+One&family=Nunito:wght@200;400;600;800;1000&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 .headerContent {
-    position: relative; /* Añadido para posicionamiento del overlay */
     background-image: linear-gradient(rgba(6, 9, 110, 0.58), rgba(6, 9, 110, 0.58)), url(../../imgs/logo.jpeg);
     background-position: 50% 55%; /* Muestra una parte específica de la imagen */
     background-repeat: no-repeat;
@@ -12,25 +11,24 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
     
     box-shadow: 0 5px 3px rgba(0, 0, 0, 0.2); /* Sombra sutil */
 }
 
 .archivedOverlay {
-    position: absolute;
+    
     top: 0;
     left: 0;
     width: 100%;
-    height: 3rem; /* Ajusta la altura según necesidad */
+    height: 2.5rem; /* Ajusta la altura según necesidad */
     background-color: rgba(0, 0, 0, 0.8); /* Negro semiopaco */
     color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: "Poppins", sans-serif;
-    font-size: 1.2rem;
-    z-index: 10; /* Asegura que esté por encima de otros elementos */
+    font-size: 1rem;
+    z-index: 1; /* Asegura que esté por encima de otros elementos */
 }
 
 .titleInfo {
@@ -100,6 +98,7 @@
     align-items: center; /* Centra verticalmente el texto */
     justify-content: center; /* Centra horizontalmente el texto */
     background-color: rgba(34, 36, 105, 0.567); /* Fondo semitransparente */
+    padding: 0 1rem;
 }
 
 .icon {
@@ -166,4 +165,122 @@
 
 .navButton:hover {
     text-decoration: underline;
+}
+
+
+@media (max-width: 1024px){
+
+    .navButton {
+        font-size: 0.8rem;
+    }
+
+    .navList {
+        padding: 0 0.7rem; /* Agrega esta línea */
+    }
+
+    .navItem {
+        gap: 0.1rem; /* Espacio entre el ícono y el texto */
+    }
+
+    .labelText {
+        font-size: 0.9rem; /* Ajusta el tamaño según lo que necesites */
+        margin-right: 0.2rem;
+        font-weight: 500;
+    }
+
+    .CodeClass{ 
+        height: 3rem;
+        width: 47%;
+        text-align: center;
+    }
+
+   
+}
+
+
+
+@media (max-width: 889px){
+
+    .navList .navButton {
+        display: none;
+    }
+
+    .navList{
+        height: 3rem;
+        width: 53%;
+    }
+
+    .CodeClass{ 
+        height: 3rem;
+        width: 47%;
+        text-align: center;
+    }
+
+    .labelText {
+        font-size: 0.9rem; /* Ajusta el tamaño según lo que necesites */
+        margin-right: 0.2rem;
+        font-weight: 500;
+    }
+
+    .headerContent {
+
+        padding-top: 1.5rem; /* Solo padding en la parte inferior */
+
+    }
+
+    .titleInfo {
+       padding-left: 0.5rem; 
+       padding-right: 0.5rem;
+    }
+
+    .headerContent {
+    
+    
+        background-position: 67% 20%; /* Muestra una parte específica de la imagen */
+    }
+}
+
+
+@media (max-width: 768px){
+
+    .navList .navButton {
+        display: none;
+    }
+
+    .navList{
+        height: 3rem;
+        width: 53%;
+    }
+
+    .CodeClass{ 
+        height: 3rem;
+        width: 47%;
+        text-align: center;
+    }
+
+    .labelText {
+        font-size: 72%; /* Ajusta el tamaño según lo que necesites */
+        margin-right: 0.2rem;
+        font-weight: 500;
+    }
+
+    .headerContent {
+
+        padding-top: 1.5rem; /* Solo padding en la parte inferior */
+
+    }
+    .iconTeacher{
+        width: 20px; /* Ajusta el tamaño del ícono */
+        height: auto;
+    }
+
+    
+    .titleInfo {
+       padding-left: 0.5rem; 
+       padding-right: 0.5rem;
+    }
+
+    .headerContent {
+        background-position: 67% 20%; /* Muestra una parte específica de la imagen */
+    }
 }

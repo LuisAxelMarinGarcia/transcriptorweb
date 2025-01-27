@@ -6,6 +6,7 @@ import styles from '../../../assets/style/Docente/HomeDocente.module.css';
 import ClassList from "../../organisms/Docente/ClassList";
 import Footer from "../../organisms/Footer";
 import ModalCrearClase from '../../organisms/Docente/ModalCrearClase';
+import clasesArchivadas from '../../../assets/imgs/iconHome.png'; 
 
 const ClasesArchivadas = () => {
     const [showModalCrearClase, setShowModalCrearClase] = useState(false);
@@ -188,8 +189,15 @@ const ClasesArchivadas = () => {
                     <div className={styles.HeaderContainer}>
                         <Header view="clases-archivadas" onOpenModal={handleOpenModalCrearClase} />
                     </div>
+                    <div className={styles.AvisoArchivado}>
+                            <h1 className={styles.titleMateriaArchivado}>
+                                    <i className="fas fa-book"></i> Clases archivadas
+                                    <img src={clasesArchivadas} alt="Icon-Archivado" className={styles.IconoArchivado} />
+                            </h1>
+                    </div>
 
                     <div className={styles.OtherContainer}>
+                        
                         {/* Mostrar mensajes de carga o error */}
                         {loading && <p>Cargando clases archivadas...</p>}
                         {error && <p className={styles.errorMessage}>{error}</p>}

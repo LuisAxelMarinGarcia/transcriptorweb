@@ -36,14 +36,14 @@
 
 
 .HeaderContainer{
-    height: 13%;
+    height: 6rem;
     width: 100%;
 }
 
 
 .HeaderClass{
     background-color:red;
-    height:13rem;
+    height:auto;
 }
 
 .SecctionPersons{
@@ -60,7 +60,6 @@
     text-align: center;
     align-items: center; /* Centra el contenido verticalmente */
     width: 100%;
-    height: 5rem;
     background-color: #FFFFFF;
     border-bottom: 2px solid #656565; /* Añade un borde en la parte inferior */
     
@@ -70,7 +69,55 @@
     font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-weight: 450;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   font-style: normal;
   color: black;
+}
+
+@media (max-width: 1024px) {
+    .container{
+        width: 93%;
+    }
+    .SpaceSiderbar{
+        width: 7%;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .SpaceSiderbar{
+        width: 0%;
+    }
+
+    .OtherContainer{
+        padding: 0rem;
+        width: 100%;
+
+    }
+
+    .HeaderContainer{
+        height: 4.59rem;
+        
+        width: 85%;
+        float: right;
+    }
+    
+    .container{
+        width: 100%;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .OptionsPersons{
+        height:3rem;        
+    }
+
+    .TitlePerson h1 {
+      font-size: 1.1rem;
+    }
+
+    .SecctionPersons{
+        padding: 1rem 2rem;
+    }
+    
 }

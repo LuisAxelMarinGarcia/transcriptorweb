@@ -28,6 +28,7 @@
   .cardInfo {
     display: flex;
     flex-direction: column;
+    width: 72%;
   }
   
   .cardTitle {
@@ -37,10 +38,18 @@
     font-family: "Poppins";
     font-weight: 400;
   font-style: normal;
+  display: block; /* Asegúrate de que sea un elemento en bloque */
+  white-space: nowrap; /* Evita que el texto salte a una nueva línea */
+  overflow: hidden; /* Oculta cualquier texto que exceda el ancho del contenedor */
+  text-overflow: ellipsis; /* Agrega los puntos suspensivos */
+  
   }
   
   .cardStudents {
     margin-top: 5px;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
   }
   
   .cardTeacher .teacherImage {
@@ -53,7 +62,12 @@
     font-size: 1rem;
     margin-left: 1rem; 
     color: #333;
+    display: block; /* Asegúrate de que sea un elemento en bloque */
+    white-space: nowrap; /* Evita que el texto salte a una nueva línea */
+    overflow: hidden; /* Oculta cualquier texto que exceda el ancho del contenedor */
+    text-overflow: ellipsis; /* Agrega los puntos suspensivos */
   }
+  
   
   .cardActions {
     display: flex;
@@ -79,6 +93,28 @@
   font-optical-sizing: auto;
   font-weight: 350;
   font-style: normal;
+  gap:0.3rem;
   }
   
+  .iconButton {
+    background: none; /* Quita el fondo predeterminado del botón */
+    border: none; /* Quita los bordes del botón */
+    padding: 0; /* Elimina el relleno interno del botón */
+    margin: 0; /* Elimina el margen externo */
+    display: inline-flex; /* Asegura que el botón se ajuste al contenido */
+    align-items: center; /* Centra la imagen verticalmente */
+    justify-content: center; /* Centra la imagen horizontalmente */
+    cursor: pointer; /* Cambia el cursor al estilo de "clic" */
+  }
   
+  .cantUsers{
+    margin: 0;
+    width: 1rem;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    .card {
+      max-width: 600px;
+    }  
+  }

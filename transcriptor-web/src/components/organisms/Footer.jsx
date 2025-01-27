@@ -13,7 +13,7 @@ const Footer = () => (
       <p>Carretera Tuxtla Gutiérrez - Portillo Zaragoza Km 21+500</p>
       <p>Col. Las Brisas, Suchiapa, Chiapas. CP.29150. Teléfono: 01961 61 71460. Suchiapa, Chiapas.</p>
     </div>
-    <div className={styles.logoContainer}>
+    <div className={styles.logoContainer2}>
       <LogoSE />
     </div>
   </footer>

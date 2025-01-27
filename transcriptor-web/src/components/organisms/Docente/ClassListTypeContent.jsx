@@ -52,9 +52,16 @@ function ClassList({ classId, status, typeFilter = 'all' }) {
         if (data.success) {
           // Filtrar según typeFilter
           let filteredData = data.data;
+          console.log("Transcripciones recibidas de filteredData:", filteredData);
           if (typeFilter && typeFilter.toUpperCase() !== 'ALL') {
             filteredData = filteredData.filter(item => item.transcriptionType === typeFilter.toUpperCase());
           }
+           // Ordenar por fecha (más reciente primero)
+  filteredData.sort((a, b) => {
+    const dateA = new Date(a.transcriptionDate);
+    const dateB = new Date(b.transcriptionDate);
+    return dateB - dateA; // Orden descendente
+  });
           setTranscriptions(filteredData);
         } else {
           setError(data.message || 'Error al obtener las transcripciones.');

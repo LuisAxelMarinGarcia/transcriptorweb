@@ -156,25 +156,25 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
             <div className={styles.navContainer}>
                 <ul className={styles.navList}>
                     <li className={styles.navItem}>
-                        <img src={iconPersonas} alt="Icono de Personas" className={styles.icon} />
+                        <img src={iconPersonas} alt="Icono de Personas" className={styles.icon} onClick={handlePersonasClick}/>
                         <button onClick={handlePersonasClick} className={styles.navButton}>
                             Personas
                         </button>
                     </li>
                     <li className={styles.navItem}>
-                        <img src={iconPanel} alt="Icono de Panel" className={styles.icon} />
+                        <img src={iconPanel} alt="Icono de Panel" className={styles.icon} onClick={handlePanelClick} />
                         <button onClick={handlePanelClick} className={styles.navButton}>
                             Panel
                         </button>
                     </li>
                     <li className={styles.navItem}>
-                        <img src={iconMaterialDidactico} alt="Icono de Material Didáctico" className={styles.icon} />
+                        <img src={iconMaterialDidactico} alt="Icono de Material Didáctico" className={styles.icon} onClick={handleMaterialDidacticoClick} />
                         <button onClick={handleMaterialDidacticoClick} className={styles.navButton}>
                             Material didáctico
                         </button>
                     </li>
                     <li className={styles.navItem}>
-                        <img src={iconTranscripcion} alt="Icono de Transcripciones" className={styles.icon} />
+                        <img src={iconTranscripcion} alt="Icono de Transcripciones" className={styles.icon} onClick={handleTranscripcionesClick}/>
                         <button onClick={handleTranscripcionesClick} className={styles.navButton}>
                             Transcripciones
                         </button>

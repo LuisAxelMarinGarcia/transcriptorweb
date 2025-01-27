@@ -3,7 +3,7 @@
 .ContainerCodigo{
     background-color: rgb(255, 255, 255);
     width: 40%;
-    height: 85%;
+    height: auto;
     display: flex;
     flex-direction: column;
     border-radius: 18px;
@@ -29,7 +29,7 @@
 }
 
 .ContentContainer{
-    padding: 10% 5%;
+    padding: 4% 5%; /* Aqui era 10% Permite que los elementos se coloquen en columna */
     height: 80%;
     width: 100%;
     display: flex;
@@ -114,4 +114,260 @@
 .ContainerUserDecoration img {
     height: 100%; /* Ajusta la altura de la imagen al 100% del contenedor */
     width: auto; /* Mantiene la proporción de la imagen */
+}
+
+.successMessage{
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.9rem;
+    margin: 0;
+    color: green;
+}
+
+.errorMessage{
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 0.9rem;
+    margin: 0;
+    color: red;
+}
+
+@media (min-width: 768px) and (max-width: 1024px){
+    .ContainerUserDecoration{
+        height: 45%;
+    }
+    .ContainerUserDecoration img {
+        height: 80%; /* Ajusta la altura de la imagen al 100% del contenedor */
+    }
+    
+    .ContainerCodigo{
+        width: 70%;
+        height: auto;
+    }
+
+    .etiquetaP1{
+        font-size: 80%;
+        
+    }
+    
+    .etiquetaP2{
+        font-size: 70%;
+    }
+
+    .buttonUnirme{
+        padding: 0.60rem 0rem;
+        font-size: 0.8rem;
+        width: 50%;
+    }
+
+    .TitleContainer{
+        height: 15%;
+        font-size: 0.5rem;
+        
+    }
+
+    .InputCodigo{
+        padding: 0.3rem 1.3rem; /* Espaciado interno para el texto */
+        font-size: 0.7rem;
+    }
+    
+    .ContentContainer{
+        gap: 1rem;
+        height: 100%;
+        padding: 10% 8%;
+    }
+
+
+}
+
+@media (max-width: 768px) {
+    .ContainerUserDecoration{
+        height: 45%;
+    }
+    .ContainerUserDecoration img {
+        height: 80%; /* Ajusta la altura de la imagen al 100% del contenedor */
+    }
+    
+    .ContainerCodigo{
+        width: 70%;
+        height: auto;
+    }
+
+    .etiquetaP1{
+        font-size: 80%;
+        
+    }
+    
+    .etiquetaP2{
+        font-size: 70%;
+    }
+
+    .buttonUnirme{
+        padding: 0.60rem 0rem;
+        font-size: 0.8rem;
+        width: 50%;
+    }
+
+    .TitleContainer{
+        height: 15%;
+        font-size: 0.5rem;
+        
+    }
+
+    .InputCodigo{
+        padding: 0.3rem 1.3rem; /* Espaciado interno para el texto */
+        font-size: 0.7rem;
+    }
+    
+    .ContentContainer{
+        gap: 1rem;
+        height: 100%;
+        padding: 10% 8%;
+    }
+
+
+}
+
+@media (max-width: 568px) {
+    .ContainerUserDecoration{
+        height: 45%;
+    }
+    .ContainerUserDecoration img {
+        height: 80%; /* Ajusta la altura de la imagen al 100% del contenedor */
+    }
+    
+    .ContainerCodigo{
+        width: 70%;
+        height: auto;
+    }
+
+    .etiquetaP1{
+        font-size: 80%;
+        
+    }
+    
+    .etiquetaP2{
+        font-size: 70%;
+    }
+
+    .buttonUnirme{
+        padding: 0.50rem 0rem;
+        font-size: 0.7rem;
+        width: 50%;
+    }
+
+    .TitleContainer{
+        height: 15%;
+        font-size: 0.5rem;
+        
+    }
+
+    .InputCodigo{
+        padding: 0.3rem 1.3rem; /* Espaciado interno para el texto */
+        font-size: 70%;
+    }
+    
+    .ContentContainer{
+        gap: 0.8rem;
+        height: 100%;
+        padding: 10% 5%;
+    }
+
+
+}
+
+@media (max-width: 375px) {
+    .ContainerUserDecoration{
+        height: 45%;
+    }
+    .ContainerUserDecoration img {
+        height: 80%; /* Ajusta la altura de la imagen al 100% del contenedor */
+    }
+    
+    .ContainerCodigo{
+        width: 70%;
+        height: auto;
+    }
+
+    .etiquetaP1{
+        font-size: 80%;
+        
+    }
+    
+    .etiquetaP2{
+        font-size: 60%;
+    }
+
+    .buttonUnirme{
+        padding: 0.2rem 0rem;
+        font-size: 80%;
+        width: 50%;
+    }
+
+    .InputCodigo{
+        padding: 0.3rem 1.3rem; /* Espaciado interno para el texto */
+        font-size: 0.7rem;
+    }
+
+    .TitleContainer{
+        height: 15%;
+        font-size: 0.5rem;
+        
+    }
+
+    
+    .ContentContainer{
+        gap: 0.9rem;
+        height: 100%;
+        padding: 10% 6%;
+    }
+}
+
+
+
+@media (max-width: 321px) {
+    .ContainerUserDecoration{
+        display: none;
+    }
+    
+    .ContainerCodigo{
+        width: 70%;
+        height: 85%;
+    }
+
+    .etiquetaP1{
+        font-size: 80%;
+        
+    }
+    
+    .etiquetaP2{
+        font-size: 60%;
+    }
+
+    .buttonUnirme{
+        padding: 0.2rem 0rem;
+        font-size: 80%;
+        width: 50%;
+    }
+
+    .InputCodigo{
+        padding: 0.3rem 1.3rem; /* Espaciado interno para el texto */
+        font-size: 0.7rem;
+    }
+
+    .TitleContainer{
+        height: 15%;
+        font-size: 0.5rem;
+        
+    }
+
+    .ContentContainer{
+        gap: 0.9rem;
+        height: 100%;
+        padding: 10% 6%;
+    }
 }

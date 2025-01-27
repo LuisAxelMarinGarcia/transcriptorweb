@@ -11,8 +11,14 @@ const SideBarGnerico = () => {
         setIsOpen(!isOpen);
     };
 
+    const handleClick = (event) => {
+            setIsOpen2(!isOpen2)
+        }
+    
+    const [isOpen2, setIsOpen2] = useState(false);
+
     return (
-        <div className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''}`}>
+        <div className={`${styles.sidebar} ${isOpen ? styles.sidebarOpen : ''} ${isOpen2 ? styles.ExpandableSB : ''}`}  onClick={handleClick}>
 
             <img src="/src/assets/hamburguesa.png" alt="Menú" onClick={toggleSidebar} className={styles.menuButton}/>
             
@@ -42,7 +48,7 @@ const SideBarGnerico = () => {
                     </Link>
                 </li>
                 <li>
-                    <a href="/ayuda">
+                    <a href="/public/Manual de Usuario (Docente y Alumno).pdf" target="_blank">
                     <img src="/src/assets/Help.png" alt="Ayuda" />
                     
                     </a>
@@ -56,7 +62,7 @@ const SideBarGnerico = () => {
                         <li><Link to="/estudiante-unirme-a-una-clase">Unirme a una clase</Link></li>
                         <li><Link to="/estudiante-clases-archivadas">Clases archivadas</Link></li>
                         <li><Link to="/login-estudiante">Cerrar sesión</Link></li>
-                        <li><a href="/ayuda">Ayuda</a></li>
+                        <li><a href="/public/Manual de Usuario (Docente y Alumno).pdf" target="_blank">Ayuda</a></li>
                     </ul>
                 </div>
             )}

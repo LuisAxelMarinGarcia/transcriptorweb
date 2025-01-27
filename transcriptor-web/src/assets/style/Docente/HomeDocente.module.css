@@ -3,7 +3,6 @@ html, body {
   
 }
 
-
 .flex{
     display: flex;
     height: 100%;
@@ -31,6 +30,86 @@ html, body {
 .HeaderContainer{
     
     background-color: rgb(200, 0, 0);
-    height: 13%;
+    height: 6rem;
     width: 100%;
+}
+
+.AvisoArchivado{
+    display: none;
+    width: 100%;
+    height: 20%;
+    background-color: rgba(160 160 219 / 54%);
+    align-items: center;
+    justify-content: center;
+}
+
+.titleMateriaArchivado{
+    font-size: 1.5rem;
+    color: #37396E;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
+  font-style: normal;
+  text-shadow: 1.2px 1.2px 2px rgba(160, 181, 229, 0.7);
+  display: flex; /* Convierte el título en un contenedor flex */
+    align-items: center;
+}
+
+.IconoArchivado{
+    margin-left: 1.2rem;
+    width: 1.6rem;
+    height: 1.7rem; 
+    
+}
+
+@media (max-width: 1024px) {
+    .container{
+        width: 93%;
+    }
+    .SpaceSiderbar{
+        width: 7%;
+    }
+
+    
+}
+
+@media (max-width: 768px) {
+    .SpaceSiderbar{
+        width: 0%;
+    }
+
+    .OtherContainer{
+        padding: 2rem 0 2rem 0;
+        width: 100%;
+
+    }
+
+    .HeaderContainer{
+        height: 4.59rem;
+        
+        width: 85%;
+        float: right;
+    }
+    
+    .container{
+        width: 100%;
+        flex-direction: column;
+        height: 100vh;
+    }
+
+    .AvisoArchivado{
+        display: flex;
+        height: 7%;
+    }
+    
+}
+
+@media (max-width: 568px){
+    .AvisoArchivado{
+        display: flex;
+        height: 10%;
+    }
+    .titleMateriaArchivado{
+        font-size: 1.2rem;
+    }
 }

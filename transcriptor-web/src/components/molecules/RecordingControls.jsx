@@ -51,10 +51,10 @@ const RecordingControls = ({
     {/* Botón de Guardar Transcripción */}
     <button
       onClick={onGuardar}
-      className={styles.button}
+      className={styles.buttonGuardar}
       disabled={!isListening && !isPaused} // Ajusta la lógica según tus necesidades
     >
-      <img src={guardarIcon} alt="Guardar" className={styles.icon} />
+      
       Guardar
     </button>
   </div>

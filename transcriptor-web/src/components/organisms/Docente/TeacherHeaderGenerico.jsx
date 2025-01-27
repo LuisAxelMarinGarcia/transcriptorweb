@@ -8,6 +8,7 @@ import Avatar from '../../atoms/AvatarPerfil';
 import IconHome from '../../../assets/imgs/IconHome.png';
 import clasesArchivadas from '../../../assets/imgs/clasesArchivadas.png';
 import iconLive from '../../../assets/imgs/iconEnVivo.png';
+import iconCrearClass from '../../../assets/imgs/crearClass.png';
 import ModalIniciarEnVivo from './ModalIniciarEnVivo'; // Asegúrate de que la ruta es correcta
 
 const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenModal, classStatus }) => {
@@ -44,7 +45,7 @@ const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenMo
             </div>
 
             <button className={styles.createClassButton} onClick={onOpenModal}>
-              Crear clase <i className="fas fa-plus-circle"></i>
+            <span className={styles.hiddenText}>Crear clase</span> <img src={iconCrearClass} alt="Icono de transmisión en vivo" className={styles.iconCrear} />
             </button>
           </div>
         );
@@ -68,7 +69,7 @@ const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenMo
               disabled={classStatus === 'ARCHIVADO'} // Deshabilitar el botón si está archivado
               title={classStatus === 'ARCHIVADO' ? "La clase está archivada y no se puede iniciar la transcripción." : "Iniciar transcripción en vivo"}
             >
-              Iniciar transcripción en vivo <img src={iconLive} alt="Icono de transmisión en vivo" className={styles.icon} />
+              <span className={styles.hiddenText}>Iniciar transcripción en vivo </span> <img src={iconLive} alt="Icono de transmisión en vivo" className={styles.icon} />
             </button>
           </div>
         );
@@ -90,7 +91,10 @@ const TeacherHeader = ({ view, classId, transcriptionStatus, classData, onOpenMo
         {renderHeaderContent()}
       </div>
       
-      <Avatar size="medium" />
+      <div className={styles.containerAvatar}>
+          <Avatar size="medium" />
+      </div>
+      
 
       {/* Incluir el ModalIniciarEnVivo */}
       <ModalIniciarEnVivo 

@@ -48,11 +48,7 @@ const RecordingView = ({
         <div className={styles.titleInfo}>
           <h1>{title}</h1>
           <div className={styles.teacherInfo}>
-            <img
-              src={teacherIcon}
-              alt="Icon Docente"
-              className={styles.teacherIcon}
-            />
+            <img src={teacherIcon} alt="Icon Docente" className={styles.teacherIcon}/>
             <p>{teacherName}</p>
           </div>
         </div>
@@ -60,33 +56,45 @@ const RecordingView = ({
 
       <div className={styles.mainContent}>
         <div className={styles.micContainer}>
-          <img src={IconMicrofono} alt="Micrófono" className={styles.mic} />
-          <p className={styles.timer}>{time}</p>
+          <div className={styles.ContainerImg}>
+            <img src={IconMicrofono} alt="Micrófono" className={styles.mic} />
+          </div>
+          <div className={styles.ContainerTime}>
+              <p className={styles.timer}>{time}</p>
+          </div>
         </div>
 
         <div className={styles.controlsWrapper}>
-          <canvas ref={canvasRef} className={styles.canvas}></canvas>
+
+          <div className={styles.containerCanvas}>
+              <canvas ref={canvasRef} className={styles.canvas}></canvas>
+          </div>
           <div className={styles.waveform}>
             {/* Mostrar el texto según el estado */}
             <p className={styles.statusText}>{displayText}</p>
           </div>
-          <RecordingControls
-            onPause={onPause}
-            onRecord={onRecord}
-            onStop={onStop}
-            onGuardar={handleOpenModal} // Pasar la función para abrir el modal
-            isListening={isListening}
-            isPaused={isPaused}
-            transcript={transcript} // Asegúrate de pasar 'transcript' si es necesario
-          />
+          <div className={styles.containerControlls}>
+              <RecordingControls
+                onPause={onPause}
+                onRecord={onRecord}
+                onStop={onStop}
+                onGuardar={handleOpenModal} // Pasar la función para abrir el modal
+                isListening={isListening}
+                isPaused={isPaused}
+                transcript={transcript} // Asegúrate de pasar 'transcript' si es necesario
+              />
+          </div>
         </div>
       </div>
 
-      {/* Sección para mostrar la transcripción */}
+    
+      {/* Sección para mostrar la transcripción 
       <div className={styles.transcript}>
         <h3>Transcripción:</h3>
-        <p>{transcript}</p> {/* Mostramos la transcripción pasada como prop */}
+        <p>{transcript}</p>  * Mostramos la transcripción pasada como prop *
       </div>
+      */}
+
 
       {/* Modal para guardar */}
       {isModalOpen && (

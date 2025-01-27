@@ -35,7 +35,7 @@
 
 
 .HeaderContainer{
-    height: 13%;
+    height: 6rem;
     width: 100%;
 }
 
@@ -78,4 +78,57 @@
     width: 15px; /* Ajusta el tamaño del ícono según sea necesario */
     height: 15px;
     margin-right: 9px; /* Espacio entre el ícono y el texto */
+}
+
+@media (max-width: 1024px) {
+    .container{
+        width: 93%;
+    }
+    .SpaceSiderbar{
+        width: 7%;
+    }
+
+    .SubirMaterial{
+        height:5rem
+    }
+
+    .botonSubirMaterial {
+        height: 50%;
+        width: 30%;
+    }
+}
+
+@media (max-width: 768px) {
+    .SpaceSiderbar{
+        width: 0%;
+    }
+
+    .OtherContainer{
+        padding: 0rem;
+        width: 100%;
+
+    }
+
+    .HeaderContainer{
+        height: 4.59rem;
+        
+        width: 85%;
+        float: right;
+    }
+    
+    .container{
+        width: 100%;
+        flex-direction: column;
+        height: 100vh;
+    }
+    
+    .SubirMaterial{
+        height:5rem
+    }
+
+    .botonSubirMaterial {
+        height: 50%;
+        width: 50%;
+    }
+
 }

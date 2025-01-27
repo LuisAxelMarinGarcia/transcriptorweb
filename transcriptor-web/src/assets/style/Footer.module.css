@@ -1,17 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
 .footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0rem 2rem;
+    padding: 1rem 2rem;
     background-color: #f5f5f5; /* Color de fondo */
     border-top: 2px solid #ccc;
     font-size: 0.9rem;
-    height: 13.8%;
+    /* height: 13.8%;*/
+    gap: 1rem;
   }
   
   .logoContainer {
-    width: 15%;
-    width: 15%;
+    width: auto;
+    display: flex;
+    justify-content: flex-end; /* Mueve el contenido hacia la derecha */
+    align-items: center; /* Centra verticalmente */
+  }
+  .logoContainer2{
+    width: auto;
     display: flex;
     justify-content: flex-end; /* Mueve el contenido hacia la derecha */
     align-items: center; /* Centra verticalmente */
@@ -22,9 +30,31 @@
     flex-grow: 1;
     font-size: 0.85rem;
     color: #333;
+    font-family: "Nunito", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
   }
   
   .infoContainer p {
     margin: 0.2rem 0;
   }
+
   
+@media (max-width: 768px) {
+
+  .infoContainer {
+    padding: 0 1.5rem 0 1.5rem;
+    font-size: 0.6rem;
+  }
+  .footer {
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 568px){
+
+  .infoContainer {
+    display: none;
+  }
+}

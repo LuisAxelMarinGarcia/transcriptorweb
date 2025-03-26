@@ -18,12 +18,12 @@ const EVerTranscripcionPage = () => {
 
   const { name, students, teacherName, status } = state;
 
-  console.log('[ETranscripcionesClasePage.jsx] Datos recibidos del estado:', {
+  /*console.log('[ETranscripcionesClasePage.jsx] Datos recibidos del estado:', {
     name,
     students,
     teacherName,
     status,
-  });
+  });*/
 
   return (
     <EVerTranscripcion

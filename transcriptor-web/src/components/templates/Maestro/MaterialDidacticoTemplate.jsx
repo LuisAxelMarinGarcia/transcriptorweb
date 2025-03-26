@@ -16,7 +16,7 @@ import ModalSubirMaterialNOdisponible from '../../organisms/Docente/ModalSubirMa
 
 const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, students, teacherName, classGroup, materialStatus, typeFilter, classStatus }) => {
 
-    console.log('[MaterialDidactico] Props recibidas:', {
+    /*console.log('[MaterialDidactico] Props recibidas:', {
         title,
         studentCount,
         codeClass,
@@ -27,7 +27,7 @@ const MaterialDidactico = ({ title, studentCount, codeClass, classId, name, stud
         classGroup,
         materialStatus,
         classStatus
-    });
+    });*/
     const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
 
     const classData = { 

@@ -22,14 +22,13 @@
 /* Ajuste general del formulario */
 .login-form-container {
     background-color: white;
-    padding: 0rem 0rem; /* Sin padding alrededor del formulario */
+    padding: 0 0  2rem 0rem; /* Sin padding alrededor del formulario */
     border-radius: 1rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 63%;
-    height: 54%;
   
 }
 
@@ -38,8 +37,8 @@
 .user-type-selector {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 0.5rem;
     width: 100%;
-    margin-bottom: 1rem; /* Espacio debajo de los botones */
     border-radius: 0.5rem 0.5rem 0 0; /* Bordes redondeados solo en la parte superior */
     overflow: hidden; /* Asegura que los bordes redondeados se vean correctamente */
    
@@ -82,7 +81,7 @@
   .form-field {
     display: flex;
     align-items: center;
-    width: 70%;
+    width: 80%;
     margin-bottom: 1rem; /* Espacio entre los campos */
     margin-top: 1.5rem;
   }
@@ -149,7 +148,7 @@
     display: flex;
     justify-content: center;
     margin-top: 2.2rem; /* Espacio entre el form y el botón */
-    width: 25%;
+    width: 29%;
   }
   
   /* Botón de inicio de sesión */
@@ -179,3 +178,126 @@
     background-color: #2B2C74; /* Color del botón activo */
   
   }
+
+  .error-message{
+    color: red;
+    font-family: "Nunito", sans-serif;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
+    font-size:0.9rem;
+    width:80%;
+    text-align: center;
+  }
+
+@media (max-width: 1020px) and (min-height: 1366px)  {
+
+    .inputLogin{
+
+      padding: 0.8rem;
+    }
+    .msj-olvidaste{
+      font-size: 1.1rem;
+    }
+    .left-side {
+      background-color: white; /* Color de fondo opcional */
+  }
+  .submit-button-container {
+    width: 40%;
+  }
+  .submit-button {
+    padding: 1rem;
+  }
+  .error-message{
+    font-size:0.9rem;
+  }
+}
+
+@media (max-width: 614px)  {
+
+  .inputLogin{
+
+    padding: 0.8rem;
+  }
+  .msj-olvidaste{
+    font-size: 0.9rem;
+  }
+  .left-side {
+    background-color: white; /* Color de fondo opcional */
+}
+
+.submit-button {
+  padding: 1rem;
+}
+.submit-button-container {
+  width: 50%;
+}
+.login-form-container {
+  width: 75%;
+
+}
+}
+
+@media (max-width: 391px)  {
+  .submit-button {
+    padding: 0.8rem;
+    font-size: 1rem;
+  }
+  .user-type-selector button {
+    padding: 1rem;
+    font-size: 1rem;
+  }
+  .inputLogin{
+
+    padding: 0.6rem;
+  }
+  .form-field {
+    width: 85%;
+    margin-bottom: 0rem; /* Espacio entre los campos */
+  }
+  .input-icon {
+    width: 2.1rem;
+    height: 2.1rem;
+  }
+  .error-message{
+    font-size:0.8rem;
+  }
+  
+}
+
+@media (max-width: 320px){
+  .user-type-selector button {
+    padding: 0.8rem;
+    font-size: 0.8rem;
+  }
+  .inputLogin{
+
+    padding: 0.5rem;
+  }
+
+  .msj-olvidaste{
+    font-size: 0.8rem;
+    margin-top:0.8rem
+  }
+  .login-form-container {
+    padding: 0 0  1.5rem 0rem; /* Sin padding alrededor del formulario */
+}
+.submit-button-container {
+  margin-top: 1rem; /* Espacio entre el form y el botón */
+}
+.submit-button {
+  padding: 0.5rem;
+  font-size: 0.8rem;
+}
+
+.form-field {
+  margin-bottom: 0rem; /* Espacio entre los campos */
+  
+}
+.user-type-selector {
+  margin-bottom: 0rem;
+}
+.error-message{
+  font-size:0.8rem;
+}
+}
+

@@ -17,8 +17,8 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
 
   // Función para manejar el click en "Material Didáctico"
   const handleMaterialDidacticoClick = () => {
-    console.log(`[HeaderClase] Navegando a Material Didáctico con classId: ${classId}`);
-    console.log('[HeaderClase] Datos enviados:', {
+    //console.log(`[HeaderClase] Navegando a Material Didáctico con classId: ${classId}`);
+    /*console.log('[HeaderClase] Datos enviados:', {
       classId,
       name,
       students: studentCount,
@@ -27,7 +27,7 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
       classCode: codeClass,
       materialStatus: 'DISPONIBLE', // Cambiado de 'status' a 'materialStatus'
       classStatus // Añadido
-    });
+    });*/
     navigate(`/docente-material-didactico/${classId}`, {
       state: {
         classId,
@@ -44,8 +44,8 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
 
   // Función para manejar el click en "Transcripciones"
   const handleTranscripcionesClick = () => {
-    console.log(`[HeaderClase] Navegando a Transcripciones con classId: ${classId}`);
-    console.log('[HeaderClase] Datos enviados:', {
+    //console.log(`[HeaderClase] Navegando a Transcripciones con classId: ${classId}`);
+    /*console.log('[HeaderClase] Datos enviados:', {
       classId,
       name,
       students: studentCount,
@@ -54,7 +54,7 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
       classCode: codeClass,
       status: 'DISPONIBLE', // Mantenemos 'status' para Transcripciones
       classStatus // Añadido
-    });
+    });*/
     navigate(`/transcripciones-docente/${classId}`, {  
       state: {
         classId,
@@ -71,8 +71,8 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
 
   // Función para manejar el click en "Panel" con navegación programática
   const handlePanelClick = () => {
-    console.log(`[HeaderClase] Navegando a Panel con classId: ${classId}`);
-    console.log('[HeaderClase] Datos enviados:', {
+    //console.log(`[HeaderClase] Navegando a Panel con classId: ${classId}`);
+    /*console.log('[HeaderClase] Datos enviados:', {
       classId,
       name,
       students: studentCount,
@@ -81,7 +81,7 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
       classCode: codeClass,
       status: 'DISPONIBLE', // Mantenemos 'status' para Transcripciones
       classStatus // Añadido
-    });
+    });*/
     navigate(`/docente-home-materia/${classId}`, {
       state: {
         classId,
@@ -98,8 +98,8 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
 
   // Función para manejar el click en "Personas"
   const handlePersonasClick = () => {
-    console.log(`[HeaderClase] Navegando a Personas con classId: ${classId}`);
-    console.log('[HeaderClase] Datos enviados:', {
+    //console.log(`[HeaderClase] Navegando a Personas con classId: ${classId}`);
+    /*console.log('[HeaderClase] Datos enviados:', {
       classId,
       name,
       students: studentCount,
@@ -108,7 +108,7 @@ const HeaderClase = ({ title, studentCount, codeClass, classId, name, teacherNam
       classCode: codeClass,
       status: 'DISPONIBLE', // Añadimos 'status'
       classStatus // Añadido
-    });
+    });*/
     navigate(`/docente-personas-materia/${classId}`, {
       state: {
         classId,

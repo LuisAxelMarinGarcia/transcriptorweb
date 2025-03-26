@@ -21,7 +21,7 @@ const LoginFormEstudiante = ({ onSwitchForm }) => {
 
   // Función para manejar el cambio de tipo de usuario
   const handleButtonClick = (button) => {
-    console.log(`[LoginFormEstudiante.jsx] Cambiando a formulario de ${button}`);
+    //console.log(`[LoginFormEstudiante.jsx] Cambiando a formulario de ${button}`);
     setActiveButton(button);
     if (button === 'docente') {
       onSwitchForm(); // Cambia al formulario de docente
@@ -31,10 +31,10 @@ const LoginFormEstudiante = ({ onSwitchForm }) => {
   // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('[LoginFormEstudiante.jsx] Enviando formulario de login con:', { email, password });
+    //console.log('[LoginFormEstudiante.jsx] Enviando formulario de login con:', { email, password });
 
     try {
-      const response = await fetch('http://localhost:8080/api/auth/login', {
+      const response = await fetch('http://3.132.124.12:8080/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -42,16 +42,16 @@ const LoginFormEstudiante = ({ onSwitchForm }) => {
         body: JSON.stringify({ email, password }),
       });
 
-      console.log('[LoginFormEstudiante.jsx] Respuesta recibida:', response);
+      //console.log('[LoginFormEstudiante.jsx] Respuesta recibida:', response);
 
       const data = await response.json();
 
-      console.log('[LoginFormEstudiante.jsx] Datos recibidos del backend:', data);
+      //console.log('[LoginFormEstudiante.jsx] Datos recibidos del backend:', data);
 
       if (response.ok && data.success) {
         const { token, role, id, email: userEmail } = data.data;
 
-        console.log('[LoginFormEstudiante.jsx] Datos de usuario:', { token, role, id, userEmail });
+        //console.log('[LoginFormEstudiante.jsx] Datos de usuario:', { token, role, id, userEmail });
 
         // Verificar si el rol es 'ESTUDIANTE'
         if (role === 'ESTUDIANTE') {
@@ -61,11 +61,11 @@ const LoginFormEstudiante = ({ onSwitchForm }) => {
           localStorage.setItem('userId', id);
           localStorage.setItem('userEmail', userEmail);
 
-          console.log('[LoginFormEstudiante.jsx] Usuario autenticado como ESTUDIANTE. Redirigiendo a /home-estudiante');
+          //console.log('[LoginFormEstudiante.jsx] Usuario autenticado como ESTUDIANTE. Redirigiendo a /home-estudiante');
 
           navigate('/home-estudiante'); // Ruta para estudiantes
         } else {
-          setError('No tienes acceso desde este formulario. Por favor, inicia sesión desde el formulario correspondiente.');
+          setError('No autorizado. Usa el formulario correcto.');
           console.warn('[LoginFormEstudiante.jsx] Usuario con rol no autorizado para este formulario.');
         }
       } else {

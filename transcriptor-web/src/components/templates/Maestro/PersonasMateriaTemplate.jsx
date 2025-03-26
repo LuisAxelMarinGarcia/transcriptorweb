@@ -11,7 +11,7 @@ import ModalTranscription from '../../organisms/Docente/ModaliniciarEnVivo';
 import teacherImage from "../../../assets/imgs/DocenteFoto.png"; // Importa la imagen por defecto del maestro
 
 const PersonasMateriaTemplate = ({ title, studentCount, codeClass, classId, name, teacherName, classGroup, classStatus }) => {
-  console.log('PersonasMateriaTemplate Props:', { title, studentCount, codeClass, classId, name, teacherName, classGroup, classStatus });
+  //console.log('PersonasMateriaTemplate Props:', { title, studentCount, codeClass, classId, name, teacherName, classGroup, classStatus });
   const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
   // Estado que guarda qué pestaña está activa (Todos o Baja)
   const [activeTab, setActiveTab] = useState("Todos");
@@ -24,12 +24,12 @@ const PersonasMateriaTemplate = ({ title, studentCount, codeClass, classId, name
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
-    console.log('Modal abierto');
+    //console.log('Modal abierto');
     setIsModalOpen(true);
   };
   
   const handleCloseModal = () => {
-    console.log('Modal cerrado');
+    //console.log('Modal cerrado');
     setIsModalOpen(false);
   };
 

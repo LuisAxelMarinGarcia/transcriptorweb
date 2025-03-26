@@ -26,14 +26,14 @@ const HomeTemplateArchivado = () => {
 
     if (!userId || !token) {
       setError('Usuario no autenticado. Por favor, inicia sesión nuevamente.');
-      console.log('[HomeTemplateArchivado.jsx] Usuario no autenticado.');
+      //console.log('[HomeTemplateArchivado.jsx] Usuario no autenticado.');
       return;
     }
 
     const encodedStatus = encodeURIComponent('ARCHIVADO');
     const url = `/user-class/student/classes/${userId}/${encodedStatus}`; // URL relativa para el estudiante
 
-    console.log(`[HomeTemplateArchivado.jsx] Fetching clases archivadas para userId: ${userId}`);
+    //console.log(`[HomeTemplateArchivado.jsx] Fetching clases archivadas para userId: ${userId}`);
 
     setLoading(true);
     setError('');
@@ -47,11 +47,11 @@ const HomeTemplateArchivado = () => {
         },
       });
 
-      console.log('[HomeTemplateArchivado.jsx] Respuesta del fetch:', response);
+      //console.log('[HomeTemplateArchivado.jsx] Respuesta del fetch:', response);
 
       if (response.ok) {
         const data = await response.json();
-        console.log('[HomeTemplateArchivado.jsx] Datos recibidos del backend:', data);
+        //console.log('[HomeTemplateArchivado.jsx] Datos recibidos del backend:', data);
         if (data.success) {
           // Establecer 'status' como 'DISPONIBLE' y 'classStatus' como 'ARCHIVADO'
           const archivedClasses = data.data.map(cls => ({
@@ -60,7 +60,7 @@ const HomeTemplateArchivado = () => {
             classStatus: 'ARCHIVADO' // Indicador de archivado
           }));
           setClasses(archivedClasses);
-          console.log('[HomeTemplateArchivado.jsx] Clases archivadas obtenidas:', archivedClasses);
+          //console.log('[HomeTemplateArchivado.jsx] Clases archivadas obtenidas:', archivedClasses);
         } else {
           console.error('[HomeTemplateArchivado.jsx] Error en la respuesta del backend:', data.message);
           setError(data.message || 'Error al obtener las clases.');
@@ -83,7 +83,7 @@ const HomeTemplateArchivado = () => {
 
   // Función para manejar el cambio de estatus de una clase
   const handleStatusChange = async (classId, newStatus) => {
-    console.log(`[HomeTemplateArchivado.jsx] Cambiando estatus de la clase ${classId} a ${newStatus}`);
+    //console.log(`[HomeTemplateArchivado.jsx] Cambiando estatus de la clase ${classId} a ${newStatus}`);
     const token = getToken();
     const userId = getUserId();
 
@@ -106,7 +106,7 @@ const HomeTemplateArchivado = () => {
         }),
       });
 
-      console.log('[HomeTemplateArchivado.jsx] Respuesta del PUT:', response);
+      //console.log('[HomeTemplateArchivado.jsx] Respuesta del PUT:', response);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -114,7 +114,7 @@ const HomeTemplateArchivado = () => {
         setError(errorData.message || 'Error al cambiar el estatus de la clase.');
       } else {
         const data = await response.json();
-        console.log('[HomeTemplateArchivado.jsx] Éxito al cambiar estatus:', data.message);
+        //console.log('[HomeTemplateArchivado.jsx] Éxito al cambiar estatus:', data.message);
         // Refrescar la lista de clases archivadas
         fetchArchivedClasses();
       }
@@ -126,7 +126,7 @@ const HomeTemplateArchivado = () => {
 
   // Función para manejar la eliminación de una clase
   const handleDeleteClass = async (classId) => {
-    console.log(`[HomeTemplateArchivado.jsx] Eliminando clase ${classId}`);
+    //console.log(`[HomeTemplateArchivado.jsx] Eliminando clase ${classId}`);
     const token = getToken();
     const userId = getUserId();
 
@@ -136,7 +136,7 @@ const HomeTemplateArchivado = () => {
     }
 
     try {
-      const response = await fetch('/user-class/status-classes', { // Asegurar la barra inicial
+      const response = await fetch('/user-class/status', { // Asegurar la barra inicial
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -145,11 +145,11 @@ const HomeTemplateArchivado = () => {
         body: JSON.stringify({
           userId: userId, // Incluye el userId en el body
           classId: classId,
-          status: 'ELIMINADO',
+          status: 'BAJA',
         }),
       });
 
-      console.log('[HomeTemplateArchivado.jsx] Respuesta del PUT para eliminar:', response);
+      //console.log('[HomeTemplateArchivado.jsx] Respuesta del PUT para eliminar:', response);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -157,7 +157,7 @@ const HomeTemplateArchivado = () => {
         setError(errorData.message || 'Error al eliminar la clase.');
       } else {
         const data = await response.json();
-        console.log('[HomeTemplateArchivado.jsx] Éxito al eliminar clase:', data.message);
+        //console.log('[HomeTemplateArchivado.jsx] Éxito al eliminar clase:', data.message);
         // Refrescar la lista de clases archivadas
         fetchArchivedClasses();
       }

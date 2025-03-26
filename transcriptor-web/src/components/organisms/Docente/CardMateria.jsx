@@ -28,7 +28,7 @@ function CardMateria({
   const [activeModal, setActiveModal] = useState(null);
   const navigate = useNavigate();
 
-  console.log(`[CardMateria.jsx] Renderizando clase: ${name}`, {
+  /*console.log(`[CardMateria.jsx] Renderizando clase: ${name}`, {
     classId,
     name,
     students,
@@ -36,20 +36,20 @@ function CardMateria({
     status,
     classGroup,
     classCode,
-  });
+  });*/
 
   const openModal = useCallback((modalType) => {
-    console.log(`[CardMateria.jsx] Abriendo modal: ${modalType} para claseId: ${classId}`);
+    //console.log(`[CardMateria.jsx] Abriendo modal: ${modalType} para claseId: ${classId}`);
     setActiveModal(modalType);
   }, [classId]);
 
   const closeModal = useCallback(() => {
-    console.log(`[CardMateria.jsx] Cerrando modal: ${activeModal} para claseId: ${classId}`);
+    //console.log(`[CardMateria.jsx] Cerrando modal: ${activeModal} para claseId: ${classId}`);
     setActiveModal(null);
   }, [activeModal, classId]);
 
   const handleStatusChange = useCallback((newStatus) => {
-    console.log(`[CardMateria.jsx] handleStatusChange called with: ${newStatus}`);
+    //console.log(`[CardMateria.jsx] handleStatusChange called with: ${newStatus}`);
     if (typeof onStatusChange === 'function') {
       onStatusChange(classId, newStatus);
     } else {
@@ -59,7 +59,7 @@ function CardMateria({
   }, [onStatusChange, classId, closeModal]);
 
   const handleDelete = useCallback(() => {
-    console.log(`[CardMateria.jsx] handleDelete called`);
+    //console.log(`[CardMateria.jsx] handleDelete called`);
     if (typeof onDelete === 'function') {
       onDelete(classId, status);
     } else {
@@ -69,7 +69,7 @@ function CardMateria({
   }, [onDelete, classId, status, closeModal]);
 
   const handleCardClick = useCallback(() => {
-    console.log(`[CardMateria.jsx] Tarjeta clickeada: ${classId}`);
+    //console.log(`[CardMateria.jsx] Tarjeta clickeada: ${classId}`);
     navigate(`/docente-home-materia/${classId}`, { 
       state: { 
         classId, 

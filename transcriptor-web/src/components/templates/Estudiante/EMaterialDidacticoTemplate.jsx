@@ -9,7 +9,7 @@ import ClassListTypeContent from '../../organisms/Estudiante/ClassListContentTyp
 
 const EMaterialDidacticoTemplate = ({ title, studentCount, teacherName, classId, status, classGroup, codeClass }) => {
 
-    console.log('[EMaterialDidacticoTemplate.jsx] Props recibidos:', { classId, title, studentCount, teacherName, status, classGroup, codeClass });
+    //console.log('[EMaterialDidacticoTemplate.jsx] Props recibidos:', { classId, title, studentCount, teacherName, status, classGroup, codeClass });
 
     return (
         <>

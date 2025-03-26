@@ -7,7 +7,7 @@ const CrearMaterialPage = () => {
   const location = useLocation();
   const { state } = location;
 
-  console.log('[CrearMaterial] Estado recibido:', state);
+  //console.log('[CrearMaterial] Estado recibido:', state);
 
   if (!state || !state.classId) {
     console.error('[CrearMaterial] No se proporcionaron datos de la clase en el estado de navegación.');
@@ -16,14 +16,14 @@ const CrearMaterialPage = () => {
 
   const { classId, name, students, teacherName, classGroup, classCode } = state;
 
-  console.log('[CrearMaterial] Datos de clase:', {
+  /*console.log('[CrearMaterial] Datos de clase:', {
     classId,
     name,
     students,
     teacherName,
     classGroup,
     classCode
-  });
+  });*/
 
   return (
     <CrearMaterial

@@ -10,8 +10,8 @@ const ETranscripcionesClasePage = () => {
   const location = useLocation();
   const { state } = location;
 
-  console.log('[ETranscripcionesClasePage.jsx] classId de useParams():', classId);
-  console.log('[ETranscripcionesClasePage.jsx] Datos recibidos del estado:', state);
+  //console.log('[ETranscripcionesClasePage.jsx] classId de useParams():', classId);
+  //console.log('[ETranscripcionesClasePage.jsx] Datos recibidos del estado:', state);
 
   // Verificar que classId está definido
   if (!classId) {
@@ -31,7 +31,7 @@ const ETranscripcionesClasePage = () => {
 
   const { name, students, teacherName, status, classGroup, codeClass } = state;
 
-  console.log('[ETranscripcionesClasePage.jsx] Datos desestructurados:', { name, students, teacherName, status, classGroup, codeClass });
+  //console.log('[ETranscripcionesClasePage.jsx] Datos desestructurados:', { name, students, teacherName, status, classGroup, codeClass });
 
   return (
     <EVerTranscripcion

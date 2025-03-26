@@ -8,8 +8,8 @@ const EstudianteHomeMateria = () => {
   const location = useLocation();
   const { state } = location;
 
-  console.log('[EstudianteHomeMateria.jsx] classId de useParams():', classId);
-  console.log('[EstudianteHomeMateria.jsx] Datos recibidos del estado:', state);
+  //console.log('[EstudianteHomeMateria.jsx] classId de useParams():', classId);
+  //console.log('[EstudianteHomeMateria.jsx] Datos recibidos del estado:', state);
 
   // Verificar que classId está definido
   if (!classId) {

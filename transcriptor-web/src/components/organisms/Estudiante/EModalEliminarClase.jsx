@@ -5,7 +5,7 @@ import styles from '../../../assets/style/Estudiante/EModalEliminarClase.module.
 import AvisoIcon from '../../../assets/imgs/atencion.png';
 
 const EModalEliminarClase = ({ show, onClose, onDelete }) => {
-  console.log("Prop show:", show); 
+  //console.log("Prop show:", show); 
   if (!show) return null;
 
   // Maneja el envío del formulario y detiene la propagación del evento

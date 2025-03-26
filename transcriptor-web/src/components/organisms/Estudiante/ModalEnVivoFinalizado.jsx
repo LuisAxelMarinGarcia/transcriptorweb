@@ -2,7 +2,7 @@ import React from 'react';
 import styles from '../../../assets/style/Estudiante/ModalEnVivoFinalizado.module.css';
 
 const ModalEnVivoFinalizado = ({ show, onClose, onConfirm }) => {
-  console.log("Prop show:", show); 
+  //console.log("Prop show:", show); 
   if (!show) return null;
 
   return (

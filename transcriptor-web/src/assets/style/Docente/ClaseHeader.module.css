@@ -19,8 +19,9 @@
 .archivedOverlay {
     position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
+    left: 5%;
+    width: 95%;
+    margin-top: 6rem;
     height: 2.5rem; /* Ajusta la altura según necesidad */
     background-color: rgba(0, 0, 0, 0.7); /* Negro semiopaco */
     color: white;
@@ -187,12 +188,18 @@
         font-weight: 400;
         font-size: 1rem; /* Ajusta el tamaño según lo que necesites */
     }
+
+    .archivedOverlay {
+        position: absolute;
+        top: 0;
+        left: 7%;
+        width: 93%;
+        height: 1.9rem; /* Ajusta la altura según necesidad */
+        font-size: 0.6rem;
+    }
 }
 
-
-
 @media (max-width: 889px){
-
     .navList .navButton {
         display: none;
     }
@@ -233,6 +240,15 @@
     
     
         background-position: 67% 20%; /* Muestra una parte específica de la imagen */
+    }
+    .archivedOverlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1.9rem; /* Ajusta la altura según necesidad */
+        font-size: 0.6rem;
+        margin-top: 4.59rem;
     }
 }
 

@@ -5,7 +5,7 @@ import styles from '../../../assets/style/Docente/ModalDesarchivarClase.module.c
 import AvisoIcon from '../../../assets/imgs/atencion.png';
 
 const ModalDesarchivarClase = ({ show, onClose, onConfirm }) => {
-    console.log("Prop show:", show); 
+    //console.log("Prop show:", show); 
     if (!show) return null;
 
     const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ const ModalDesarchivarClase = ({ show, onClose, onConfirm }) => {
         try {
             if (typeof onConfirm === 'function') {
                 await onConfirm(); // Llama a la función pasada desde CardMateria
-                console.log("[ModalDesarchivarClase.jsx] onConfirm ejecutado correctamente");
+                //console.log("[ModalDesarchivarClase.jsx] onConfirm ejecutado correctamente");
                 // Opcional: Mostrar una notificación de éxito
             } else {
                 throw new Error('onConfirm no es una función');

@@ -19,13 +19,6 @@ const ModalGuardarTranscripcion = ({ show, onClose, transcript, classId }) => {
       return;
     }
 
-    // Generar la fecha actual en el formato dd-mm-yy
-    const today = new Date();
-    const day = String(today.getDate()).padStart(2, '0');
-    const month = String(today.getMonth() + 1).padStart(2, '0');
-    const year = String(today.getFullYear()).slice(-2); // últimos 2 dígitos del año
-    const dateStr = `${day}/${month}/${year}`;
-
     // Generar el PDF con jsPDF
     const doc = new jsPDF();
     doc.setFont('Helvetica');
@@ -51,22 +44,22 @@ const ModalGuardarTranscripcion = ({ show, onClose, transcript, classId }) => {
     const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
-    formData.append('date', dateStr);
+    formData.append('date', new Date().toLocaleString());
     formData.append('url', '');          // URL vacío según lo indicado
     formData.append('type', 'TRANSCRIPCION'); // Tipo MATERIAL, según el ejemplo
     formData.append('classId', classId); // Cambiado a 'classId'
     formData.append('file', pdfBlob, `Transcripcion_${title}.pdf`);
 
     // Consolas de depuración para verificar los datos enviados
-    console.log('--- Datos a Enviar al Backend ---');
-    for (let pair of formData.entries()) {
+    //console.log('--- Datos a Enviar al Backend ---');
+    /*for (let pair of formData.entries()) {
       if (pair[0] === 'file') {
         console.log(`${pair[0]}:`, pair[1].name);
       } else {
         console.log(`${pair[0]}:`, pair[1]);
       }
-    }
-    console.log('----------------------------------');
+    }*/
+    //console.log('----------------------------------');
 
     try {
       // Obtener el token de localStorage
@@ -84,16 +77,16 @@ const ModalGuardarTranscripcion = ({ show, onClose, transcript, classId }) => {
         body: formData,
       });
 
-      console.log('--- Response ---', response);
+      //console.log('--- Response ---', response);
 
       let responseData;
       const contentType = response.headers.get('content-type');
       if (contentType && contentType.includes('application/json')) {
         responseData = await response.json();
-        console.log('Respuesta del Servidor:', responseData);
+        //console.log('Respuesta del Servidor:', responseData);
       } else {
         const text = await response.text();
-        console.log('Respuesta del Servidor (texto):', text);
+        //console.log('Respuesta del Servidor (texto):', text);
         throw new Error('Respuesta del servidor no es JSON');
       }
 
@@ -101,7 +94,7 @@ const ModalGuardarTranscripcion = ({ show, onClose, transcript, classId }) => {
         throw new Error(responseData.message || 'Error al guardar la transcripción');
       }
 
-      console.log('Transcripción guardada:', responseData);
+      //console.log('Transcripción guardada:', responseData);
       alert('Transcripción guardada exitosamente.');
       onClose(); // Cerrar el modal
     } catch (error) {

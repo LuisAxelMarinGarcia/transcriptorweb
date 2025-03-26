@@ -99,7 +99,7 @@ const PersonasMateriaPage = () => {
 
   const { name, students, teacherName, classGroup, classCode, status, classStatus } = classData;
 
-  console.log('[PersonasMateriaPage.jsx] Datos recibidos:', classData);
+  //console.log('[PersonasMateriaPage.jsx] Datos recibidos:', classData);
 
   return (
     <PersonasMateria

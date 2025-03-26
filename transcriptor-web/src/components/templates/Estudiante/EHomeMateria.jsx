@@ -8,7 +8,7 @@ import HeaderDeClase from '../../organisms/Estudiante/HeaderHomeMateria';
 import ClassListTypeContent from '../../organisms/Estudiante/ClassListContentType';
 
 const EHomeMateria = ({ title, studentCount, teacherName, classId, status, classStatus }) => {
-  console.log('[EHomeMateria.jsx] Props recibidos:', { title, studentCount, teacherName, classId, status, classStatus });
+  //console.log('[EHomeMateria.jsx] Props recibidos:', { title, studentCount, teacherName, classId, status, classStatus });
 
   return (
     <div className={styles.flex}>

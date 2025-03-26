@@ -20,7 +20,7 @@ function PeopleList({ type, classId, teacherName }) {
         role: 'docente',
         image: teacherImage,
       }];
-      console.log('[PeopleList.jsx] Docente Data:', docenteData); // Depuración
+      //console.log('[PeopleList.jsx] Docente Data:', docenteData); // Depuración
       setPeopleData(docenteData);
       return;
     }
@@ -41,7 +41,7 @@ function PeopleList({ type, classId, teacherName }) {
       }
 
       const endpoint = `/user-class/students/${classId}/INSCRITO`; // Asegúrate de que la URL es correcta
-      console.log('[PeopleList.jsx] Endpoint:', endpoint); // Depuración
+      //console.log('[PeopleList.jsx] Endpoint:', endpoint); // Depuración
 
       const fetchData = async () => {
         setLoading(true);
@@ -56,7 +56,7 @@ function PeopleList({ type, classId, teacherName }) {
             },
           });
 
-          console.log('[PeopleList.jsx] Response Status:', response.status); // Depuración
+          //console.log('[PeopleList.jsx] Response Status:', response.status); // Depuración
 
           if (!response.ok) {
             console.error('[PeopleList.jsx] Error en la respuesta del servidor:', response.status);
@@ -64,7 +64,7 @@ function PeopleList({ type, classId, teacherName }) {
           }
 
           const data = await response.json();
-          console.log('[PeopleList.jsx] Datos recibidos del backend:', data); // Depuración
+          //console.log('[PeopleList.jsx] Datos recibidos del backend:', data); // Depuración
 
           if (data.success && Array.isArray(data.data)) {
             const formattedData = data.data.map(person => ({
@@ -72,7 +72,7 @@ function PeopleList({ type, classId, teacherName }) {
               fullName: `${person.studentName} ${person.studentSurname}`, // Crear un nombre completo
               image: studentImage
             }));
-            console.log('[PeopleList.jsx] Formatted Data:', formattedData); // Depuración
+            //console.log('[PeopleList.jsx] Formatted Data:', formattedData); // Depuración
             setPeopleData(formattedData);
           } else {
             console.error('[PeopleList.jsx] Error en datos recibidos:', data.message);

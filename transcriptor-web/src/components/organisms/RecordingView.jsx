@@ -25,7 +25,7 @@ const RecordingView = ({
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleOpenModal = () => {
-    console.log('Modal de Guardar abierto');
+    //console.log('Modal de Guardar abierto');
     setIsModalOpen(true);
   };
 

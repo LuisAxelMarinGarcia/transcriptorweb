@@ -73,7 +73,7 @@ function Card({ transcriptionId, title, description, date, type, link, fileType,
         <span className={styles.cardTitle}>{title}</span>
         <div className={styles.cardActions}>
           <span className={styles.cardDate}>
-            {date}
+          {date}
           </span>
           <img src={iconFecha} alt="Fecha" className={styles.cardIconEscrit} /> 
           {/* Condición para 'TRANSCRIPCION' */}

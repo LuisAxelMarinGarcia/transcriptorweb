@@ -7,7 +7,7 @@ const MaterialDidacticoPage = () => {
   const location = useLocation();
   const { state } = location;
 
-  console.log('[MaterialDidacticoPage] Estado recibido:', state);
+  //console.log('[MaterialDidacticoPage] Estado recibido:', state);
 
   if (!state || !state.classId) {
     console.error('[MaterialDidacticoPage] No se proporcionaron datos de la clase en el estado de navegación.');
@@ -16,14 +16,14 @@ const MaterialDidacticoPage = () => {
 
   const { classId, name, students, teacherName, classGroup, classCode } = state;
 
-  console.log('[MaterialDidacticoPage] Datos de clase:', {
+  /*console.log('[MaterialDidacticoPage] Datos de clase:', {
     classId,
     name,
     students,
     teacherName,
     classGroup,
     classCode
-  });
+  });*/
 
   return (
     <CrearMaterial

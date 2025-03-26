@@ -21,7 +21,7 @@ const HomeMateria = ({
   classStatus
 }) => {
   const { classId } = useParams();
-  console.log('[HomeMateria] classId:', classId);
+  //console.log('[HomeMateria] classId:', classId);
 
   const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -29,12 +29,12 @@ const HomeMateria = ({
   const classData = { name, students: studentCount, teacherName, classGroup, classCode: codeClass, status };
 
   const handleOpenModal = () => {
-    console.log(`Abriendo modal de transcripción con estado: ${transcriptionStatus}`);
+    //console.log(`Abriendo modal de transcripción con estado: ${transcriptionStatus}`);
     setIsModalOpen(true);
   };
 
   const handleCloseModal = () => {
-    console.log('Modal cerrado');
+    //console.log('Modal cerrado');
     setIsModalOpen(false);
   };
 

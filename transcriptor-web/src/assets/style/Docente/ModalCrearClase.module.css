@@ -194,7 +194,7 @@
 
 @media (max-width: 568px) {
   .modalContent{
-    width: 65%;
+    width: 70%;
     height: auto;
 }
  
@@ -221,4 +221,24 @@
   font-size:0.9rem;
 }
 
+}
+
+@media (max-width: 568px) and (max-height: 358px) {
+  .modalContent{
+    width: 65%;
+    height: 92%;
+  }    
+  .form {
+    gap: 0.5rem;
+  }
+  .title {
+    font-size: 1rem;
+    padding: 0
+  }
+  .form {
+    padding: 0.4rem 2rem 0.6rem 2rem; /* Reduce el padding */
+  }
+  .form .inputText {
+    padding-bottom: 0.2rem; /* Ajusta según el diseño */
+  }
 }

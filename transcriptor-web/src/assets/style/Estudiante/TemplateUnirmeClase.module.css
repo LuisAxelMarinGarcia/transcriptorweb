@@ -66,7 +66,6 @@
         width: 85%;
         align-self: flex-end; /* Mueve el elemento a la derecha */
     }
-    
     .container{
         width: 100%;
         flex-direction: column;

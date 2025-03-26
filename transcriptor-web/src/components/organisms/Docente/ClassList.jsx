@@ -5,7 +5,7 @@ import CardMateria from './CardMateria'; // Asegúrate de que la ruta sea correc
 import styles from '../../../assets/style/ClassList.module.css';
 
 function ClassList({ classes, onStatusChange, onDelete, userId }) { // Añadir userId como prop
-  console.log('[ClassList.jsx] Clases recibidas:', classes);
+  //console.log('[ClassList.jsx] Clases recibidas:', classes);
 
   if (!classes || classes.length === 0) {
     return <p>No hay clases para mostrar.</p>;

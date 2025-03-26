@@ -3,7 +3,7 @@ import React from 'react';
 
 
 const ModalSubirMaterialNOdisponible = ({ show, onClose }) => {
-    console.log("Prop show:", show); 
+    //console.log("Prop show:", show); 
     if (!show) return null;
 
     return(

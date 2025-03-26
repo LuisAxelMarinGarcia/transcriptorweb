@@ -15,12 +15,12 @@ const VerTranscripcion = ({ title, studentCount,codeClass }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const handleOpenModal = () => {
-        console.log('Modal abierto');
+        //console.log('Modal abierto');
         setIsModalOpen(true);
     };
     
     const handleCloseModal = () => {
-        console.log('Modal cerrado');
+        //console.log('Modal cerrado');
         setIsModalOpen(false);
     };
 

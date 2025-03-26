@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import styles from '../../assets/style/StudentView.module.css';
 import Users from '../../assets/imgs/Users.png';
 import teacherAvatar from '../../assets/imgs/Avatar Teacher.png';
@@ -40,30 +40,37 @@ const StudentView = ({
 
   // Función para abrir el modal
   const handleExitClick = () => {
-    console.log('[StudentView.jsx] Botón "Salir de la transmisión" clicado. Mostrando modal.');
+    //console.log('[StudentView.jsx] Botón "Salir de la transmisión" clicado. Mostrando modal.');
     setShowModal(true);
   };
 
   // Función para cerrar el modal
   const handleCloseModal = () => {
-    console.log('[StudentView.jsx] Modal cerrado.');
+    //console.log('[StudentView.jsx] Modal cerrado.');
     setShowModal(false);
   };
 
   // Función para confirmar la salida y redirigir
   const handleConfirmExit = () => {
-    console.log('[StudentView.jsx] Confirmación de salida. Redirigiendo a /home-estudiante.');
+    //console.log('[StudentView.jsx] Confirmación de salida. Redirigiendo a /home-estudiante.');
     navigate('/home-estudiante', { replace: true }); // Reemplaza la entrada actual en el historial
   };
   
-  
+  const transcriptionContainerRef = useRef(null);
+ // Efecto para mantener el scroll abajo cuando se actualiza la transcripción
+ useEffect(() => {
+  if (transcriptionContainerRef.current) {
+    transcriptionContainerRef.current.scrollTop = transcriptionContainerRef.current.scrollHeight;
+  }
+}, [transcriptionText]); // Se ejecuta cada vez que cambia transcriptionText
 
-  console.log('[StudentView.jsx] Renderizando componente con props:', {
+
+  /*console.log('[StudentView.jsx] Renderizando componente con props:', {
     title,
     teacherName,
     studentCount,
     transcriptionText,
-  });
+  });*/
 
   return (
     <div className={styles.container}>
@@ -108,7 +115,7 @@ const StudentView = ({
 
       {/* Texto de transcripción con scroll */}
       <div className={styles.mainContent}>
-        <div className={styles.transcriptionContainer}>
+        <div ref={transcriptionContainerRef} className={styles.transcriptionContainer}>
           <div className={styles.transcriptionText}>{transcriptionText}</div>
         </div>
 

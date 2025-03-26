@@ -53,7 +53,7 @@ const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherNam
 
     const token = localStorage.getItem('token');
     if (!token) {
-      console.log('No se encontró token. Asegúrate de que el usuario esté autenticado.');
+      //console.log('No se encontró token. Asegúrate de que el usuario esté autenticado.');
       alert('No autorizado. Por favor, inicie sesión.');
       return;
     }
@@ -62,7 +62,7 @@ const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherNam
     const formData = new FormData();
     formData.append('title', title);
     formData.append('description', description);
-    formData.append('date', new Date().toLocaleDateString());
+    formData.append('date', new Date().toLocaleString());
     formData.append('classId', classId);
     formData.append('userId', localStorage.getItem('userId'));
     formData.append('type', 'MATERIAL');
@@ -70,20 +70,20 @@ const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherNam
 
     // Verifica si inputType está correctamente asignado
     if (inputType === 'enlace') {
-      console.log('Enlace:', link);  // Verifica que el enlace esté presente
+      //console.log('Enlace:', link);  // Verifica que el enlace esté presente
       formData.append('url', link);
     } else if (inputType === 'archivo' && file) {
-      console.log('Archivo:', file);
+      //console.log('Archivo:', file);
       formData.append('url', '');
       formData.append('file', file);  // Agrega el archivo al FormData
     }
 
-    console.log('Formulario listo para enviar con los siguientes datos:');
+    /*console.log('Formulario listo para enviar con los siguientes datos:');
     console.log('Título:', title);
     console.log('Descripción:', description);
     console.log('Clase ID:', classId);
     console.log('Usuario ID:', localStorage.getItem('userId'));
-    console.log('file', file);
+    console.log('file', file);*/
 
     setLoading(true);  // Activar la carga
 
@@ -98,7 +98,7 @@ const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherNam
         body: formData,
       });
 
-      console.log('Respuesta de la API:', response);  // Verificar la respuesta
+      //console.log('Respuesta de la API:', response);  // Verificar la respuesta
 
       /*if (!response.ok) {
         console.error('Error en la respuesta de la API:', response.statusText);
@@ -107,7 +107,7 @@ const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherNam
 
       const data = await response.json();
       setLoading(false);  // Desactivar la carga
-      console.log('imprimiendo data', data);
+      //console.log('imprimiendo data', data);
 
       if (data.success) {
         alert('Material creado correctamente');
@@ -143,7 +143,7 @@ const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherNam
               <div className={styles.sectionOne}>
                 <img src={iconCancelar} alt="Primer icono" className={styles.iconImage} />
                 <img src={iconMaterial} alt="Segundo icono" className={styles.clickableIcon} />
-                Crear Material Didáctico
+                <p className={styles.titleCrearMaterial}>Crear Material Didáctico</p>
               </div>
 
               <div className={styles.sectionTwo}>
@@ -152,7 +152,9 @@ const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherNam
                 </button>
               </div>
             </div>
+            <div className={styles.ContainerFormCrear}>
 
+           
             <div className={styles.ContenidoCrear}>
               <div className={styles.infoMaterial}>
                 <p><strong>Asignar a:</strong> {className}</p>  {/* Nombre de la clase */}
@@ -168,15 +170,19 @@ const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherNam
                   value={title}
                   onChange={handleTitleChange} // Permitir edición del título
                 />
+                <div className={styles.IconsContainer}>
 
-                <div className={styles.SectionIcon} onClick={() => handleShowInput("archivo")}>
-                  <span>Subir</span>
-                  <img src={iconSubir} alt="Icono Subir" className={styles.iconActionImage} />
-                </div>
 
-                <div className={styles.SectionIcon} onClick={() => handleShowInput("enlace")}>
-                  <span>Enlace</span>
-                  <img src={iconEnlace} alt="Icono Enlace" className={styles.iconActionImage} />
+                
+                  <div className={styles.SectionIcon} onClick={() => handleShowInput("archivo")}>
+                    <span>Subir</span>
+                    <img src={iconSubir} alt="Icono Subir" className={styles.iconActionImage} />
+                  </div>
+
+                  <div className={styles.SectionIcon} onClick={() => handleShowInput("enlace")}>
+                    <span>Enlace</span>
+                    <img src={iconEnlace} alt="Icono Enlace" className={styles.iconActionImage} />
+                  </div>
                 </div>
               </div>
 
@@ -222,10 +228,13 @@ const CrearMaterial = ({ studentCount, codeClass, classId, className, teacherNam
                 </div>
               )}
             </div>
+            </div>
           </div>
           <Footer />
         </div>
+        
       </div>
+      
     </>
   );
 };

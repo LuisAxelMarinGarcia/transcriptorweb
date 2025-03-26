@@ -41,10 +41,10 @@ const UnirmeClase = () => {
     }
 
     // Log para depurar
-    console.log('Intentando unirse a la clase con:', {
+    /*console.log('Intentando unirse a la clase con:', {
       userId: userId,
       code: codigoClase,
-    });
+    });*/
 
     try {
       const response = await fetch('/user-class', {
@@ -62,7 +62,7 @@ const UnirmeClase = () => {
       const data = await response.json();
 
       // Log para depurar
-      console.log('Respuesta del servidor:', data);
+      //console.log('Respuesta del servidor:', data);
 
       if (response.ok) {
         setMensaje('Te has unido a la clase exitosamente.');

@@ -5,9 +5,9 @@ import ECardMateria from './ECardMateria'; // Asegúrate de que la ruta es corre
 import styles from '../../../assets/style/ClassList.module.css';
 
 function ClassListEstudiante({ classes, onStatusChange, onDelete }) {
-  console.log('[ClassListEstudiante.jsx] onStatusChange:', onStatusChange);
+  /*console.log('[ClassListEstudiante.jsx] onStatusChange:', onStatusChange);
   console.log('[ClassListEstudiante.jsx] onDelete:', onDelete);
-  console.log('[ClassListEstudiante.jsx] Clases recibidas:', classes);
+  console.log('[ClassListEstudiante.jsx] Clases recibidas:', classes);*/
 
   if (!classes || classes.length === 0) {
     return <p>No hay clases para mostrar.</p>;

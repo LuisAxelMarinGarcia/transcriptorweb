@@ -30,22 +30,22 @@ const ModalCrearClase = ({ show, onClose, onClassCreated }) => {
     const email = localStorage.getItem('email');
     const token = localStorage.getItem('token');
 
-    console.log('[ModalCrearClase.jsx] Datos de localStorage:', {
+    /*console.log('[ModalCrearClase.jsx] Datos de localStorage:', {
       userId,
       email,
       token,
-    });
+    });*/
 
     if (!userId || !email || !token) {
       setError('Usuario no autenticado. Por favor, inicia sesión nuevamente.');
-      console.log('[ModalCrearClase.jsx] Usuario no autenticado.');
+      //console.log('[ModalCrearClase.jsx] Usuario no autenticado.');
       setIsSubmitting(false);
       return;
     }
 
     // Formatear la fecha
     const formattedDate = formatDate(new Date());
-    console.log('[ModalCrearClase.jsx] Fecha formateada:', formattedDate);
+    //console.log('[ModalCrearClase.jsx] Fecha formateada:', formattedDate);
 
     // Crear la carga útil para la petición
     const payload = {
@@ -57,7 +57,7 @@ const ModalCrearClase = ({ show, onClose, onClassCreated }) => {
       userId: userId,
     };
 
-    console.log('[ModalCrearClase.jsx] Payload a enviar:', payload);
+    //console.log('[ModalCrearClase.jsx] Payload a enviar:', payload);
 
     try {
       const response = await fetch('/class', {
@@ -69,13 +69,13 @@ const ModalCrearClase = ({ show, onClose, onClassCreated }) => {
         body: JSON.stringify(payload),
       });
 
-      console.log('[ModalCrearClase.jsx] Respuesta del fetch:', response);
+      //console.log('[ModalCrearClase.jsx] Respuesta del fetch:', response);
 
       const data = await response.json();
-      console.log('[ModalCrearClase.jsx] Datos recibidos del backend:', data);
+      //console.log('[ModalCrearClase.jsx] Datos recibidos del backend:', data);
 
       if (response.ok) {
-        console.log('[ModalCrearClase.jsx] Clase creada exitosamente:', data.data);
+        //console.log('[ModalCrearClase.jsx] Clase creada exitosamente:', data.data);
 
         // Asegurarse de que la clase tenga todas las propiedades necesarias
         const nuevaClase = {
@@ -86,7 +86,7 @@ const ModalCrearClase = ({ show, onClose, onClassCreated }) => {
           classStatus: data.data.status || 'NO ARCHIVADO',
         };
 
-        console.log('[ModalCrearClase.jsx] Nueva clase enriquecida:', nuevaClase);
+        //console.log('[ModalCrearClase.jsx] Nueva clase enriquecida:', nuevaClase);
 
         // Notificar al componente padre que se creó una nueva clase
         if (onClassCreated) onClassCreated(nuevaClase);

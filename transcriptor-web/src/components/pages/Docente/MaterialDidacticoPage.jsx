@@ -8,7 +8,7 @@ const MaterialDidacticoPage = () => {
   const location = useLocation();
   const { state } = location;
 
-  console.log('[MaterialDidacticoPage] Estado recibido:', state);
+  //console.log('[MaterialDidacticoPage] Estado recibido:', state);
 
   if (!state || !state.classId || !state.materialStatus) { // Añadido check para materialStatus
     console.error('[MaterialDidacticoPage] No se proporcionaron datos de la clase en el estado de navegación.');
@@ -19,7 +19,7 @@ const MaterialDidacticoPage = () => {
 
   const finalClassStatus = classStatus || 'NO ARCHIVADO';
 
-  console.log('[MaterialDidacticoPage] Datos de clase:', {
+  /*console.log('[MaterialDidacticoPage] Datos de clase:', {
     classId,
     name,
     students,
@@ -28,7 +28,7 @@ const MaterialDidacticoPage = () => {
     classCode,
     materialStatus,
     classStatus
-  });
+  });*/
 
   return (
     <MaterialDidactico

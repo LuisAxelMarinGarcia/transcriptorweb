@@ -8,22 +8,22 @@ export default defineConfig({
   server: {
     proxy: {
       '/class': {
-        target: 'http://127.0.0.1:8080',
+        target: 'http://3.132.124.12:8080',
         changeOrigin: true,
         secure: false,
       },
       '/user-class': {
-        target: 'http://127.0.0.1:8080',
+        target: 'http://3.132.124.12:8080',
         changeOrigin: true,
         secure: false,
       },
       '/api': {
-        target: 'http://127.0.0.1:8080',
+        target: 'http://3.132.124.12:8080',
         changeOrigin: true,
         secure: false,
       },
       '/transcription': {
-        target: 'http://127.0.0.1:8080',
+        target: 'http://3.132.124.12:8080',
         changeOrigin: true,
         secure: false,
       },

@@ -21,7 +21,7 @@ const TranscripcionesClasePage = () => {
   // Verificar si classStatus está presente; si no, asignar un valor por defecto
   const finalClassStatus = classStatus || 'NO ARCHIVADO';
 
-  console.log('[TranscripcionesClasePage.jsx] Datos recibidos del estado:', {
+  /*console.log('[TranscripcionesClasePage.jsx] Datos recibidos del estado:', {
     name,
     students,
     teacherName,
@@ -29,7 +29,7 @@ const TranscripcionesClasePage = () => {
     classCode,
     status,
     classStatus: finalClassStatus
-  });
+  });*/
 
   return (
     <TranscripcionesClaseDocente

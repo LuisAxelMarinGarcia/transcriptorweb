@@ -9,8 +9,8 @@ const EPersonasClasePage = () => {
   const location = useLocation();
   const { state } = location;
 
-  console.log('[EMaterialDidacticoPage.jsx] classId de useParams():', classId);
-  console.log('[EMaterialDidacticoPage.jsx] Datos recibidos del estado:', state);
+  //console.log('[EMaterialDidacticoPage.jsx] classId de useParams():', classId);
+  //console.log('[EMaterialDidacticoPage.jsx] Datos recibidos del estado:', state);
 
   // Verificar que classId está definido
   if (!classId) {
@@ -32,7 +32,7 @@ const EPersonasClasePage = () => {
   // Luego normalizas el estado
   const normalizedStatus = effectiveStatus === "NO ARCHIVADO" ? "DISPONIBLE" : effectiveStatus;
 
-  console.log('[EMaterialDidacticoPage.jsx] Datos desestructurados y normalizados:', { name, students, teacherName, normalizedStatus });
+  //console.log('[EMaterialDidacticoPage.jsx] Datos desestructurados y normalizados:', { name, students, teacherName, normalizedStatus });
 
   return (
     <EPersonasClase

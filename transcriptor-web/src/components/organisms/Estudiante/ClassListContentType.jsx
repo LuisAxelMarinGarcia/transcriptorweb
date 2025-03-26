@@ -11,6 +11,29 @@ function ClassList({ classId, status, typeFilter }) {
 
   const getToken = () => localStorage.getItem('token');
 
+    // 1. Integrar la función convertirFecha
+    function convertirFecha(fechaStr) {
+      const partes = fechaStr.match(/(\d{1,2})\/(\d{1,2})\/(\d{4}), (\d{1,2}):(\d{2}):(\d{2}) (a\.m\.|p\.m\.)/);
+      
+      if (!partes) {
+        console.error(`Formato de fecha inválido: ${fechaStr}`);
+        return new Date(0); // Retorna una fecha muy antigua para evitar errores en el sort
+      }
+      
+      const dia = parseInt(partes[1], 10);
+      const mes = parseInt(partes[2], 10) - 1; // Meses en Date van de 0 a 11
+      const anio = parseInt(partes[3], 10);
+      let hora = parseInt(partes[4], 10);
+      const minutos = parseInt(partes[5], 10);
+      const segundos = parseInt(partes[6], 10);
+      const esPM = partes[7].toLowerCase().includes("p.m.");
+  
+      if (esPM && hora !== 12) hora += 12; // Convertir PM a formato 24 horas
+      if (!esPM && hora === 12) hora = 0; // Ajustar 12 AM a 00 horas
+  
+      return new Date(anio, mes, dia, hora, minutos, segundos);
+    }  
+
   useEffect(() => {
     const fetchTranscriptions = async () => {
       const token = getToken();
@@ -23,7 +46,7 @@ function ClassList({ classId, status, typeFilter }) {
       // Usar ruta relativa para aprovechar el proxy de Vite
       const url = `/transcription/all/${encodeURIComponent(classId)}/${encodeURIComponent(status)}`;
 
-      console.log(`[ClassList.jsx] Fetching transcriptions from: ${url}`);
+      //console.log(`[ClassList.jsx] Fetching transcriptions from: ${url}`);
 
       try {
         const response = await fetch(url, {
@@ -45,19 +68,17 @@ function ClassList({ classId, status, typeFilter }) {
         if (data.success) {
           // Filtrado en base a typeFilter AQUI AÑADI LOG
           let filteredTranscriptions = data.data || [];
-          console.log("Transcripciones recibidas:", filteredTranscriptions);
+          //console.log("Transcripciones recibidas:", filteredTranscriptions);
           if (typeFilter === 'MATERIAL') {
             filteredTranscriptions = filteredTranscriptions.filter(t => t.transcriptionType === 'MATERIAL');
           } else if (typeFilter === 'TRANSCRIPCION') {
             filteredTranscriptions = filteredTranscriptions.filter(t => t.transcriptionType === 'TRANSCRIPCION');
           }
 
-          // Ordenar las transcripciones por fecha (más reciente primero)
-          filteredTranscriptions.sort((a, b) => {
-            const dateA = new Date(a.transcriptionDate);
-            const dateB = new Date(b.transcriptionDate);
-            return dateB - dateA; // Orden descendente
-          });
+          // 3. Ordenar el arreglo por fecha y hora recientes (descendente) utilizando convertirFecha
+          filteredTranscriptions.sort((a, b) => convertirFecha(b.transcriptionDate) - convertirFecha(a.transcriptionDate));
+          //console.log("Datos ordenados:", filteredTranscriptions);
+          //console.log("weyyyyyy")
 
           setTranscriptions(filteredTranscriptions);
         } else {
@@ -94,7 +115,7 @@ function ClassList({ classId, status, typeFilter }) {
           transcriptionId={transcription.transcriptionId}
           title={transcription.transcriptionTitle}
           description={transcription.transcriptionDescription}
-          date={transcription.transcriptionDate}
+          date={transcription.transcriptionDate.split(',')[0]}
           type={transcription.transcriptionType}
           link={transcription.transcriptionUrl}
           fileType={transcription.transcriptionType === 'MATERIAL' ? 'image' : 'pdf'} // Actualizado para manejar PDF

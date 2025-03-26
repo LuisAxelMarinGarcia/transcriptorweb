@@ -19,7 +19,7 @@ const ClasesArchivadas = () => {
 
     // Función para agregar la nueva clase al estado
     const handleClassCreated = (newClass) => {
-        console.log('[ClasesArchivadasTemplate.jsx] Nueva clase creada:', newClass);
+        //console.log('[ClasesArchivadasTemplate.jsx] Nueva clase creada:', newClass);
         setClasses([...classes, newClass]);
     };
 
@@ -40,14 +40,14 @@ const ClasesArchivadas = () => {
 
         if (!userId || !token) {
             setError('Usuario no autenticado. Por favor, inicia sesión nuevamente.');
-            console.log('[ClasesArchivadasTemplate.jsx] Usuario no autenticado.');
+            //console.log('[ClasesArchivadasTemplate.jsx] Usuario no autenticado.');
             return;
         }
 
         const encodedStatus = encodeURIComponent('ARCHIVADO'); // Codifica el estatus para la URL
         const url = `/class/teacher/classes/${encodedStatus}/${userId}`; // Usando el proxy configurado en Vite
 
-        console.log(`[ClasesArchivadasTemplate.jsx] Fetching classes with status: ARCHIVADO for userId: ${userId}`);
+        //console.log(`[ClasesArchivadasTemplate.jsx] Fetching classes with status: ARCHIVADO for userId: ${userId}`);
 
         setLoading(true);
         setError('');
@@ -61,13 +61,13 @@ const ClasesArchivadas = () => {
                 },
             });
 
-            console.log('[ClasesArchivadasTemplate.jsx] Respuesta del fetch:', response);
+            //console.log('[ClasesArchivadasTemplate.jsx] Respuesta del fetch:', response);
 
             // Verificar el tipo de contenido
             const contentType = response.headers.get('content-type');
             if (contentType && contentType.includes('application/json')) {
                 const data = await response.json();
-                console.log('[ClasesArchivadasTemplate.jsx] Datos recibidos del backend:', data);
+                //console.log('[ClasesArchivadasTemplate.jsx] Datos recibidos del backend:', data);
                 if (data.success) {
                     setClasses(data.data); // Asumiendo que la respuesta contiene un array en data.data
                 } else {
@@ -93,7 +93,7 @@ const ClasesArchivadas = () => {
 
     // Función para manejar el cambio de estatus de una clase
     const handleStatusChange = async (classId, newStatus) => {
-        console.log(`[ClasesArchivadasTemplate.jsx] Cambiando estatus de la clase ${classId} a ${newStatus}`);
+        //console.log(`[ClasesArchivadasTemplate.jsx] Cambiando estatus de la clase ${classId} a ${newStatus}`);
         const token = getToken();
 
         if (!token) {
@@ -114,7 +114,7 @@ const ClasesArchivadas = () => {
                 }),
             });
 
-            console.log('[ClasesArchivadasTemplate.jsx] Respuesta del PUT:', response);
+            //console.log('[ClasesArchivadasTemplate.jsx] Respuesta del PUT:', response);
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -122,7 +122,7 @@ const ClasesArchivadas = () => {
                 setError(errorData.message || 'Error al cambiar el estatus de la clase.');
             } else {
                 const data = await response.json();
-                console.log('[ClasesArchivadasTemplate.jsx] Éxito al cambiar estatus:', data.message);
+                //console.log('[ClasesArchivadasTemplate.jsx] Éxito al cambiar estatus:', data.message);
                 // Refrescar la lista de clases
                 fetchArchivedClasses();
             }
@@ -134,7 +134,7 @@ const ClasesArchivadas = () => {
 
     // Función para manejar la eliminación de una clase
     const handleDeleteClass = async (classId, status) => {
-        console.log(`[ClasesArchivadasTemplate.jsx] Eliminando clase ${classId} con estatus ${status}`);
+        //console.log(`[ClasesArchivadasTemplate.jsx] Eliminando clase ${classId} con estatus ${status}`);
         const token = getToken();
 
         if (!token) {
@@ -155,7 +155,7 @@ const ClasesArchivadas = () => {
                 }),
             });
 
-            console.log('[ClasesArchivadasTemplate.jsx] Respuesta del PUT para eliminar:', response);
+            //console.log('[ClasesArchivadasTemplate.jsx] Respuesta del PUT para eliminar:', response);
 
             if (!response.ok) {
                 const errorData = await response.json();
@@ -163,7 +163,7 @@ const ClasesArchivadas = () => {
                 setError(errorData.message || 'Error al eliminar la clase.');
             } else {
                 const data = await response.json();
-                console.log('[ClasesArchivadasTemplate.jsx] Éxito al eliminar clase:', data.message);
+                //console.log('[ClasesArchivadasTemplate.jsx] Éxito al eliminar clase:', data.message);
                 // Refrescar la lista de clases
                 fetchArchivedClasses();
             }

@@ -20,7 +20,7 @@ const PrivateRoute = ({ children, allowedRoles }) => {
         return <Navigate to={redirectPath} replace />;
     }
 
-    console.log('[PrivateRoute.jsx] Autenticación y autorización exitosa. Accediendo a la ruta protegida.');
+    //console.log('[PrivateRoute.jsx] Autenticación y autorización exitosa. Accediendo a la ruta protegida.');
     return children;
 };
 

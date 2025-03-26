@@ -4,7 +4,7 @@ import styles from '../../../assets/style/Docente/ModaliniciarEnVivo.module.css'
 import React from 'react';
 
 const ModalIniciarEnVivo = ({ show, onClose, onConfirm }) => {
-    console.log("Prop show:", show); 
+    //console.log("Prop show:", show); 
     if (!show) return null;
 
     const handleSubmit = (e) => {

@@ -16,7 +16,7 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
     const navigate = useNavigate(); // Inicializar el hook
     const { classId } = useParams(); // Obtener classId desde la URL
 
-    console.log('[HeaderHomeMateria.jsx] Props recibidas:', { title, studentCount, teacherName, classGroup, codeClass, classId, classStatus });
+    //console.log('[HeaderHomeMateria.jsx] Props recibidas:', { title, studentCount, teacherName, classGroup, codeClass, classId, classStatus });
 
     // Función para manejar el click en "Personas"
     const handlePersonasClick = () => {
@@ -26,15 +26,15 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
             return;
         }
 
-        console.log(`[HeaderHomeMateria] Navegando a Personas con classId: ${classId}`);
-        console.log('[HeaderHomeMateria] Datos enviados:', {
+        //console.log(`[HeaderHomeMateria] Navegando a Personas con classId: ${classId}`);
+        /*console.log('[HeaderHomeMateria] Datos enviados:', {
             classId,
             name: title,
             students: studentCount,
             teacherName,
             classGroup,
             classCode: codeClass,
-        });
+        });*/
 
         navigate(`/estudiante-personas-clase/${classId}`, {
             state: {
@@ -56,7 +56,7 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
             return;
         }
 
-        console.log(`[HeaderHomeMateria] Navegando a Panel con classId: ${classId}`);
+        /*console.log(`[HeaderHomeMateria] Navegando a Panel con classId: ${classId}`);
         console.log('[HeaderHomeMateria] Datos enviados:', {
             classId,
             name: title,
@@ -64,7 +64,7 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
             teacherName,
             classGroup,
             classCode: codeClass,
-        });
+        });*/
 
         navigate(`/estudiante-home-clase/${classId}`, {
             state: {
@@ -85,7 +85,7 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
             return;
         }
 
-        console.log(`[HeaderHomeMateria] Navegando a Material Didáctico con classId: ${classId}`);
+        /*console.log(`[HeaderHomeMateria] Navegando a Material Didáctico con classId: ${classId}`);
         console.log('[HeaderHomeMateria] Datos enviados:', {
             classId,
             name: title,
@@ -93,7 +93,7 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
             teacherName,
             classGroup,
             classCode: codeClass,
-        });
+        });*/
 
         navigate(`/estudiante-material-didactico-clase/${classId}`, {
             state: {
@@ -114,7 +114,7 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
             return;
         }
 
-        console.log(`[HeaderHomeMateria] Navegando a Transcripciones con classId: ${classId}`);
+        /*console.log(`[HeaderHomeMateria] Navegando a Transcripciones con classId: ${classId}`);
         console.log('[HeaderHomeMateria] Datos enviados:', {
             classId,
             name: title,
@@ -122,7 +122,7 @@ const HeaderHomeMateria = ({ title, studentCount, teacherName, classGroup, codeC
             teacherName,
             classGroup,
             classCode: codeClass,
-        });
+        });*/
 
         navigate(`/estudiante-transcripciones-clase/${classId}`, {
             state: {

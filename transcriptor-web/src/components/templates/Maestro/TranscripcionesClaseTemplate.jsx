@@ -23,7 +23,7 @@ const TranscripcionesClaseDocente = ({
   classStatus // Nueva prop para el filtro
 }) => {
   // const { classId: urlClassId } = useParams(); // Eliminado para evitar redundancia
-  console.log('[TranscripcionesClaseDocente] classId:', classId);
+  //console.log('[TranscripcionesClaseDocente] classId:', classId);
 
   const [transcriptionStatus, setTranscriptionStatus] = useState('DISPONIBLE');
 

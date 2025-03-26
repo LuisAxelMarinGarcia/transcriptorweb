@@ -8,7 +8,7 @@ import HeaderDeClase from '../../organisms/Estudiante/HeaderHomeMateria';
 import ListaPersonas from '../../organisms/Estudiante/ClassListPersonas';
 
 const HomeTemplate = ({ title, studentCount, teacherName, classId, status, classGroup, codeClass }) => {
-    console.log('[EPersonasClaseTemplate.jsx] Props recibidas:', { classId, title, studentCount, teacherName, status, classGroup, codeClass });
+    //console.log('[EPersonasClaseTemplate.jsx] Props recibidas:', { classId, title, studentCount, teacherName, status, classGroup, codeClass });
 
     return (
         <>

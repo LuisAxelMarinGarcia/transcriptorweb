@@ -125,7 +125,7 @@ function PeopleList({ view, classId, teacherName, teacherImage = teacherImageDef
                 />
               ))
           ) : (
-            <p>No hay alumnos inscritos para mostrar.</p>
+            <p className={styles.InfoVacio}>No hay alumnos inscritos para mostrar.</p>
           )}
         </>
       )}

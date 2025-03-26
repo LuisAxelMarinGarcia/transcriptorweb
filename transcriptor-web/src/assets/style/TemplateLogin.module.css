@@ -38,3 +38,40 @@
         width: 20rem; /* Ajusta el tamaño según lo que necesites */
     }
 
+@media(max-width: 1020px) and (max-height: 1366px)  {
+
+    .ContainerPadre {
+            flex-direction: column;
+            justify-content:center;
+            gap: 6%;
+    }
+    .ImgUserDeco {
+        display: none;
+    }
+    .child1{
+        width: 100%;
+        flex: 0;
+    }
+    .child2 {
+        width: 100%; /* Ajusta el ancho del contenedor si es necesario */
+    }
+    .ImgLogo {
+        width: 17rem; /* Ajusta el tamaño según lo que necesites */
+        height: auto;
+    }
+
+}
+    
+
+@media (max-width: 391px){
+    .ImgLogo {
+        width: 12rem; /* Ajusta el tamaño según lo que necesites */
+        height: auto;
+    }
+}
+
+@media (max-width: 320px){
+    .ImgLogo {
+        display: none;
+    }
+}

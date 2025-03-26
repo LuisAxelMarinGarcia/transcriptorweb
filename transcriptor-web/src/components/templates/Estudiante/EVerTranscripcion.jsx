@@ -11,7 +11,7 @@ import HeaderDeClase from '../../organisms/Estudiante/HeaderHomeMateria';
 import ClassListTypeContentE from '../../organisms/Estudiante/ClassListContentType';
 
 const EVerTranscripcion = ({ title, studentCount, teacherName, classId }) => {
-    console.log('[EVerTranscripcion.jsx] Props recibidos:', { classId, title, studentCount, teacherName });
+    //console.log('[EVerTranscripcion.jsx] Props recibidos:', { classId, title, studentCount, teacherName });
 
     return(
         <>

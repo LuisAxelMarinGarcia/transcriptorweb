@@ -18,7 +18,7 @@ const HomeTemplate = () => {
   const handleCloseModalCrearClase = () => setShowModalCrearClase(false);
 
   const handleClassCreated = (newClass) => {
-    console.log('[HomeTemplate.jsx] Nueva clase creada:', newClass);
+    //console.log('[HomeTemplate.jsx] Nueva clase creada:', newClass);
 
     // Agregar la nueva clase al inicio de la lista
     setClasses([newClass, ...classes]);
@@ -33,14 +33,14 @@ const HomeTemplate = () => {
 
     if (!userId || !token) {
       setError('Usuario no autenticado. Por favor, inicia sesión nuevamente.');
-      console.log('[HomeTemplate.jsx] Usuario no autenticado.');
+      //console.log('[HomeTemplate.jsx] Usuario no autenticado.');
       return;
     }
 
     const encodedStatus = encodeURIComponent('NO ARCHIVADO');
     const url = `/class/teacher/classes/${encodedStatus}/${userId}`;
 
-    console.log(`[HomeTemplate.jsx] Fetching classes with status: NO ARCHIVADO for userId: ${userId}`);
+    //console.log(`[HomeTemplate.jsx] Fetching classes with status: NO ARCHIVADO for userId: ${userId}`);
 
     setLoading(true);
     setError('');
@@ -54,12 +54,12 @@ const HomeTemplate = () => {
         },
       });
 
-      console.log('[HomeTemplate.jsx] Respuesta del fetch:', response);
+      //console.log('[HomeTemplate.jsx] Respuesta del fetch:', response);
 
       const contentType = response.headers.get('content-type');
       if (contentType && contentType.includes('application/json')) {
         const data = await response.json();
-        console.log('[HomeTemplate.jsx] Datos recibidos del backend:', data);
+        //console.log('[HomeTemplate.jsx] Datos recibidos del backend:', data);
         if (data.success) {
           setClasses(data.data);
         } else {
@@ -83,7 +83,7 @@ const HomeTemplate = () => {
   };
 
   const handleStatusChange = async (classId, newStatus) => {
-    console.log(`[HomeTemplate.jsx] Cambiando estatus de la clase ${classId} a ${newStatus}`);
+    //console.log(`[HomeTemplate.jsx] Cambiando estatus de la clase ${classId} a ${newStatus}`);
     const token = getToken();
 
     if (!token) {
@@ -104,7 +104,7 @@ const HomeTemplate = () => {
         }),
       });
 
-      console.log('[HomeTemplate.jsx] Respuesta del PUT:', response);
+      //console.log('[HomeTemplate.jsx] Respuesta del PUT:', response);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -112,7 +112,7 @@ const HomeTemplate = () => {
         setError(errorData.message || 'Error al cambiar el estatus de la clase.');
       } else {
         const data = await response.json();
-        console.log('[HomeTemplate.jsx] Éxito al cambiar estatus:', data.message);
+        //console.log('[HomeTemplate.jsx] Éxito al cambiar estatus:', data.message);
         // Refrescar la lista de clases
         fetchClasses();
       }
@@ -123,7 +123,7 @@ const HomeTemplate = () => {
   };
 
   const handleDeleteClass = async (classId, status) => {
-    console.log(`[HomeTemplate.jsx] Eliminando clase ${classId} con estatus ${status}`);
+    //console.log(`[HomeTemplate.jsx] Eliminando clase ${classId} con estatus ${status}`);
     const token = getToken();
 
     if (!token) {
@@ -144,7 +144,7 @@ const HomeTemplate = () => {
         }),
       });
 
-      console.log('[HomeTemplate.jsx] Respuesta del PUT para eliminar:', response);
+      //console.log('[HomeTemplate.jsx] Respuesta del PUT para eliminar:', response);
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -152,7 +152,7 @@ const HomeTemplate = () => {
         setError(errorData.message || 'Error al eliminar la clase.');
       } else {
         const data = await response.json();
-        console.log('[HomeTemplate.jsx] Éxito al eliminar clase:', data.message);
+        //console.log('[HomeTemplate.jsx] Éxito al eliminar clase:', data.message);
         // Refrescar la lista de clases
         fetchClasses();
       }

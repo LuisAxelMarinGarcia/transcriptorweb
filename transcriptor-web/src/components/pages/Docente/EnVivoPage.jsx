@@ -81,7 +81,7 @@ const RecordingPage = () => {
           recognitionRef.current.start();
         } else {
           setIsListening(false);
-          console.log('Reconocimiento de voz finalizado');
+          //console.log('Reconocimiento de voz finalizado');
         }
       };
     } else {

@@ -24,7 +24,7 @@ const LoginFormDocente = ({ onSwitchForm }) => {
   const handleButtonClick = (button) => {
     setActiveButton(button);
     if (button === 'estudiante') {
-      console.log('[LoginFormDocente.jsx] Cambiando a formulario de Estudiante');
+      //console.log('[LoginFormDocente.jsx] Cambiando a formulario de Estudiante');
       onSwitchForm(); // Cambia al formulario de estudiante
     }
   };
@@ -32,10 +32,10 @@ const LoginFormDocente = ({ onSwitchForm }) => {
   // Función para manejar el envío del formulario
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('[LoginFormDocente.jsx] Enviando formulario de login con:', { email, password });
+    //console.log('[LoginFormDocente.jsx] Enviando formulario de login con:', { email, password });
 
     try {
-      const response = await fetch('http://127.0.0.1:8080/api/auth/login', {
+      const response = await fetch('http://3.132.124.12:8080/api/auth/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -43,14 +43,14 @@ const LoginFormDocente = ({ onSwitchForm }) => {
         body: JSON.stringify({ email, password }),
       });
 
-      console.log('[LoginFormDocente.jsx] Respuesta recibida:', response);
+      //console.log('[LoginFormDocente.jsx] Respuesta recibida:', response);
 
       const data = await response.json();
-      console.log('[LoginFormDocente.jsx] Datos recibidos del backend:', data);
+      //console.log('[LoginFormDocente.jsx] Datos recibidos del backend:', data);
 
       if (response.ok) {
         const { token, role, id, email: userEmail } = data.data; // Asegúrate de que el backend devuelva el `email`
-        console.log('[LoginFormDocente.jsx] Datos de usuario:', { token, role, id, userEmail });
+        //console.log('[LoginFormDocente.jsx] Datos de usuario:', { token, role, id, userEmail });
 
         // Almacenar datos en localStorage
         localStorage.setItem('token', token);
@@ -60,11 +60,11 @@ const LoginFormDocente = ({ onSwitchForm }) => {
 
         // Verificar si el rol es 'MAESTRO'
         if (role === 'MAESTRO') {
-          console.log('[LoginFormDocente.jsx] Usuario autenticado como MAESTRO. Redirigiendo a /home-docente');
+          //console.log('[LoginFormDocente.jsx] Usuario autenticado como MAESTRO. Redirigiendo a /home-docente');
           navigate('/home-docente'); // Ruta para docentes
         } else {
           console.error('[LoginFormDocente.jsx] Rol no autorizado:', role);
-          setError('No tienes acceso desde este formulario. Por favor, inicia sesión desde el formulario correspondiente.');
+          setError('No autorizado. Usa el formulario correcto.');
         }
       } else {
         console.error('[LoginFormDocente.jsx] Error en la respuesta del backend:', data.message);

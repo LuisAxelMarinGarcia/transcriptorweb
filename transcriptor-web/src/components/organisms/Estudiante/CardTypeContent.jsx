@@ -53,7 +53,7 @@ function Card({ transcriptionId, title, description, date, type, link, fileType,
         <span className={styles.cardTitle}>{title}</span>
         <div className={styles.cardActions}>
           <span className={styles.cardDate}>
-             {new Date(date).toLocaleDateString()}
+          {date}
           </span>
           <img src={iconFecha} alt="Fecha" className={styles.cardIconEscrit} />
           {type === 'TRANSCRIPCION' && link && (

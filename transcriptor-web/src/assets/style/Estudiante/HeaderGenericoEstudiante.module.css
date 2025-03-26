@@ -54,7 +54,8 @@
 }
 
 .containerAvatar{
-    height:75%
+    display: flex;
+    align-items: center;
 }
 
 

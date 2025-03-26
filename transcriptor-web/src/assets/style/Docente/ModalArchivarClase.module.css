@@ -210,3 +210,37 @@
   }
 
 }
+
+@media (max-width: 355px) {
+  .modalContent{
+    width: 75%;
+    height: auto;
+}
+ 
+.form {
+  padding: 1.5rem 2rem 1.5rem 2rem; /* Reduce el padding */
+  height: auto; /* Asigna el 80% del espacio */
+}
+
+.textInfo{
+  font-size: 0.8rem;
+}
+
+.createButton {
+  font-size: 0.6rem;
+}
+
+.cancelButton {
+  font-size: 0.6rem;
+ }
+
+ .titleArchivar {
+  font-size: 1rem;
+  padding: 0.5rem 2rem; /* Reduce el padding */
+}
+
+.textDescription{
+  font-size:0.9rem;
+}
+
+}

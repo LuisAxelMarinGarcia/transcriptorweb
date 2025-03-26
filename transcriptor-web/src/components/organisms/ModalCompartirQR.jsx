@@ -17,7 +17,7 @@ const ModalCompartirQR = ({ show, onClose, link }) => {
           <div className={styles.infoActions}>
             <p className={styles.textInfo}>Escanea este código QR o sigue el enlace:</p>
             <div style={{ textAlign: 'center', margin: '0 0' }}>
-              <QRCodeCanvas value={link} size={150} />
+              <QRCodeCanvas value={link} size={150} className={styles.ImgQR} />
             </div>
             
               <a className={styles.textLink} href={link} target="_blank" rel="noopener noreferrer">

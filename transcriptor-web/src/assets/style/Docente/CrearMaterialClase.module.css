@@ -181,7 +181,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    width: 12%;
+    width: 50%;
 }
 
 .SectionIcon span {
@@ -249,4 +249,206 @@
     height: 2.5rem;
     width: 2.5rem;
     margin: 0;
+}
+.titleCrearMaterial{
+margin: 0;
+
+}
+.IconsContainer {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    gap: 1.5rem;
+}
+.ContainerFormCrear{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    width: 100%;
+}
+
+@media (max-width: 1024px) {
+
+    .HeaderContainer{
+        height: 6rem;
+        
+    }
+    .SpaceSiderbar{
+        width: 7%;
+    }
+    .SectionTitle{
+        width: 90%;
+    }
+    .BotonCrear{
+        max-width: 40%; /* Máximo ancho para evitar desbordamientos */
+    }
+}
+@media (max-width: 768px) {
+    .SpaceSiderbar{
+        width: 0%;
+    }
+
+    .container{
+        width: 100%;
+        display: flex;
+    }
+    .OtherContainer{
+        padding: 4.59rem 0 0 0;
+	min-height: 92%;
+        width: 100%;
+        gap: 0;
+        flex-direction: column; 
+        overflow-y: auto;
+        justify-content: center;
+    }
+
+    .HeaderContainer{
+        height: 4.59rem;
+        width: 85%;
+        align-self: flex-end; /* Mueve el elemento a la derecha */
+    }
+    
+    .SectionTitle{
+        height:15%;
+        padding: 0 0.5rem;
+        margin-bottom: 0rem; 
+    }
+    .iconImage {
+        width:  auto;
+        height: 2.5rem;
+        margin-right: 0rem;
+        cursor: pointer;
+        
+    }
+    .clickableIcon {
+        width:  auto;
+        height: 2.5rem;
+    }
+    .sectionOne{
+        gap: 10px; /* Ajusta el valor para controlar el espacio entre elementos */
+        width: 68%;
+    }
+    .sectionTwo{
+       width: 32%;
+    }
+    .titleCrearMaterial{
+        font-size: 1rem;
+    }
+    .BotonCrear{
+        max-width: 80%; /* Máximo ancho para evitar desbordamientos */
+    }
+    
+    .InputAndIcon {
+        display: flex;
+        flex-direction: column; /* Apilar elementos verticalmente */
+        gap: 12px; /* Espacio entre el input y los íconos */
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+      }
+    .IconsContainer {
+        display: flex;
+        justify-content: space-between; /* Distribuir íconos en línea */
+        width: 87%;
+    }
+    .titleInput{
+        width: 90%;
+    }
+    .inputSection{
+        width: 85%;
+        
+    }
+    .inputSectionLink{
+        width: 85%;
+    }
+    .uploadArea{
+        width: 85%;
+    }
+    .ContainerFormCrear{
+        height: 85%;
+    }
+}
+
+@media (max-width: 450px) {
+    .SpaceSiderbar{
+        width: 0%;
+    }
+
+    .container{
+        width: 100%;
+        display: flex;
+    }
+    .OtherContainer{
+        padding: 4.59rem 0 0 0;
+	min-height: 92%;
+        width: 100%;
+        gap: 0;
+        flex-direction: column; 
+        overflow-y: auto;
+        justify-content: center;
+    }
+
+    .HeaderContainer{
+        height: 4.59rem;
+        width: 85%;
+        align-self: flex-end; /* Mueve el elemento a la derecha */
+    }
+    
+    .SectionTitle{
+        height:15%;
+        padding: 0 0.5rem;
+        margin-bottom: 0rem; 
+    }
+    .iconImage {
+        width:  auto;
+        height: 2.5rem;
+        margin-right: 0rem;
+        cursor: pointer;
+        
+    }
+    .clickableIcon {
+        width:  auto;
+        height: 2.5rem;
+    }
+    .sectionOne{
+        gap: 10px; /* Ajusta el valor para controlar el espacio entre elementos */
+        width: 68%;
+    }
+    .sectionTwo{
+       width: 32%;
+    }
+    .titleCrearMaterial{
+        font-size: 1rem;
+    }
+    .BotonCrear{
+        max-width: 80%; /* Máximo ancho para evitar desbordamientos */
+    }
+    
+    .InputAndIcon {
+        display: flex;
+        flex-direction: column; /* Apilar elementos verticalmente */
+        gap: 12px; /* Espacio entre el input y los íconos */
+        margin-bottom: 1rem;
+        margin-top: 1rem;
+      }
+    .IconsContainer {
+        display: flex;
+        justify-content: space-between; /* Distribuir íconos en línea */
+        width: 87%;
+    }
+    .titleInput{
+        width: 90%;
+    }
+    .inputSection{
+        width: 85%;
+        
+    }
+    .inputSectionLink{
+        width: 85%;
+    }
+    .uploadArea{
+        width: 85%;
+    }
+    .ContainerFormCrear{
+        height: 85%;
+    }
 }

@@ -21,7 +21,7 @@ const DocenteHomeMateria = () => {
   } = state || {};
 
   // Log opcional, para verificar qué datos llegaron
-  console.log('[DocenteHomeMateria.jsx] Datos recibidos del estado o defaults:', {
+  /*console.log('[DocenteHomeMateria.jsx] Datos recibidos del estado o defaults:', {
     name,
     students,
     teacherName,
@@ -29,7 +29,7 @@ const DocenteHomeMateria = () => {
     classCode,
     classStatus,
     classId
-  });
+  });*/
 
   return (
     <HomeMateria

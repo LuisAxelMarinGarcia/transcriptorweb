@@ -38,7 +38,9 @@ const HomeTemplate = () => {
     }
 
     const encodedStatus = encodeURIComponent('NO ARCHIVADO');
-    const url = `/class/teacher/classes/${encodedStatus}/${userId}`;
+    const encodedUserId = encodeURIComponent(userId);
+    const url = `/class/teacher/classes/${encodedStatus}/${encodedUserId}`;
+
 
     //console.log(`[HomeTemplate.jsx] Fetching classes with status: NO ARCHIVADO for userId: ${userId}`);
 
